@@ -17,6 +17,7 @@ namespace HappyValley
         [SerializeField] Stamina stamina;
         [SerializeField] GameObject timeMenuUI;
         [SerializeField] UnityEvent timeMenuON;
+        [SerializeField] GameObject Blackscreen;
 
         [Header("Date & Time Settings")]
         [Range(1, 28)]
@@ -91,6 +92,7 @@ namespace HappyValley
 
             if (fadeIn)
             {
+                Blackscreen.SetActive(true);
                 if (blackScreen.alpha < 1)
                 {
                     blackScreen.alpha += Time.deltaTime;
@@ -111,6 +113,7 @@ namespace HappyValley
                         fadeOut = false;
                     }
                 }
+                StartCoroutine(DisableBlackscreen());
             }
 
             if(twoAM)
@@ -120,10 +123,7 @@ namespace HappyValley
 
             input.Player.Time.performed += ctx =>
             {
-                if(!paused)
-                {
-                    TimeSettings();
-                }
+                TimeSettings();
             };
         }
         #endregion
@@ -150,19 +150,22 @@ namespace HappyValley
         #region Time Editing
         public void TimeSettings()
         {
-            if(!MenuActive)
+            if(!paused)
             {
-                timeMenuON?.Invoke();
-                timeMenuUI.SetActive(true);
-                Time.timeScale = 0f;
-                MenuActive = true;
-            }
-            else
-            {
-                timeMenuON?.Invoke();
-                timeMenuUI.SetActive(false);
-                Time.timeScale = 1f;
-                MenuActive = false;
+                if (!MenuActive)
+                {
+                    timeMenuON?.Invoke();
+                    timeMenuUI.SetActive(true);
+                    Time.timeScale = 0f;
+                    MenuActive = true;
+                }
+                else
+                {
+                    timeMenuON?.Invoke();
+                    timeMenuUI.SetActive(false);
+                    Time.timeScale = 1f;
+                    MenuActive = false;
+                }
             }
         }
 
@@ -261,6 +264,12 @@ namespace HappyValley
         private void FadeOut()
         {
             fadeOut = true;
+        }
+
+        private IEnumerator DisableBlackscreen()
+        {
+            yield return new WaitForSeconds(3);
+            Blackscreen.SetActive(false);
         }
 
         public static void IsTwoAM()

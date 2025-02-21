@@ -23,6 +23,8 @@ namespace HappyValley
         {
             input = new InputSystem_Actions();
             input.Player.Enable();
+
+            EventSystem.current.SetSelectedGameObject(resumeButton);
         }
 
         void Update()
