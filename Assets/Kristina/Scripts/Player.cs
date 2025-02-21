@@ -9,6 +9,8 @@ namespace kristina
         [SerializeField] float speed = 25;
         Vector3 movement = Vector3.zero;
 
+        [SerializeField] Transform charObject;
+
         Rigidbody rb;
 
         void Start()
@@ -18,6 +20,10 @@ namespace kristina
         void Update()
         {
             rb.linearVelocity = movement * Time.deltaTime * speed;
+            if (movement.magnitude > 0.1f)
+            {
+                charObject.LookAt(this.transform.position + rb.linearVelocity);
+            }
         }
 
         public void MoveInput(InputAction.CallbackContext ctx)
