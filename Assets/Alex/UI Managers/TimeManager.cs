@@ -14,10 +14,13 @@ namespace HappyValley
         #region Variables
         [SerializeField] GameObject player;
         [SerializeField] GameObject playerAsleep;
-        [SerializeField] Stamina stamina;
         [SerializeField] GameObject timeMenuUI;
-        [SerializeField] UnityEvent timeMenuON;
         [SerializeField] GameObject Blackscreen;
+
+        [SerializeField] Stamina stamina;
+        [SerializeField] TimeData timeData;
+
+        [SerializeField] UnityEvent timeMenuON;
 
         [Header("Date & Time Settings")]
         [Range(1, 28)]
@@ -65,7 +68,15 @@ namespace HappyValley
             input = new InputSystem_Actions();
             input.Player.Enable();
 
-            DateTime = new DateTime(dateInMonth, season - 1, year, hour, minutes * 10);
+
+            if(timeData.Save == false)
+            {
+                DateTime = new DateTime(dateInMonth, season - 1, year, hour, minutes * 10);
+            }
+            else if(timeData.Save == true)
+            {
+                LoadDateTime();
+            }
         }
 
         private void Start()
@@ -208,7 +219,7 @@ namespace HappyValley
         public static void SetTimeElapsed(int x)
         {
             timeElapsed += x;
-            //Debug.Log("Timer: " + timeElapsed);
+            Debug.Log("Timer: " + timeElapsed);
         }
 
         public static int GetTimeElapsed()
@@ -316,6 +327,20 @@ namespace HappyValley
         public void Paused()
         {
             paused = !paused;
+        }
+
+        public void SaveDateTime()
+        {
+            string jsonString = JsonUtility.ToJson(DateTime);
+
+            System.IO.File.WriteAllText("dateTime.json", jsonString);
+        }
+
+        public void LoadDateTime()
+        {
+            string loadedJson = System.IO.File.ReadAllText("dateTime.json");
+
+            DateTime = JsonUtility.FromJson<DateTime>(loadedJson);
         }
         #endregion
     }
