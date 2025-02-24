@@ -3,81 +3,121 @@ using UnityEngine;
 namespace Raven
 {
 
-    public class Inventory : MonoBehaviour
+    [System.Serializable]
+    public class Inventory
     {
-        public const int HOTBAR_SIZE = 9;
-        private Item[] itemSlots = new Item[HOTBAR_SIZE];
 
-        [SerializeField] UI_Hotbar hotbar;
+        [SerializeField] private Item[] itemSlots;
+        [SerializeField] private int maxSlots = 0;
 
-
-        private void Start()
+        public Inventory(int size)
         {
-            if (hotbar != null)
-            {
-                hotbar.SetInventory(this);
-            }
-
-            // Manually add items to hotbar ** FOR TESTING **
-            AddItem(new Item { itemType = Item.ItemType.Plant1, amount = 1 });
-            AddItem(new Item { itemType = Item.ItemType.Plant2, amount = 2 });
-            AddItem(new Item { itemType = Item.ItemType.Plant3, amount = 1 });
+            maxSlots = size;
+            itemSlots = new Item[size];
         }
 
-        // Add item to hotbar, stack if existing ** TO DO: implement stacking
-        public bool AddItem(Item newItem)
+        // Add item to hotbar, stack if existing
+        public int AddItem(Item newItem)
         {
+            int emptySlot = -1; // Invalid slot
+
             // Check if item already on hotbar
-            for (int i = 0; i < HOTBAR_SIZE; i++)
+            for (int i = 0; i < maxSlots; i++)
             {
                 if (itemSlots[i] != null && itemSlots[i].itemType == newItem.itemType)
                 {
                     itemSlots[i].amount += newItem.amount;
-                    hotbar?.RefreshHotbar();
-                    return true;
+                    return i;
+                }
+                else if (itemSlots[i] == null && emptySlot < 0)
+                {
+                    emptySlot = i;
                 }
             }
 
-            // Put item in next empty slot
-            for (int i = 0; i < HOTBAR_SIZE; i++)
+            if (emptySlot >= 0)
             {
-                if (itemSlots[i] == null)
-                {
-                    itemSlots[i] = new Item { itemType = newItem.itemType, amount = newItem.amount };
-                    hotbar?.RefreshHotbar();
-                    return true;
-                }
+                itemSlots[emptySlot] = newItem;
+                return emptySlot;
             }
 
             // No slots available
             Debug.Log("Inventory full!");
-            return false;
+            return -1;
         }
 
-        // Remove item from hotbar
-        public bool RemoveItem(Item.ItemType itemType, int amount)
+        // Remove item from hotbar, returns amount of items removed from inventory
+        public int RemoveItem(Item.ItemType itemType, int amount)
         {
-            for (int i = 0; i < HOTBAR_SIZE; i++)
+            if (amount <= 0)
             {
-                if (itemSlots[i] != null && itemSlots[i].itemType == itemType)
-                {
-                    if (itemSlots[i].amount >= amount)
-                    {
-                        itemSlots[i].amount -= amount;
-                        if (itemSlots[i].amount <= 0)
-                        {
-                            itemSlots[i].amount = 0;
-                        }
-                        hotbar?.RefreshHotbar();
-                    }
-                }
+                return 0;
             }
-            return false;
+
+            for (int i = 0; i < maxSlots; i++)
+            {
+                // Filter ignored items
+                if (itemSlots[i] == null || itemType != itemSlots[i].itemType)
+                {
+                    continue;
+                }
+
+
+                // Get the amount we are removing
+                int itemCount = itemSlots[i].amount;
+                if (amount > itemCount)
+                {
+                    itemSlots[i] = Item.None();
+                    return itemCount;
+                }
+
+                itemSlots[i].amount -= amount;
+                return amount;
+
+            }
+
+            return 0;
         }
 
-        public Item[] GetItemSlots()
+        public Item[] GetItems()
         {
             return itemSlots;
+        }
+
+        public bool MoveItem(int fromIndex, int toIndex)
+        {
+            if (fromIndex < 0 || toIndex < 0 || fromIndex >= maxSlots || toIndex >= maxSlots)
+            {
+                return false;
+            }
+            else if (itemSlots[fromIndex] == null)
+            {
+                return false;
+            }
+
+            Item item = itemSlots[fromIndex];
+            if (itemSlots[toIndex] == null)
+            {
+                // Remove and replace
+                itemSlots[fromIndex] = null;
+                itemSlots[toIndex] = item;
+                return true;
+            }
+
+            // Stack items
+            if (itemSlots[toIndex].itemType == item.itemType)
+            {
+                itemSlots[toIndex].amount += item.amount;
+                itemSlots[fromIndex] = null;
+                return true;
+            }
+
+            // Swap items
+            itemSlots[fromIndex] = itemSlots[toIndex];
+            itemSlots[toIndex] = item;
+
+            return true;
+
         }
 
     }

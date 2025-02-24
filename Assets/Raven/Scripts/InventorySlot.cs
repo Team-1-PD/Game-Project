@@ -6,8 +6,19 @@ namespace Raven
     public class InventorySlot : MonoBehaviour, IDropHandler
     {
         [SerializeField] Transform itemContainer;
+
+        public int slotIndex;
+
         public void OnDrop(PointerEventData eventData)
         {
+
+            UI_Hotbar hotbar = GetComponentInParent<UI_Hotbar>();
+            if (hotbar == null)
+            {
+                Debug.Log("Could not find hotbar when dragging item.");
+                return;
+            }
+
             // Item being dropped
             DraggableItem droppedItem = eventData.pointerDrag.GetComponent<DraggableItem>();
 
@@ -17,24 +28,36 @@ namespace Raven
             // Check if null
             if (droppedItem == null)
             {
+                Debug.Log("Dropped item is null");
                 return;
             }
 
-            // If slot is empty, drop item into slot
-            if (itemInSlot == null)
+            int fromIndex = droppedItem.currentSlotIndex;
+            int toIndex = slotIndex;
+
+            // Move the item
+            if (!hotbar.MoveItem(fromIndex, toIndex))
             {
-                droppedItem.parentAfterDrag = transform;
+                Debug.Log("Unable to move the item from: " + fromIndex + " to: " + toIndex);
+                return;
             }
 
+
+
+
+
             // If slot is not empty, swap items
-            else if (itemInSlot != droppedItem)
+            if (itemInSlot != null)
             {
-                {
-                    Transform originalParent = droppedItem.parentAfterDrag;
-                    itemInSlot.transform.SetParent(originalParent);
-                    droppedItem.parentAfterDrag = transform;
-                }
+                itemInSlot.currentSlotIndex = fromIndex;
+                itemInSlot.transform.SetParent(droppedItem.parentAfterDrag);
+
             }
+
+            droppedItem.currentSlotIndex = toIndex;
+            droppedItem.parentAfterDrag = transform;
+
+            hotbar.RefreshHotbar();
 
         }
     }
