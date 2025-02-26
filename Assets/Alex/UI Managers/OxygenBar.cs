@@ -18,9 +18,10 @@ namespace HappyValley
             oxygenBar.fillAmount = playerOxygen.CurrentOxygen / playerOxygen.MaxOxygen;
         }
 
+
         void DepleteOxygen()
         {
-            playerOxygen.CurrentOxygen -= 1;
+            playerOxygen.DecreaseOxygen(1);
         }
     }
 }

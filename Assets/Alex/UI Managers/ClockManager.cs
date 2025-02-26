@@ -30,8 +30,28 @@ namespace HappyValley
         {
             Date.text = dateTime.DateToString();
             Time.text = dateTime.TimeToString();
-            Season.text = dateTime.Season.ToString();
             Week.text = $"WK: {dateTime.CurrentWeek}";
+            #region Cycles
+            if (dateTime.Season.ToString() == "Spring")
+            {
+                Season.text = "Cycle 1";
+            }
+
+            else if(dateTime.Season.ToString() == "Summer")
+            {
+                Season.text = "Cycle 2";
+            }
+
+            else if (dateTime.Season.ToString() == "Summer")
+            {
+                Season.text = "Cycle 3";
+            }
+
+            else
+            {
+                Season.text = "Cycle 4";
+            }
+            #endregion
 
             float t = (float)dateTime.Hour / 24f;
 

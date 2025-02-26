@@ -11,13 +11,26 @@ namespace HappyValley
         public float CurrentOxygen
         {
             get { return currentOxygen; }
-            set { currentOxygen = value; }
         }
 
         public float MaxOxygen
         {
             get { return maxOxygen; }
             set { maxOxygen = value; }
+        }
+        public void IncreaseOxygen(float x)
+        {
+            currentOxygen += x;
+        }
+
+        public void DecreaseOxygen(float y)
+        {
+            currentOxygen -= y;
+        }
+
+        public void FullyRestoreOxygen()
+        {
+            currentOxygen = maxOxygen;
         }
     }
 }
