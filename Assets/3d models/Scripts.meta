@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/3d models/Scripts.meta
 guid: ac8f9556b6b4b274a9eb4cb78816d306
+========
+guid: 2828fab92b4181d4cbeb2a07b268a558
+>>>>>>>> main:Assets/Kristina/Scripts.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
