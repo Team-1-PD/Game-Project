@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 230577affe6a7124ab09a4d78b5a8098
+guid: 2e5d47d1ceea6314eb36ae868b88a186
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: plant_one_0
+      name: player_walk_side_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 256
-        height: 256
+        x: 18
+        y: 581
+        width: 320
+        height: 1442
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,20 +112,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64b3d8852a2a8564db928a3a97f7d480
-      internalID: 1214293876
+      spriteID: 78837bd2507905f46ae11136228b309a
+      internalID: 1703285186
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_one_1
+      name: player_walk_side_1
       rect:
         serializedVersion: 2
-        x: 256
-        y: 0
-        width: 256
-        height: 256
+        x: 341
+        y: 567
+        width: 311
+        height: 1463
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,20 +134,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 960e480394bad6743a153de83cf870d1
-      internalID: -1181095360
+      spriteID: 05f1b643e415b2845a16b704b4dc2967
+      internalID: -135849268
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_one_2
+      name: player_walk_side_2
       rect:
         serializedVersion: 2
-        x: 512
-        y: 0
-        width: 256
-        height: 256
+        x: 731
+        y: 550
+        width: 208
+        height: 1487
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,20 +156,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49d6d7ac9f25af848bab9fa130091267
-      internalID: -1440665234
+      spriteID: 530ecb4f2bdc40840a2703797671d783
+      internalID: 1802779196
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_one_3
+      name: player_walk_side_3
       rect:
         serializedVersion: 2
-        x: 768
-        y: 0
-        width: 256
-        height: 256
+        x: 979
+        y: 563
+        width: 303
+        height: 747
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,8 +178,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5bc962aa9b6b544eab9eb2f6788e961
-      internalID: 1149020579
+      spriteID: a3697fef6c4194a479555312660f597e
+      internalID: 548116849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_walk_side_4
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 1291
+        width: 332
+        height: 742
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91cd29973a4f2f14e96e0ed507c4023f
+      internalID: 2077933184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_walk_side_5
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 559
+        width: 338
+        height: 757
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7009c48de23b58047aabaf6931c5b7a0
+      internalID: -662848691
       vertices: []
       indices: 
       edges: []
@@ -188,7 +232,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 2bb9687233e109f439c51be873e84c1d
+    spriteID: 741a7aff6f8f6234e86502fefc847968
     internalID: 0
     vertices: []
     indices: 
@@ -198,10 +242,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      plant_one_0: 1214293876
-      plant_one_1: -1181095360
-      plant_one_2: -1440665234
-      plant_one_3: 1149020579
+      player_walk_side_0: 1703285186
+      player_walk_side_1: -135849268
+      player_walk_side_2: 1802779196
+      player_walk_side_3: 548116849
+      player_walk_side_4: 2077933184
+      player_walk_side_5: -662848691
+      player_walk_side_6: 79276069
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
