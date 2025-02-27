@@ -64,6 +64,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arch_InsideFloor
       objectReference: {fileID: 0}
+    - target: {fileID: 1151388028547126963, guid: 9e339d33fd927344aaf45bff187989c2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151388028547126963, guid: 9e339d33fd927344aaf45bff187989c2, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
