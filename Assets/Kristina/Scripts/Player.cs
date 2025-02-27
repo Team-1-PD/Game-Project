@@ -11,7 +11,8 @@ namespace kristina
 
         [SerializeField] Transform charObject;
 
-        Rigidbody rb;
+        //Rigidbody rb;
+        CharacterController cc;
 
         void Start()
         {
@@ -19,14 +20,18 @@ namespace kristina
             PlayerInput.Input.Player.Move.performed += MoveInput;
             PlayerInput.Input.Player.Move.canceled += MoveInput;
 
-            rb = GetComponent<Rigidbody>();
+            //rb = GetComponent<Rigidbody>();
+            cc = GetComponent<CharacterController>();
         }
         void Update()
         {
-            rb.linearVelocity = movement * Time.deltaTime * speed;
+            //rb.linearVelocity = movement * Time.deltaTime * speed;
+
+            cc.Move(movement * Time.deltaTime * speed);
+
             if (movement.magnitude > 0.1f)
             {
-                charObject.LookAt(this.transform.position + rb.linearVelocity);
+                charObject.LookAt(this.transform.position + movement);
             }
         }
 

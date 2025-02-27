@@ -344,6 +344,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0fe94ddabf6989a49a3d3cd745922382, type: 3}
   m_PrefabInstance: {fileID: 5007185037092523684}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5313246536304440309 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0fe94ddabf6989a49a3d3cd745922382, type: 3}
+  m_PrefabInstance: {fileID: 5007185037092523684}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5823000044325000512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -446,6 +451,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4f44abdd3d4e1024792a62244217f290, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2518749465169406638}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4f44abdd3d4e1024792a62244217f290, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9142958071899684816}
   m_SourcePrefab: {fileID: 100100000, guid: 4f44abdd3d4e1024792a62244217f290, type: 3}
 --- !u!4 &6288655437309817515 stripped
 Transform:
@@ -532,3 +540,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &9142958071899684816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6633268308116138001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e237e19cdd20bd479f7784f2073d63a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantHandler: {fileID: 11400000, guid: d9f34c245466dde43a90e242eefbb09e, type: 2}
+  plantSprite: {fileID: 1560071710971348166}
+  glassCase: {fileID: 5313246536304440309}

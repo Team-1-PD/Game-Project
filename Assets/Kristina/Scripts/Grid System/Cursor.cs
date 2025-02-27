@@ -10,7 +10,7 @@ public class Cursor : MonoBehaviour
 
     public Vector2Int currentGridPos { get; private set; }
 
-    bool highlighting = false;
+    //bool highlighting = false;
 
     
 }
