@@ -15,6 +15,10 @@ namespace kristina
 
         void Start()
         {
+            PlayerInput.Input.Player.Enable();
+            PlayerInput.Input.Player.Move.performed += MoveInput;
+            PlayerInput.Input.Player.Move.canceled += MoveInput;
+
             rb = GetComponent<Rigidbody>();
         }
         void Update()
