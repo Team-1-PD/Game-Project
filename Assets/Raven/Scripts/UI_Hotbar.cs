@@ -14,55 +14,105 @@ namespace Raven
         [SerializeField] private Sprite plant3_sprite;
         [SerializeField] private Sprite plant4_sprite;
 
-        private Inventory inventory;
-        private GameObject[] slotUI;
+        [SerializeField] private Inventory inventory;
+        private GameObject[] hotbar;
+
+
+        public const int HOTBAR_SIZE = 9;
+
 
         private void Awake()
         {
+            inventory = new Inventory(HOTBAR_SIZE);
+
             // Create hotbar
-            slotUI = new GameObject[Inventory.HOTBAR_SIZE];
-            for (int i = 0; i < Inventory.HOTBAR_SIZE; i++)
+            hotbar = new GameObject[HOTBAR_SIZE];
+            for (int i = 0; i < HOTBAR_SIZE; i++)
             {
                 GameObject slotObject = Instantiate(slotTemplate, slotContainer);
                 slotObject.SetActive(true);
-                slotUI[i] = slotObject;
+
+                // Assign indexes
+                InventorySlot slot = slotObject.GetComponent<InventorySlot>();
+                if (slot != null)
+                {
+                    slot.slotIndex = i;
+                }
+
+                hotbar[i] = slotObject;
             }
+
+            // Manually add items to hotbar ** FOR TESTING **
+            AddItem(new Item(Item.ItemType.Plant1, 1));
+            AddItem(new Item(Item.ItemType.Plant2, 2));
+            AddItem(new Item(Item.ItemType.Plant3, 1));
+            AddItem(new Item(Item.ItemType.Plant4, 2));
+
         }
+
+        // Stacks items otherwise places in first empty slot
+        public int AddItem(Item item)
+        {
+            int position = inventory.AddItem(item);
+            if (position >= 0)
+            {
+                RefreshHotbar();
+                return position;
+            }
+
+            return -1;
+        }
+
+
+        // Returns how many items were removed from the hotbar
+        public int RemoveItem(Item item)
+        {
+            int amountRemoved = inventory.RemoveItem(item.itemType, item.amount);
+            if (amountRemoved > 0)
+            {
+                RefreshHotbar();
+            }
+
+            return amountRemoved;
+        }
+
+        // Swaps, moves, and stacks items
+        public bool MoveItem(int fromIndex, int toIndex)
+        {
+            return inventory.MoveItem(fromIndex, toIndex);
+        }
+
+        public Item[] GetItems()
+        {
+            return inventory.GetItems();
+        }
+
 
         public void RefreshHotbar()
         {
-            // Check if null
-            if (inventory == null || slotUI == null)
-            {
-                return;
-            }
-
             // Update hotbar UI 
-            Item[] slots = inventory.GetItemSlots();
-            for (int i = 0; i < Inventory.HOTBAR_SIZE; i++)
+            Item[] slots = inventory.GetItems();
+            for (int i = 0; i < HOTBAR_SIZE; i++)
             {
-                GameObject slotObject = slotUI[i];
-
-                Image itemImage = slotObject.transform.Find("ItemImage")?.GetComponent<Image>();
-
-                if (slots[i] != null)
+                Item item = slots[i];
+                Image itemImage = hotbar[i].transform.Find("ItemImage")?.GetComponent<Image>();
+                if (itemImage == null)
                 {
-                    if (itemImage != null)
-                    {
-                        itemImage.sprite = AssignSprite(slots[i].itemType);
-                        itemImage.enabled = true;
-                    }
+                    continue;
+                }
 
-                }
-                else
+                if (item == null || item.itemType == Item.ItemType.None)
                 {
-                    if (itemImage != null)
-                    {
-                        itemImage.sprite = null;
-                        itemImage.enabled = false;
-                    }
+                    itemImage.sprite = null;
+                    itemImage.enabled = false;
+                    continue;
                 }
+
+                itemImage.sprite = AssignSprite(slots[i].itemType);
+                itemImage.enabled = true;
+
             }
+
 
         }
 
@@ -83,12 +133,5 @@ namespace Raven
                     return null;
             }
         }
-
-        public void SetInventory(Inventory inventory)
-        {
-            this.inventory = inventory;
-        }
     }
-
-
 }
