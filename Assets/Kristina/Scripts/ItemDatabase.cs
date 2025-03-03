@@ -4,14 +4,17 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Item Database")]
-public class ItemDatabase : ScriptableSingleton<ItemDatabase>
+namespace kristina
 {
-    [field: SerializeField, SerializedDictionary("ID", "Items")]
-    private SerializedDictionary<string, Item> items;
-    public Dictionary<string, Item> Items => items;
+    [CreateAssetMenu(menuName = "Item Database")]
+    public class ItemDatabase : ScriptableSingleton<ItemDatabase>
+    {
+        [field: SerializeField, SerializedDictionary("ID", "Items")]
+        private SerializedDictionary<string, Item> items;
+        public Dictionary<string, Item> Items => items;
 
-    [field: SerializeField, SerializedDictionary("ID", "Sprites")]
-    private SerializedDictionary<string, Sprite> itemSprites;
-    public Dictionary<string, Sprite> ItemSprites => itemSprites;
+        [field: SerializeField, SerializedDictionary("ID", "Sprites")]
+        private SerializedDictionary<string, Sprite> itemSprites;
+        public Dictionary<string, Sprite> ItemSprites => itemSprites;
+    }
 }

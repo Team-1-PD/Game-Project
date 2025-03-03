@@ -53,7 +53,7 @@ namespace kristina
                 return false;*/
             //if it's valid, continue
             Vector3 worldPos = grid.CellToWorld(new(currentGridPos.x, currentGridPos.y, HEIGHT));
-            GameObject placedObject = Instantiate(PlaceablesDatabase.instance.PlaceableObjects[id], worldPos + new Vector3(OFFSET, OFFSET, OFFSET), new()).gameObject; //maybe rotation?
+            GameObject placedObject = Instantiate(PlaceablesDatabase.instance.PlaceableObjects[id], worldPos + new Vector3(OFFSET, OFFSET, OFFSET), new()); //maybe rotation?
 
             //furnitureGroup.InstantiateFurniture(currentGridPos, furnObject);
 

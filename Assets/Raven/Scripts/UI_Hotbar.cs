@@ -1,3 +1,5 @@
+using kristina;
+using System.Collections;
 using TreeEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -43,11 +45,7 @@ namespace Raven
                 hotbar[i] = slotObject;
             }
 
-            AddItem(ItemDatabase.instance.Items["leaf"]);
-            AddItem(ItemDatabase.instance.Items["egg"]);
-            AddItem(ItemDatabase.instance.Items["flower"]);
-            AddItem(ItemDatabase.instance.Items["mushroom"]);
-            AddItem(ItemDatabase.instance.Items["butterfly"]);
+            StartCoroutine(CreateItems());
 
             // Manually add items to hotbar ** FOR TESTING **
             /*AddItem(new Item(Item.ItemType.Plant1, 1));
@@ -55,6 +53,16 @@ namespace Raven
             AddItem(new Item(Item.ItemType.Plant3, 1));
             AddItem(new Item(Item.ItemType.Plant4, 2));*/
 
+        }
+
+        private IEnumerator CreateItems()
+        {
+            yield return new WaitForEndOfFrame();
+            AddItem(ItemDatabase.instance.Items["leaf"]);
+            AddItem(ItemDatabase.instance.Items["egg"]);
+            AddItem(ItemDatabase.instance.Items["flower"]);
+            AddItem(ItemDatabase.instance.Items["mushroom"]);
+            AddItem(ItemDatabase.instance.Items["butterfly"]);
         }
 
         // Stacks items otherwise places in first empty slot
@@ -92,6 +100,10 @@ namespace Raven
         public Item GetItemAt(int index)
         {
             return inventory.GetItemAt(index);
+        }
+        public GameObject GetItemSlotAt(int index)
+        {
+            return hotbar[index];
         }
 
         public Item[] GetItems()

@@ -2,25 +2,28 @@ using Raven;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class TriggerSystem : MonoBehaviour
+namespace kristina
 {
-    public UnityEvent<Item> EnterTrigger, ExitTrigger;
-
-    public Item item;
-
-    private void OnTriggerEnter(Collider other)
+    public class TriggerSystem : MonoBehaviour
     {
-        if (other.CompareTag("Player"))
+        public UnityEvent<Item> EnterTrigger, ExitTrigger;
+
+        public Item item;
+
+        private void OnTriggerEnter(Collider other)
         {
-            EnterTrigger.Invoke(item);
+            if (other.CompareTag("Player"))
+            {
+                EnterTrigger.Invoke(item);
+            }
         }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
+        private void OnTriggerExit(Collider other)
         {
-            ExitTrigger.Invoke(item);
+            if (other.CompareTag("Player"))
+            {
+                ExitTrigger.Invoke(item);
+            }
         }
     }
 }
