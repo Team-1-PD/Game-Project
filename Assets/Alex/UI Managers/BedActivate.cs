@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Windows;
 using UnityEngine.InputSystem;
+using kristina;
 
 namespace HappyValley
 {
@@ -20,31 +21,46 @@ namespace HappyValley
 
         private void Update()
         {
-            input.Player.Bed.performed += ctx =>
+            /*input.Player.Bed.performed += ctx =>
             {
                 if (bedReady)
                 {
                     OnActivate?.Invoke();
                 }
-            };
+            };*/
+        }
+
+        public bool Sleep()
+        {
+            if (bedReady)
+            {
+                OnActivate?.Invoke();
+                return true;
+            }
+
+            return false;
         }
 
         private void OnCollisionEnter(Collision other)
         {
+            WorldInteractions.instance.nearestBed = this;
             bedReady = true;
         }
 
         private void OnCollisionExit(Collision other)
         {
+            WorldInteractions.instance.nearestBed = null;
             bedReady = false;
         }
 
         private void OnTriggerEnter(Collider other)
         {
+            WorldInteractions.instance.nearestBed = this;
             bedReady = true;
         }
         private void OnTriggerExit(Collider other)
         {
+            WorldInteractions.instance.nearestBed = null;
             bedReady = false;
         }
     }

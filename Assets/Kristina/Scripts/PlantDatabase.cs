@@ -26,6 +26,11 @@ namespace kristina
         [field: SerializeField] 
         public string name { get; private set; }
 
+        [field: SerializeField]
+        public string produceID { get; private set; }
+        [field: SerializeField]
+        public int productionAmount { get; private set; }
+
         [field: SerializeField, Header("In Ticks (1500 ticks per day)")]
         public int growDuration { get; private set; }
     }

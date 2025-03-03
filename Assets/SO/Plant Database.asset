@@ -23,4 +23,6 @@ MonoBehaviour:
         - {fileID: 1149020579, guid: 230577affe6a7124ab09a4d78b5a8098, type: 3}
         <id>k__BackingField: plant_one
         <name>k__BackingField: Yellow
-        <growDuration>k__BackingField: 3000
+        <produceID>k__BackingField: flower
+        <productionAmount>k__BackingField: 1
+        <growDuration>k__BackingField: 300

@@ -18,15 +18,15 @@ namespace Raven
         //public int amount = 0;
         [field: SerializeField] public string ID { get; private set; }
 
-        public Item(ItemType itemType, int amount)
+        public Item(ItemType itemType, string ID)
         {
             this.itemType = itemType;
-            //this.amount = amount;
+            this.ID = ID;
         }
 
         public static Item None()
         {
-            return new Item(ItemType.None, 0);
+            return new Item(ItemType.None, "none");
         }
     }
 

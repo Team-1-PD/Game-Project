@@ -47,6 +47,10 @@ namespace Raven
 
             StartCoroutine(CreateItems());
 
+            AddItem(ItemDatabase.instance.Items["leaf"], 1);
+            AddItem(ItemDatabase.instance.Items["plant_one"], 1);
+            AddItem(ItemDatabase.instance.Items["incubator"], 1);
+
             // Manually add items to hotbar ** FOR TESTING **
             /*AddItem(new Item(Item.ItemType.Plant1, 1));
             AddItem(new Item(Item.ItemType.Plant2, 2));
@@ -58,17 +62,17 @@ namespace Raven
         private IEnumerator CreateItems()
         {
             yield return new WaitForEndOfFrame();
-            AddItem(ItemDatabase.instance.Items["leaf"]);
-            AddItem(ItemDatabase.instance.Items["egg"]);
-            AddItem(ItemDatabase.instance.Items["flower"]);
-            AddItem(ItemDatabase.instance.Items["mushroom"]);
-            AddItem(ItemDatabase.instance.Items["butterfly"]);
+            //AddItem(ItemDatabase.instance.Items["leaf"], 1);
+            //AddItem(ItemDatabase.instance.Items["egg"], 1);
+            //AddItem(ItemDatabase.instance.Items["flower"], 1);
+            //AddItem(ItemDatabase.instance.Items["mushroom"], 1);
+            //AddItem(ItemDatabase.instance.Items["butterfly"], 1);
         }
 
         // Stacks items otherwise places in first empty slot
-        public int AddItem(Item item)
+        public int AddItem(Item item, int amount)
         {
-            int position = inventory.AddItem(item.ID, 1); //TODO: amount adjustments
+            int position = inventory.AddItem(item.ID, amount); //TODO: amount adjustments
             if (position >= 0)
             {
                 RefreshHotbar();
@@ -80,7 +84,7 @@ namespace Raven
 
 
         // Returns how many items were removed from the hotbar
-        public int RemoveItem(Item item)
+        public int RemoveItem(Item item, int amount)
         {
             int amountRemoved = inventory.RemoveItem(item.ID, 1); //TODO:: amount adjustments
             if (amountRemoved > 0)

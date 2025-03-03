@@ -11,6 +11,8 @@ namespace kristina
 {
     public class PlacementHandler : MonoBehaviour
     {
+        public static PlacementHandler instance;
+
         public UnityEvent<string> OnPlace, OnPickup;
 
         const float OFFSET = .5f;
@@ -18,6 +20,8 @@ namespace kristina
 
         [SerializeField] private Grid grid;
         [SerializeField] private GridData data;
+
+        //private UI_Hotbar hotbar;
 
         //[SerializeField] private PlaceablesDatabase objectManager;
 
@@ -30,20 +34,24 @@ namespace kristina
 
         private void OnEnable()
         {
+            instance = this;
+
             placementCursor = FindFirstObjectByType<Cursor>();
             
-            ActivateHighlighter(); //TEMPORARY, will be activated when a placeable item is selected
+            ActivateHighlighter();
+
+            //hotbar = FindFirstObjectByType<UI_Hotbar>();
         }
 
 
-        private void Update()
+        /*private void Update()
         {
             //TEMPORARY
             if (Input.GetKeyDown(KeyCode.P))
             {
                 TryPlace("incubator");
             }
-        }
+        }*/
 
         public bool TryPlace(string id)
         {
@@ -53,7 +61,7 @@ namespace kristina
                 return false;*/
             //if it's valid, continue
             Vector3 worldPos = grid.CellToWorld(new(currentGridPos.x, currentGridPos.y, HEIGHT));
-            GameObject placedObject = Instantiate(PlaceablesDatabase.instance.PlaceableObjects[id], worldPos + new Vector3(OFFSET, OFFSET, OFFSET), new()); //maybe rotation?
+            GameObject placedObject = Instantiate(PlaceablesDatabase.instance.PlaceableObjects[id], worldPos + new Vector3(OFFSET, 0, OFFSET), new()); //maybe rotation?
 
             //furnitureGroup.InstantiateFurniture(currentGridPos, furnObject);
 

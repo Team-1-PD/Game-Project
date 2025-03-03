@@ -219,7 +219,7 @@ namespace HappyValley
         public static void SetTimeElapsed(int x)
         {
             timeElapsed += x;
-            Debug.Log("Timer: " + timeElapsed);
+            //Debug.Log("Timer: " + timeElapsed);
         }
 
         public static int GetTimeElapsed()

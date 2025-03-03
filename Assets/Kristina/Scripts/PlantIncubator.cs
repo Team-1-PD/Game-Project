@@ -1,11 +1,14 @@
 using UnityEngine;
 using HappyValley;
 using UnityEngine.InputSystem.Switch;
+using Unity.VisualScripting;
 
 namespace kristina
 {
     public class PlantIncubator : MonoBehaviour
     {
+        public bool fullyGrown { get; private set; } = false;
+
         //[SerializeField] PlantDatabase plantHandler;
         [SerializeField] SpriteRenderer plantSprite;
 
@@ -24,7 +27,7 @@ namespace kristina
 
         void Start()
         {
-            InputPlant("plant_one"); //TEMPORARY
+            //InputPlant("plant_one"); //TEMPORARY
             //TimeManager.TimeElapsed += AddToAge;
             //TimeManager.TimeElapsed += DebugTime;
         }
@@ -33,9 +36,9 @@ namespace kristina
             Debug.Log(tick);
         }
 
-        void InputPlant(string plantID)
+        public bool InputPlant(string plantID)
         {
-            if (currentPlant != null) return;
+            if (currentPlant != null) return false;
             
             currentPlant = PlantDatabase.instance.Plants[plantID];
             age = 0;
@@ -47,11 +50,16 @@ namespace kristina
             plantSprite.gameObject.SetActive(true);
             plantSprite.sprite = currentPlant.sprites[currentStage];
 
+            return true;
         }
-        void CollectPlant()
+        public Plant CollectPlant()
         {
-            //TimeManager.TimeElapsed -= AddToAge;
+            Plant returnPlant = currentPlant;
+
             plantSprite.gameObject.SetActive(false);
+            currentPlant = null;
+
+            return returnPlant;
         }
 
         void AddToAge(int tick)
@@ -79,11 +87,21 @@ namespace kristina
         {
             glassCase.SetActive(false);
             TimeManager.TimeElapsed -= AddToAge;
+            fullyGrown = true;
         }
 
         private void OnDisable()
         {
             TimeManager.TimeElapsed -= AddToAge;
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            WorldInteractions.instance.nearestIncubator = this;
+        }
+        private void OnTriggerExit(Collider other)
+        {
+            WorldInteractions.instance.nearestIncubator = null;
         }
     }
 }

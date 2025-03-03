@@ -171,7 +171,6 @@ MonoBehaviour:
       m_Calls: []
   grid: {fileID: 1339946118}
   data: {fileID: 1339946119}
-  objectManager: {fileID: 11400000, guid: de454aa2c15129249bfaba222456e335, type: 2}
   highlighter: {fileID: 1614591196}
 --- !u!1 &1339946116
 GameObject:

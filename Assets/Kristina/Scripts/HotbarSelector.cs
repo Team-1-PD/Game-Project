@@ -9,9 +9,9 @@ namespace kristina
 {
     public class HotbarSelector : MonoBehaviour
     {
-        public static UnityEvent<string> ChangeSelectedItem;
+        public static UnityAction<string> ChangeSelectedItem;
         //public static string currentItemID { get; private set; }
-        int currentSlotIndex;
+        int currentSlotIndex = -1;
 
         //RectTransform rect;
         Transform selectedItem;
@@ -46,7 +46,7 @@ namespace kristina
 
         public int SelectSlot(int index)
         {
-            Debug.Log("Selected slot " + index);
+            //Debug.Log("Selected slot " + index);
 
             if (index >= UI_Hotbar.HOTBAR_SIZE || index < 0 || index == currentSlotIndex)
                 return currentSlotIndex;
@@ -57,7 +57,11 @@ namespace kristina
             selectedItem = hotbar.GetItemSlotAt(index).transform;
             transform.position = selectedItem.position;
 
-            ChangeSelectedItem.Invoke(hotbar.GetItemAt(index).ID);
+            Item item = hotbar.GetItemAt(index);
+            if (item == null)
+                ChangeSelectedItem?.Invoke("none");
+            else
+                ChangeSelectedItem?.Invoke(item.ID);
 
             return index;
         }
