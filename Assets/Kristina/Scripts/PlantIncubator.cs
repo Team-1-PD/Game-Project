@@ -6,7 +6,7 @@ namespace kristina
 {
     public class PlantIncubator : MonoBehaviour
     {
-        [SerializeField] PlantHandlerSO plantHandler;
+        [SerializeField] PlantDatabase plantHandler;
         [SerializeField] SpriteRenderer plantSprite;
 
         [SerializeField] GameObject glassCase;
@@ -24,12 +24,16 @@ namespace kristina
 
         void Start()
         {
-            InputPlant(0);
+            InputPlant("plant_one"); //TEMPORARY
             //TimeManager.TimeElapsed += AddToAge;
             //TimeManager.TimeElapsed += DebugTime;
         }
+        void DebugTime(int tick)
+        {
+            Debug.Log(tick);
+        }
 
-        void InputPlant(int plantID)
+        void InputPlant(string plantID)
         {
             if (currentPlant != null) return;
             

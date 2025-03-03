@@ -1,3 +1,4 @@
+using TreeEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -42,18 +43,24 @@ namespace Raven
                 hotbar[i] = slotObject;
             }
 
+            AddItem(ItemDatabase.instance.Items["leaf"]);
+            AddItem(ItemDatabase.instance.Items["egg"]);
+            AddItem(ItemDatabase.instance.Items["flower"]);
+            AddItem(ItemDatabase.instance.Items["mushroom"]);
+            AddItem(ItemDatabase.instance.Items["butterfly"]);
+
             // Manually add items to hotbar ** FOR TESTING **
-            AddItem(new Item(Item.ItemType.Plant1, 1));
+            /*AddItem(new Item(Item.ItemType.Plant1, 1));
             AddItem(new Item(Item.ItemType.Plant2, 2));
             AddItem(new Item(Item.ItemType.Plant3, 1));
-            AddItem(new Item(Item.ItemType.Plant4, 2));
+            AddItem(new Item(Item.ItemType.Plant4, 2));*/
 
         }
 
         // Stacks items otherwise places in first empty slot
         public int AddItem(Item item)
         {
-            int position = inventory.AddItem(item);
+            int position = inventory.AddItem(item.ID, 1); //TODO: amount adjustments
             if (position >= 0)
             {
                 RefreshHotbar();
@@ -67,7 +74,7 @@ namespace Raven
         // Returns how many items were removed from the hotbar
         public int RemoveItem(Item item)
         {
-            int amountRemoved = inventory.RemoveItem(item.itemType, item.amount);
+            int amountRemoved = inventory.RemoveItem(item.ID, 1); //TODO:: amount adjustments
             if (amountRemoved > 0)
             {
                 RefreshHotbar();
@@ -80,6 +87,11 @@ namespace Raven
         public bool MoveItem(int fromIndex, int toIndex)
         {
             return inventory.MoveItem(fromIndex, toIndex);
+        }
+
+        public Item GetItemAt(int index)
+        {
+            return inventory.GetItemAt(index);
         }
 
         public Item[] GetItems()
@@ -108,7 +120,7 @@ namespace Raven
                     continue;
                 }
 
-                itemImage.sprite = AssignSprite(slots[i].itemType);
+                itemImage.sprite = AssignSprite(slots[i]);
                 itemImage.enabled = true;
 
             }
@@ -117,9 +129,10 @@ namespace Raven
         }
 
         // Assign sprite image
-        private Sprite AssignSprite(Item.ItemType itemType)
+        private Sprite AssignSprite(Item item)
         {
-            switch (itemType)
+            return ItemDatabase.instance.ItemSprites[item.ID];
+            /*switch (itemType)
             {
                 case Item.ItemType.Plant1:
                     return plant1_sprite;
@@ -131,7 +144,7 @@ namespace Raven
                     return plant4_sprite;
                 default:
                     return null;
-            }
+            }*/
         }
     }
 }

@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Raven
 {
     [System.Serializable]
@@ -6,19 +8,20 @@ namespace Raven
         public enum ItemType
         {
             None,
-            Plant1,
-            Plant2,
-            Plant3,
-            Plant4,
+            Placeable,
+            Seed,
+            Produce
         }
 
-        public ItemType itemType = ItemType.None;
-        public int amount = 0;
+        [field: SerializeField] public ItemType itemType { get; private set; } = ItemType.None;
+
+        //public int amount = 0;
+        [field: SerializeField] public string ID { get; private set; }
 
         public Item(ItemType itemType, int amount)
         {
             this.itemType = itemType;
-            this.amount = amount;
+            //this.amount = amount;
         }
 
         public static Item None()

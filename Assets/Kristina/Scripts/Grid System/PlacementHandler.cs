@@ -19,7 +19,7 @@ namespace kristina
         [SerializeField] private Grid grid;
         [SerializeField] private GridData data;
 
-        [SerializeField] private ObjectManagerSO objectManager;
+        [SerializeField] private PlaceablesDatabase objectManager;
 
         public Vector2Int currentGridPos { get; private set; }
 
@@ -53,7 +53,7 @@ namespace kristina
                 return false;*/
             //if it's valid, continue
             Vector3 worldPos = grid.CellToWorld(new(currentGridPos.x, currentGridPos.y, HEIGHT));
-            GameObject placedObject = Instantiate(objectManager.objects[0], worldPos + new Vector3(OFFSET, OFFSET, OFFSET), new()).gameObject; //maybe rotation?
+            GameObject placedObject = Instantiate(objectManager.PlaceableObjects[id], worldPos + new Vector3(OFFSET, OFFSET, OFFSET), new()).gameObject; //maybe rotation?
 
             //furnitureGroup.InstantiateFurniture(currentGridPos, furnObject);
 

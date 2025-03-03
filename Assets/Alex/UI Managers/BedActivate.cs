@@ -38,5 +38,14 @@ namespace HappyValley
         {
             bedReady = false;
         }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            bedReady = true;
+        }
+        private void OnTriggerExit(Collider other)
+        {
+            bedReady = false;
+        }
     }
 }
