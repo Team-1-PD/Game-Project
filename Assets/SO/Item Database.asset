@@ -20,19 +20,19 @@ MonoBehaviour:
         <ID>k__BackingField: leaf
     - Key: egg
       Value:
-        <itemType>k__BackingField: 0
+        <itemType>k__BackingField: 1
         <ID>k__BackingField: egg
     - Key: flower
       Value:
-        <itemType>k__BackingField: 0
+        <itemType>k__BackingField: 1
         <ID>k__BackingField: flower
     - Key: mushroom
       Value:
-        <itemType>k__BackingField: 0
+        <itemType>k__BackingField: 2
         <ID>k__BackingField: mushroom
     - Key: butterfly
       Value:
-        <itemType>k__BackingField: 0
+        <itemType>k__BackingField: 1
         <ID>k__BackingField: butterfly
   itemSprites:
     _serializedList:

@@ -31,6 +31,7 @@ namespace Raven
                 {
                     //itemSlots[i].amount += itemID.amount;
                     itemCounts[i]+= amount;
+                    Debug.Log("added to stack");
                     return i;
                 }
                 else if (itemSlots[i] == null && emptySlot < 0)
@@ -43,6 +44,7 @@ namespace Raven
             {
                 itemSlots[emptySlot] = ItemDatabase.instance.Items[itemID];
                 itemCounts[emptySlot] = amount;
+                Debug.Log("added " + itemID);
                 return emptySlot;
             }
 
