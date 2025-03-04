@@ -1,11 +1,27 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+//using UnityEngine.Windows;
+//using UnityEngine.InputSystem;
+using System.Collections;
+//using UnityEngine.Rendering.LookDev;
+//using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 namespace HappyValley
 {
     public class TimeManager : MonoBehaviour
     {
+        #region Variables
+        [SerializeField] GameObject player;
+        [SerializeField] GameObject playerAsleep;
+        [SerializeField] GameObject timeMenuUI;
+        [SerializeField] GameObject Blackscreen;
+
+        [SerializeField] Stamina stamina;
+        [SerializeField] TimeData timeData;
+
+        [SerializeField] UnityEvent timeMenuON;
+
         [Header("Date & Time Settings")]
         [Range(1, 28)]
         public int dateInMonth;
@@ -24,76 +40,326 @@ namespace HappyValley
         public int TickMinutesIncreased = 10;
         public float TimeBetweenTicks = 1;
         private float currentTimeBetweenTicks = 0;
-        //private int timeElapsed = 0;
+
+        private int tTickMinutesIncreased;
+        private float tTimeBetweenTicks;
 
         public static UnityAction<DateTime> OnDateTimeChanged;
         public static UnityAction<int> TimeElapsed;
 
+        private InputSystem_Actions input;
+        private bool MenuActive = false;
+
+        public CanvasGroup blackScreen;
+        private bool freezeClock;
+        private bool fadeIn;
+        private bool fadeOut;
+
+        private bool sleeping;
+        private static bool twoAM;
+        private static bool fullRestore;
+        private static int timeElapsed = 0;
+        private bool paused;
+        #endregion
+
+        #region Start, Update, etc
         private void Awake()
         {
-            DateTime = new DateTime(dateInMonth, season - 1, year, hour, minutes * 10);
+            input = new InputSystem_Actions();
+            input.Player.Enable();
 
-            Debug.Log($"New Years Day: {DateTime.NewYearsDay(2)}");
-            Debug.Log($"Summer Solstice: {DateTime.SummerSolstice(4)}");
-            Debug.Log($"Pumpkin Harvest: {DateTime.PumpkinHarvest(10)}");
-            Debug.Log($"Start of a Season: {DateTime.StartOfSeason(1, 3)}");
-            Debug.Log($"Starting of Winter: {DateTime.StartOfWinter(3)}");
+
+            if(timeData.Save == false)
+            {
+                DateTime = new DateTime(dateInMonth, season - 1, year, hour, minutes * 10);
+            }
+            else if(timeData.Save == true)
+            {
+                LoadDateTime();
+            }
         }
 
         private void Start()
         {
-            OnDateTimeChanged?.Invoke(DateTime);
+            blackScreen.alpha = 0;
 
+            OnDateTimeChanged?.Invoke(DateTime);
             InvokeRepeating("PassTimeElapsed", 0, 1f);
+            InvokeRepeating("ForwardElapsedTime", 0, 1f);
         }
 
         private void Update()
         {
             currentTimeBetweenTicks += Time.deltaTime;
 
-            //timeElapsed = (int) currentTimeBetweenTicks % 60;
-            //Debug.Log(timeElapsed);
-
             if (currentTimeBetweenTicks >= TimeBetweenTicks)
             {
                 currentTimeBetweenTicks = 0;
-                Tick();
+                if(!freezeClock)
+                {
+                    Tick();
+                }
             }
-        }
 
+            if (fadeIn)
+            {
+                Blackscreen.SetActive(true);
+                if (blackScreen.alpha < 1)
+                {
+                    blackScreen.alpha += Time.deltaTime;
+                    if (blackScreen.alpha >= 1)
+                    {
+                        fadeIn = false;
+                    }
+                }
+            }
+
+            if (fadeOut)
+            {
+                if (blackScreen.alpha >= 0)
+                {
+                    blackScreen.alpha -= Time.deltaTime;
+                    if (blackScreen.alpha == 0)
+                    {
+                        fadeOut = false;
+                    }
+                }
+                StartCoroutine(DisableBlackscreen());
+            }
+
+            if(twoAM)
+            {
+                PlayerFaint();
+            }
+
+            input.Player.Time.performed += ctx =>
+            {
+                TimeSettings();
+            };
+        }
+        #endregion
+
+        #region Clock
         void PassTimeElapsed()
         {
             TimeElapsed?.Invoke(1);
         }
 
-        void Tick()
+        private void Tick()
         {
             AdvanceTime();
         }
 
-        void AdvanceTime()
+        private void AdvanceTime()
         {
             DateTime.AdvanceMinutes(TickMinutesIncreased);
 
             OnDateTimeChanged?.Invoke(DateTime);
         }
+        #endregion
+
+        #region Time Editing
+        public void TimeSettings()
+        {
+            if(!paused)
+            {
+                if (!MenuActive)
+                {
+                    timeMenuON?.Invoke();
+                    timeMenuUI.SetActive(true);
+                    Time.timeScale = 0f;
+                    MenuActive = true;
+                }
+                else
+                {
+                    timeMenuON?.Invoke();
+                    timeMenuUI.SetActive(false);
+                    Time.timeScale = 1f;
+                    MenuActive = false;
+                }
+            }
+        }
+
+        public void ChangeTickMinutesIncreased(string x)
+        {
+            TickMinutesIncreased = int.Parse(x);
+        }
+
+        public void ChangeTimeBetweenTicks(string y)
+        {
+            TimeBetweenTicks = int.Parse(y);
+        }
+
+        public void FastForwardTime(string z)
+        {
+            tTickMinutesIncreased = TickMinutesIncreased;
+            tTimeBetweenTicks = TimeBetweenTicks;
+
+            TickMinutesIncreased = 60;
+            TimeBetweenTicks = 1;
+            TimeSettings();
+
+            Time.timeScale = 10f;
+            StartCoroutine(StopFastForward(int.Parse(z)));
+        }
+
+        private IEnumerator StopFastForward(int a)
+        {
+            yield return new WaitForSeconds(a);
+            Time.timeScale = 1f;
+            TickMinutesIncreased = tTickMinutesIncreased;
+            TimeBetweenTicks = tTimeBetweenTicks;
+        }
+
+        public void ForwardElapsedTime()
+        {
+            SetTimeElapsed(TickMinutesIncreased);
+        }
+
+        public static void SetTimeElapsed(int x)
+        {
+            timeElapsed += x;
+            Debug.Log("Timer: " + timeElapsed);
+        }
+
+        public static int GetTimeElapsed()
+        {
+            return timeElapsed;
+        }
+
+        public void Sleep()
+        {
+            sleeping = true;
+
+            player.SetActive(false);
+            playerAsleep.SetActive(true);
+            timeMenuUI.SetActive(false);
+
+            FadeIn();
+            freezeClock = true;
+            StartCoroutine(nextDay());
+        }
+
+        private IEnumerator nextDay()
+        {
+            yield return new WaitForSeconds(2);
+            DateTime.Sleep();
+            RestoreStamina();
+            OnDateTimeChanged?.Invoke(DateTime);
+            StartCoroutine(WakeUp());
+        }
+
+        private IEnumerator WakeUp()
+        {
+            yield return new WaitForSeconds(2);
+            player.SetActive(true);
+            playerAsleep.SetActive(false);
+            FadeOut();
+            sleeping = false;
+            StartCoroutine(reactivateClock());
+        }
+
+        private IEnumerator reactivateClock()
+        {
+            yield return new WaitForSeconds(2);
+            freezeClock = false;
+        }
+        #endregion
+
+        #region Other
+        private void FadeIn()
+        {
+            fadeIn = true;
+        }
+
+        private void FadeOut()
+        {
+            fadeOut = true;
+        }
+
+        private IEnumerator DisableBlackscreen()
+        {
+            yield return new WaitForSeconds(3);
+            Blackscreen.SetActive(false);
+        }
+
+        public static void IsTwoAM()
+        {
+            twoAM = true;
+        }
+
+        public static void IsNotTwoAM()
+        {
+            twoAM = false;
+        }
+
+        public void PlayerFaint()
+        {
+            if (!sleeping)
+            {
+                Debug.Log("Faint");
+                Sleep();
+            }
+        }
+
+        public static void FullRestoreStamina()
+        {
+            fullRestore = true;
+        }
+
+        public static void PartialRestoreStamina()
+        {
+            fullRestore = false;
+        }
+
+        private void RestoreStamina()
+        {
+            if(fullRestore)
+            {
+                stamina.FullyRestoreStamina();
+            }
+            else
+            {
+                stamina.PartiallyRestoreStamina();
+            }
+        }
+
+        public void Paused()
+        {
+            paused = !paused;
+        }
+
+        public void SaveDateTime()
+        {
+            string jsonString = JsonUtility.ToJson(DateTime);
+
+            System.IO.File.WriteAllText("dateTime.json", jsonString);
+        }
+
+        public void LoadDateTime()
+        {
+            string loadedJson = System.IO.File.ReadAllText("dateTime.json");
+
+            DateTime = JsonUtility.FromJson<DateTime>(loadedJson);
+        }
+        #endregion
     }
 
     [System.Serializable]
     public struct DateTime
     {
         #region Fields
-        private Days day;
-        private int date;
-        private int year;
+        public Days day;
+        public int date;
+        public int year;
 
-        private int hour;
-        private int minutes;
+        public int hour;
+        public int minutes;
 
-        private Season season;
+        public Season season;
 
-        private int totalNumDays;
-        private int totalNumWeeks;
+        public int totalNumDays;
+        public int totalNumWeeks;
         #endregion
 
         #region Properties
@@ -155,6 +421,15 @@ namespace HappyValley
             {
                 hour++;
             }
+
+            if(hour == 2)
+            {
+                TimeManager.IsTwoAM();
+            }
+            else
+            {
+                TimeManager.IsNotTwoAM();
+            }
         }
 
         private void AdvanceDay()
@@ -195,6 +470,27 @@ namespace HappyValley
             year++;
         }
 
+        public void Sleep()
+        {
+            if(hour > 2 && Hour < 24)
+            {
+                TimeManager.FullRestoreStamina();
+            }
+            else
+            {
+                TimeManager.PartialRestoreStamina();
+            }
+
+            for (int i = 1440; i > 0; i--)
+            {
+                AdvanceMinutes(1);
+                TimeManager.SetTimeElapsed(1);
+                if (hour == 6 && minutes == 0)
+                {
+                    i = 0;
+                }
+            }
+        }
         #endregion
 
         #region Bool Checks

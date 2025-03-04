@@ -1,6 +1,7 @@
 using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Windows;
 
 namespace kristina
 {
@@ -10,6 +11,13 @@ namespace kristina
         Vector3 movement = Vector3.zero;
 
         Rigidbody rb;
+        private InputSystem_Actions input;
+
+        void Awake()
+        {
+            input = new InputSystem_Actions();
+            input.Player.Enable();
+        }
 
         void Start()
         {
@@ -18,6 +26,12 @@ namespace kristina
         void Update()
         {
             rb.linearVelocity = movement * Time.deltaTime * speed;
+
+            input.Player.SlowTime.performed += ctx =>
+            {
+                Time.timeScale = 5;
+            };
+
         }
 
         public void MoveInput(InputAction.CallbackContext ctx)

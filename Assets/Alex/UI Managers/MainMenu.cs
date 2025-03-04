@@ -1,12 +1,16 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEditor.Overlays;
+using UnityEditor;
 
 
 namespace HappyValley
 {
     public class MainMenu : MonoBehaviour
     {
+        [SerializeField] TimeData timeData;
+
         public GameObject newGameButton;
 
         void Start()
@@ -16,17 +20,20 @@ namespace HappyValley
 
         public void NewGame()
         {
+            timeData.NewGame();
             SceneManager.LoadScene(1);
         }
 
         public void LoadGame()
         {
-            Debug.Log("Loading game...");
+            timeData.LoadGame();
+            SceneManager.LoadScene(1);
         }
 
         public void QuitGame()
         {
-            Application.Quit();
+            EditorApplication.isPlaying = false;
+            //Application.Quit();
         }
     }
 }

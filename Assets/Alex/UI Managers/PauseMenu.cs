@@ -1,4 +1,7 @@
+using System.Security.Cryptography;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
@@ -7,30 +10,38 @@ namespace HappyValley
 {
     public class PauseMenu : MonoBehaviour
     {
-        public static bool GameIsPaused = false;
-        public GameObject pauseMenuUI;
-        public GameObject UI;
-        public GameObject resumeButton;
-        private InputSystem_Actions input;
+        [SerializeField] GameObject pauseMenuUI;
+        [SerializeField] GameObject UI;
+        [SerializeField] GameObject resumeButton;
+        [SerializeField] GameObject timeButton;
+        [SerializeField] UnityEvent stopPause;
 
+        public static bool GameIsPaused = false;
+        private InputSystem_Actions input;
+        private bool timeManagerOpen;
 
         void Awake()
         {
             input = new InputSystem_Actions();
             input.Player.Enable();
+
+            EventSystem.current.SetSelectedGameObject(resumeButton);
         }
 
         void Update()
         {
             input.Player.Pause.performed += ctx =>
             {
-                if (!GameIsPaused)
+                if(!timeManagerOpen)
                 {
-                    Pause();
-                }
-                else
-                {
-                    Resume();
+                    if (!GameIsPaused)
+                    {
+                        Pause();
+                    }
+                    else
+                    {
+                        Resume();
+                    }
                 }
             };
         }
@@ -39,8 +50,10 @@ namespace HappyValley
         {
             if (GameIsPaused)
             {
+                stopPause?.Invoke();
                 pauseMenuUI.SetActive(false);
                 UI.SetActive(true);
+                timeButton.SetActive(true);
                 Time.timeScale = 1f;
                 GameIsPaused = false;
             }
@@ -48,14 +61,26 @@ namespace HappyValley
 
         void Pause()
         {
-            if(!GameIsPaused)
+            if (!timeManagerOpen)
             {
-                pauseMenuUI.SetActive(true);
-                UI.SetActive(false);
-                EventSystem.current.SetSelectedGameObject(resumeButton);
-                Time.timeScale = 0f;
-                GameIsPaused = true;
+                if (!GameIsPaused)
+                {
+                    stopPause?.Invoke();
+                    pauseMenuUI.SetActive(true);
+                    UI.SetActive(false);
+                    timeButton.SetActive(false);
+                    EventSystem.current.SetSelectedGameObject(resumeButton);
+                    Time.timeScale = 0f;
+                    GameIsPaused = true;
+                }
+
             }
+             
+        }
+
+        public void TimeManagerOpen()
+        {
+            timeManagerOpen = !timeManagerOpen;
         }
 
         public void LoadMenu()
@@ -70,8 +95,11 @@ namespace HappyValley
 
         public void QuitGame()
         {
-            Application.Quit();
+            EditorApplication.isPlaying = false;
+            //Application.Quit();
         }
+
+
     }
 }
 

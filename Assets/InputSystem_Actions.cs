@@ -58,7 +58,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""852140f2-7766-474d-8707-702459ba45f3"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": ""Hold"",
                     ""initialStateCheck"": false
@@ -112,6 +112,33 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""name"": ""Pause"",
                     ""type"": ""Button"",
                     ""id"": ""12ad3a9b-bfc0-4a0d-b396-49119a841392"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Time"",
+                    ""type"": ""Button"",
+                    ""id"": ""137f42cd-607e-4f79-aef5-ec79765a19f7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SlowTime"",
+                    ""type"": ""Button"",
+                    ""id"": ""50f214db-2650-47c3-88ee-0812bea79b30"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Bed"",
+                    ""type"": ""Button"",
+                    ""id"": ""bd7cd1e8-0734-4a2c-a3f1-b982a2858930"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -512,6 +539,39 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""92c31621-6c2a-444f-81da-e12c74fd6913"",
+                    ""path"": ""<Keyboard>/t"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Time"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7ac5ccb5-689e-4a13-a564-7725c4b5e2fc"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""SlowTime"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3c2364b2-4d9f-4ebd-a52e-1c4771fba9c7"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Bed"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1109,6 +1169,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Player_Next = m_Player.FindAction("Next", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        m_Player_Time = m_Player.FindAction("Time", throwIfNotFound: true);
+        m_Player_SlowTime = m_Player.FindAction("SlowTime", throwIfNotFound: true);
+        m_Player_Bed = m_Player.FindAction("Bed", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1198,6 +1261,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Next;
     private readonly InputAction m_Player_Sprint;
     private readonly InputAction m_Player_Pause;
+    private readonly InputAction m_Player_Time;
+    private readonly InputAction m_Player_SlowTime;
+    private readonly InputAction m_Player_Bed;
     public struct PlayerActions
     {
         private @InputSystem_Actions m_Wrapper;
@@ -1212,6 +1278,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         public InputAction @Next => m_Wrapper.m_Player_Next;
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
+        public InputAction @Time => m_Wrapper.m_Player_Time;
+        public InputAction @SlowTime => m_Wrapper.m_Player_SlowTime;
+        public InputAction @Bed => m_Wrapper.m_Player_Bed;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1251,6 +1320,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
+            @Time.started += instance.OnTime;
+            @Time.performed += instance.OnTime;
+            @Time.canceled += instance.OnTime;
+            @SlowTime.started += instance.OnSlowTime;
+            @SlowTime.performed += instance.OnSlowTime;
+            @SlowTime.canceled += instance.OnSlowTime;
+            @Bed.started += instance.OnBed;
+            @Bed.performed += instance.OnBed;
+            @Bed.canceled += instance.OnBed;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1285,6 +1363,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
+            @Time.started -= instance.OnTime;
+            @Time.performed -= instance.OnTime;
+            @Time.canceled -= instance.OnTime;
+            @SlowTime.started -= instance.OnSlowTime;
+            @SlowTime.performed -= instance.OnSlowTime;
+            @SlowTime.canceled -= instance.OnSlowTime;
+            @Bed.started -= instance.OnBed;
+            @Bed.performed -= instance.OnBed;
+            @Bed.canceled -= instance.OnBed;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1477,6 +1564,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         void OnNext(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnTime(InputAction.CallbackContext context);
+        void OnSlowTime(InputAction.CallbackContext context);
+        void OnBed(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
