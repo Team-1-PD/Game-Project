@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dd419c7a06a06f45a3c3567bad3af97, type: 3}
+  m_Name: Item Database
+  m_EditorClassIdentifier: 
+  items:
+    _serializedList:
+    - Key: none
+      Value:
+        <itemType>k__BackingField: 0
+        <ID>k__BackingField: none
+    - Key: plant_one
+      Value:
+        <itemType>k__BackingField: 2
+        <ID>k__BackingField: plant_one
+    - Key: leaf
+      Value:
+        <itemType>k__BackingField: 3
+        <ID>k__BackingField: leaf
+    - Key: egg
+      Value:
+        <itemType>k__BackingField: 2
+        <ID>k__BackingField: egg
+    - Key: flower
+      Value:
+        <itemType>k__BackingField: 3
+        <ID>k__BackingField: flower
+    - Key: mushroom
+      Value:
+        <itemType>k__BackingField: 2
+        <ID>k__BackingField: mushroom
+    - Key: incubator
+      Value:
+        <itemType>k__BackingField: 1
+        <ID>k__BackingField: incubator
+  itemSprites:
+    _serializedList:
+    - Key: leaf
+      Value: {fileID: -659071828, guid: 5ea64d8792e683a4fbc3653e99c7e2e8, type: 3}
+    - Key: plant_one
+      Value: {fileID: 1214293876, guid: 230577affe6a7124ab09a4d78b5a8098, type: 3}
+    - Key: egg
+      Value: {fileID: 564522325, guid: 5ea64d8792e683a4fbc3653e99c7e2e8, type: 3}
+    - Key: flower
+      Value: {fileID: -1817556686, guid: 5ea64d8792e683a4fbc3653e99c7e2e8, type: 3}
+    - Key: mushroom
+      Value: {fileID: 378105468, guid: 5ea64d8792e683a4fbc3653e99c7e2e8, type: 3}
+    - Key: incubator
+      Value: {fileID: -1338455514, guid: 5ea64d8792e683a4fbc3653e99c7e2e8, type: 3}

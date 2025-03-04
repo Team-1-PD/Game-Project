@@ -219,7 +219,7 @@ namespace HappyValley
         public static void SetTimeElapsed(int x)
         {
             timeElapsed += x;
-            Debug.Log("Timer: " + timeElapsed);
+            //Debug.Log("Timer: " + timeElapsed);
         }
 
         public static int GetTimeElapsed()
@@ -485,6 +485,7 @@ namespace HappyValley
             {
                 AdvanceMinutes(1);
                 TimeManager.SetTimeElapsed(1);
+                TimeManager.TimeElapsed?.Invoke(1);
                 if (hour == 6 && minutes == 0)
                 {
                     i = 0;

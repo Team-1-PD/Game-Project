@@ -1,7 +1,6 @@
 using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Windows;
 
 namespace kristina
 {
@@ -10,28 +9,30 @@ namespace kristina
         [SerializeField] float speed = 25;
         Vector3 movement = Vector3.zero;
 
-        Rigidbody rb;
-        private InputSystem_Actions input;
+        [SerializeField] Transform charObject;
 
-        void Awake()
-        {
-            input = new InputSystem_Actions();
-            input.Player.Enable();
-        }
+        //Rigidbody rb;
+        CharacterController cc;
 
         void Start()
         {
-            rb = GetComponent<Rigidbody>();
+            PlayerInput.Input.Player.Enable();
+            PlayerInput.Input.Player.Move.performed += MoveInput;
+            PlayerInput.Input.Player.Move.canceled += MoveInput;
+
+            //rb = GetComponent<Rigidbody>();
+            cc = GetComponent<CharacterController>();
         }
         void Update()
         {
-            rb.linearVelocity = movement * Time.deltaTime * speed;
+            //rb.linearVelocity = movement * Time.deltaTime * speed;
 
-            input.Player.SlowTime.performed += ctx =>
+            cc.Move(movement * Time.deltaTime * speed);
+
+            if (movement.magnitude > 0.1f)
             {
-                Time.timeScale = 5;
-            };
-
+                charObject.LookAt(this.transform.position + movement);
+            }
         }
 
         public void MoveInput(InputAction.CallbackContext ctx)

@@ -1,3 +1,4 @@
+using kristina;
 using UnityEngine;
 
 namespace Raven
@@ -8,28 +9,33 @@ namespace Raven
     {
 
         [SerializeField] private Item[] itemSlots;
+        [SerializeField] private int[] itemCounts;
+
         [SerializeField] private int maxSlots = 0;
 
         public Inventory(int size)
         {
             maxSlots = size;
             itemSlots = new Item[size];
+            itemCounts = new int[size];
         }
 
         // Add item to hotbar, stack if existing
-        public int AddItem(Item newItem)
+        public int AddItem(string itemID, int amount)
         {
             int emptySlot = -1; // Invalid slot
 
             // Check if item already on hotbar
             for (int i = 0; i < maxSlots; i++)
             {
-                if (itemSlots[i] != null && itemSlots[i].itemType == newItem.itemType)
+                if (itemSlots[i] != null && itemSlots[i].ID.Equals(itemID))
                 {
-                    itemSlots[i].amount += newItem.amount;
+                    //itemSlots[i].amount += itemID.amount;
+                    itemCounts[i]+= amount;
+                    Debug.Log("added to stack");
                     return i;
                 }
-                else if (itemSlots[i] == null && emptySlot < 0)
+                else if ((itemSlots[i] == null || itemSlots[i].itemType == Item.ItemType.None) && emptySlot < 0)
                 {
                     emptySlot = i;
                 }
@@ -37,7 +43,9 @@ namespace Raven
 
             if (emptySlot >= 0)
             {
-                itemSlots[emptySlot] = newItem;
+                itemSlots[emptySlot] = Database.ITEMS.Items[itemID];
+                itemCounts[emptySlot] = amount;
+                Debug.Log("added " + itemID);
                 return emptySlot;
             }
 
@@ -47,7 +55,7 @@ namespace Raven
         }
 
         // Remove item from hotbar, returns amount of items removed from inventory
-        public int RemoveItem(Item.ItemType itemType, int amount)
+        public int RemoveItem(string itemID, int amount)
         {
             if (amount <= 0)
             {
@@ -57,28 +65,34 @@ namespace Raven
             for (int i = 0; i < maxSlots; i++)
             {
                 // Filter ignored items
-                if (itemSlots[i] == null || itemType != itemSlots[i].itemType)
+                if (itemSlots[i] == null || !itemID.Equals(itemSlots[i].ID))
                 {
                     continue;
                 }
 
 
                 // Get the amount we are removing
-                int itemCount = itemSlots[i].amount;
-                if (amount > itemCount)
+                int itemCount = itemCounts[i];
+                if (amount >= itemCount)
                 {
                     itemSlots[i] = Item.None();
+                    itemCounts[i] = 0;
+                    Debug.Log("remove item");
                     return itemCount;
                 }
 
-                itemSlots[i].amount -= amount;
+                Debug.Log("amount reduced");
+                itemCounts[i] -= amount;
                 return amount;
 
             }
 
             return 0;
         }
-
+        public Item GetItemAt(int index)
+        {
+            return itemSlots[index];
+        }
         public Item[] GetItems()
         {
             return itemSlots;
@@ -96,25 +110,34 @@ namespace Raven
             }
 
             Item item = itemSlots[fromIndex];
+            int itemCount = itemCounts[fromIndex];
             if (itemSlots[toIndex] == null)
             {
                 // Remove and replace
                 itemSlots[fromIndex] = null;
+                itemCounts[fromIndex] = 0;
+
                 itemSlots[toIndex] = item;
+                itemCounts[toIndex] = itemCount;
                 return true;
             }
 
             // Stack items
-            if (itemSlots[toIndex].itemType == item.itemType)
+            if (itemSlots[toIndex].ID.Equals(item.ID))
             {
-                itemSlots[toIndex].amount += item.amount;
+                itemCounts[toIndex] += itemCount;
+
                 itemSlots[fromIndex] = null;
+                itemCounts[fromIndex] = 0;
                 return true;
             }
 
             // Swap items
             itemSlots[fromIndex] = itemSlots[toIndex];
+            itemCounts[fromIndex] = itemCounts[toIndex];
+
             itemSlots[toIndex] = item;
+            itemCounts[toIndex] = itemCount;
 
             return true;
 
