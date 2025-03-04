@@ -6,7 +6,7 @@ using UnityEngine;
 namespace kristina
 {
     [CreateAssetMenu(menuName = "Plant Database")]
-    public class PlantDatabase : ScriptableSingleton<PlantDatabase>
+    public class PlantDatabase : ScriptableObject
     {
         /*[SerializeField] private Plant[] plants;
         public Plant[] Plants => plants;*/

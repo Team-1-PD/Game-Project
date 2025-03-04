@@ -1,9 +1,7 @@
-using System.Security.Cryptography;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 
 
 namespace HappyValley
@@ -95,8 +93,8 @@ namespace HappyValley
 
         public void QuitGame()
         {
-            EditorApplication.isPlaying = false;
-            //Application.Quit();
+            //EditorApplication.isPlaying = false;
+            Application.Quit();
         }
 
 

@@ -1,11 +1,6 @@
-using Raven;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
 
 namespace kristina
 {
@@ -61,14 +56,14 @@ namespace kristina
                 return false;*/
             //if it's valid, continue
             Vector3 worldPos = grid.CellToWorld(new(currentGridPos.x, currentGridPos.y, HEIGHT));
-            GameObject placedObject = Instantiate(PlaceablesDatabase.instance.PlaceableObjects[id], worldPos + new Vector3(OFFSET, 0, OFFSET), new()); //maybe rotation?
+            GameObject placedObject = Instantiate(Database.PLACEABLES.PlaceableObjects[id], worldPos + new Vector3(OFFSET, 0, OFFSET), new()); //maybe rotation?
 
             //furnitureGroup.InstantiateFurniture(currentGridPos, furnObject);
 
             //data.AddFurnAtPosition(currentGridPos, furniture.Data.OccupiedSize, furniture.Data.ID);
 
             //OnPlace.Invoke(furniture.Data.ID);
-            return false;
+            return true;
         }
 
 

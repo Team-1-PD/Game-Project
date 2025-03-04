@@ -1,6 +1,5 @@
 using Raven;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -11,7 +10,7 @@ namespace kristina
     {
         public static UnityAction<string> ChangeSelectedItem;
         //public static string currentItemID { get; private set; }
-        int currentSlotIndex = -1;
+        public int currentSlotIndex { get; private set; } = -1;
 
         //RectTransform rect;
         Transform selectedItem;

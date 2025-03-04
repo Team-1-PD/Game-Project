@@ -1,7 +1,5 @@
 using UnityEngine;
 using HappyValley;
-using UnityEngine.InputSystem.Switch;
-using Unity.VisualScripting;
 
 namespace kristina
 {
@@ -40,7 +38,7 @@ namespace kristina
         {
             if (currentPlant != null) return false;
             
-            currentPlant = PlantDatabase.instance.Plants[plantID];
+            currentPlant = Database.PLANTS.Plants[plantID];
             age = 0;
             stageAge = 0;
             currentStage = 0;

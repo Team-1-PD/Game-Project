@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
-using UnityEditor.Overlays;
 using UnityEditor;
 
 
@@ -32,8 +31,8 @@ namespace HappyValley
 
         public void QuitGame()
         {
-            EditorApplication.isPlaying = false;
-            //Application.Quit();
+            //EditorApplication.isPlaying = false;
+            Application.Quit();
         }
     }
 }

@@ -35,7 +35,7 @@ namespace Raven
                     Debug.Log("added to stack");
                     return i;
                 }
-                else if (itemSlots[i] == null && emptySlot < 0)
+                else if ((itemSlots[i] == null || itemSlots[i].itemType == Item.ItemType.None) && emptySlot < 0)
                 {
                     emptySlot = i;
                 }
@@ -43,7 +43,7 @@ namespace Raven
 
             if (emptySlot >= 0)
             {
-                itemSlots[emptySlot] = ItemDatabase.instance.Items[itemID];
+                itemSlots[emptySlot] = Database.ITEMS.Items[itemID];
                 itemCounts[emptySlot] = amount;
                 Debug.Log("added " + itemID);
                 return emptySlot;
@@ -73,13 +73,15 @@ namespace Raven
 
                 // Get the amount we are removing
                 int itemCount = itemCounts[i];
-                if (amount > itemCount)
+                if (amount >= itemCount)
                 {
                     itemSlots[i] = Item.None();
                     itemCounts[i] = 0;
+                    Debug.Log("remove item");
                     return itemCount;
                 }
 
+                Debug.Log("amount reduced");
                 itemCounts[i] -= amount;
                 return amount;
 

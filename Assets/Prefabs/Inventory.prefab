@@ -202,6 +202,7 @@ MonoBehaviour:
     itemSlots: []
     itemCounts: 
     maxSlots: 0
+  hotbarSelector: {fileID: 1370930595654640465}
 --- !u!1 &1467215522107371634
 GameObject:
   m_ObjectHideFlags: 0

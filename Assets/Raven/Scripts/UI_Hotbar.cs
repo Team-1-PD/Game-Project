@@ -1,6 +1,4 @@
 using kristina;
-using System.Collections;
-using TreeEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +16,9 @@ namespace Raven
         [SerializeField] private Sprite plant4_sprite;
 
         [SerializeField] private Inventory inventory;
+
+        [SerializeField] private HotbarSelector hotbarSelector;
+
         private GameObject[] hotbar;
 
 
@@ -45,37 +46,23 @@ namespace Raven
                 hotbar[i] = slotObject;
             }
 
-            StartCoroutine(CreateItems());
+            //StartCoroutine(CreateItems());
 
-            AddItem(ItemDatabase.instance.Items["leaf"], 1);
-            AddItem(ItemDatabase.instance.Items["plant_one"], 1);
-            AddItem(ItemDatabase.instance.Items["incubator"], 1);
-
-            // Manually add items to hotbar ** FOR TESTING **
-            /*AddItem(new Item(Item.ItemType.Plant1, 1));
-            AddItem(new Item(Item.ItemType.Plant2, 2));
-            AddItem(new Item(Item.ItemType.Plant3, 1));
-            AddItem(new Item(Item.ItemType.Plant4, 2));*/
-
-        }
-
-        private IEnumerator CreateItems()
-        {
-            yield return new WaitForEndOfFrame();
-            //AddItem(ItemDatabase.instance.Items["leaf"], 1);
-            //AddItem(ItemDatabase.instance.Items["egg"], 1);
-            //AddItem(ItemDatabase.instance.Items["flower"], 1);
-            //AddItem(ItemDatabase.instance.Items["mushroom"], 1);
-            //AddItem(ItemDatabase.instance.Items["butterfly"], 1);
+            AddItem(Database.ITEMS.Items["leaf"], 1);
+            AddItem(Database.ITEMS.Items["plant_one"], 1);
+            AddItem(Database.ITEMS.Items["incubator"], 1);
         }
 
         // Stacks items otherwise places in first empty slot
         public int AddItem(Item item, int amount)
         {
-            int position = inventory.AddItem(item.ID, amount); //TODO: amount adjustments
+            int position = inventory.AddItem(item.ID, amount);
             if (position >= 0)
             {
                 RefreshHotbar();
+
+                hotbarSelector.SelectSlot(hotbarSelector.currentSlotIndex);
+
                 return position;
             }
 
@@ -86,11 +73,12 @@ namespace Raven
         // Returns how many items were removed from the hotbar
         public int RemoveItem(Item item, int amount)
         {
-            int amountRemoved = inventory.RemoveItem(item.ID, 1); //TODO:: amount adjustments
-            if (amountRemoved > 0)
+            int amountRemoved = inventory.RemoveItem(item.ID, amount); //TODO:: amount adjustments
+            if (amountRemoved >= 0)
             {
                 RefreshHotbar();
             }
+            hotbarSelector.SelectSlot(hotbarSelector.currentSlotIndex);
 
             return amountRemoved;
         }
@@ -98,7 +86,9 @@ namespace Raven
         // Swaps, moves, and stacks items
         public bool MoveItem(int fromIndex, int toIndex)
         {
-            return inventory.MoveItem(fromIndex, toIndex);
+            bool moved = inventory.MoveItem(fromIndex, toIndex);
+            hotbarSelector.SelectSlot(hotbarSelector.currentSlotIndex);
+            return moved;
         }
 
         public Item GetItemAt(int index)
@@ -147,7 +137,7 @@ namespace Raven
         // Assign sprite image
         private Sprite AssignSprite(Item item)
         {
-            return ItemDatabase.instance.ItemSprites[item.ID];
+            return Database.ITEMS.ItemSprites[item.ID];
             /*switch (itemType)
             {
                 case Item.ItemType.Plant1:

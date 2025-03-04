@@ -1,7 +1,6 @@
 using AYellowpaper.SerializedCollections;
 using System.Collections.Generic;
 using UnityEngine;
-using Raven;
 using UnityEditor;
 
 namespace kristina
@@ -9,7 +8,7 @@ namespace kristina
     //using UnityEngine.Rendering;
 
     [CreateAssetMenu(menuName = "Placeables Database")]
-    public class PlaceablesDatabase : ScriptableSingleton<PlaceablesDatabase>
+    public class PlaceablesDatabase : ScriptableObject
     {
         //<ID, object>
         [field: SerializeField, SerializedDictionary("ID", "Objects")]

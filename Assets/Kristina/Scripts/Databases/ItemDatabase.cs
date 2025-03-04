@@ -7,7 +7,7 @@ using UnityEngine;
 namespace kristina
 {
     [CreateAssetMenu(menuName = "Item Database")]
-    public class ItemDatabase : ScriptableSingleton<ItemDatabase>
+    public class ItemDatabase : ScriptableObject
     {
         [field: SerializeField, SerializedDictionary("ID", "Items")]
         private SerializedDictionary<string, Item> items;

@@ -1,10 +1,8 @@
 using UnityEngine;
 using Raven;
-using UnityEditor.SearchService;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using HappyValley;
-using JetBrains.Annotations;
 
 namespace kristina
 {
@@ -23,7 +21,7 @@ namespace kristina
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
-            Debug.Log("initializing interactions");
+            //Debug.Log("initializing interactions");
             instance = this;
 
             HotbarSelector.ChangeSelectedItem += SelectItem;
@@ -32,7 +30,7 @@ namespace kristina
 
         public void Interactions(InputAction.CallbackContext ctx)
         {
-            Debug.Log("Interacting");
+            //Debug.Log("Interacting");
 
             if (InteractBed()) return; //try sleep first
 
@@ -41,16 +39,16 @@ namespace kristina
             if (InteractIncubator()) return; //try incubator last
         }
 
-        #region interaction_types
+        #region Interaction Types
         bool InteractBed() 
         {
-            Debug.Log("try bed");
+            //Debug.Log("try bed");
             return nearestBed != null && nearestBed.Sleep();
         }
 
         bool InteractPlacing()
         {
-            Debug.Log("try place");
+            //Debug.Log("try place");
             if (placementActivated)
             {
                 if (PlacementHandler.instance.TryPlace(currentItem.ID))
@@ -63,7 +61,7 @@ namespace kristina
 
         bool InteractIncubator()
         {
-            Debug.Log("try incubator");
+            //Debug.Log("try incubator");
             if (nearestIncubator != null)
             {
                 if (nearestIncubator.fullyGrown)
@@ -71,21 +69,24 @@ namespace kristina
                     //try pickup produce next
                     Plant plant = nearestIncubator.CollectPlant();
 
-                    hotbar.AddItem(ItemDatabase.instance.Items[plant.produceID], plant.productionAmount);
+                    hotbar.AddItem(Database.ITEMS.Items[plant.produceID], plant.productionAmount);
                     return true;
                 }
-                else if (currentItem.itemType == Item.ItemType.Seed)
+                else if (currentItem.itemType == Item.ItemType.Seed && nearestIncubator.InputPlant(currentItem.ID))
                 {
                     //finally try inputting seeds into incubator
-                    return nearestIncubator.InputPlant(currentItem.ID);
+                    hotbar.RemoveItem(currentItem, 1);
+                    return true;
                 }
             }
             return false;
         }
         #endregion
+
+        #region Change Selection
         public void SelectItem(string ID)
         {
-            currentItem = ItemDatabase.instance.Items[ID];
+            currentItem = Database.ITEMS.Items[ID];
 
             if (currentItem.itemType == Item.ItemType.Placeable)
             {
@@ -110,5 +111,6 @@ namespace kristina
                 placementActivated = false;
             }
         }
+        #endregion
     }
 }
