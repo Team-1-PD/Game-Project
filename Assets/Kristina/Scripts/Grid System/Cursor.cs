@@ -1,16 +1,19 @@
 using System.Collections;
 using UnityEngine;
 
-public class Cursor : MonoBehaviour
+namespace kristina
 {
-    [SerializeField] Grid grid;
-    [SerializeField] GameObject highlighter;
+    public class Cursor : MonoBehaviour
+    {
+        [SerializeField] Grid grid;
+        [SerializeField] GameObject highlighter;
 
-    const int HEIGHT = 0;
+        const int HEIGHT = 0;
 
-    public Vector2Int currentGridPos { get; private set; }
+        public Vector2Int currentGridPos { get; private set; }
 
-    //bool highlighting = false;
+        //bool highlighting = false;
 
-    
+
+    }
 }

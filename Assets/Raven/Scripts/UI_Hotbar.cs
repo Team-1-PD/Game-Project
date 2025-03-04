@@ -45,12 +45,6 @@ namespace Raven
 
                 hotbar[i] = slotObject;
             }
-
-            //StartCoroutine(CreateItems());
-
-            AddItem(Database.ITEMS.Items["leaf"], 1);
-            AddItem(Database.ITEMS.Items["plant_one"], 1);
-            AddItem(Database.ITEMS.Items["incubator"], 1);
         }
 
         // Stacks items otherwise places in first empty slot

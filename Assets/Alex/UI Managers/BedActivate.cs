@@ -6,49 +6,38 @@ namespace HappyValley
 {
     public class BedActivate : MonoBehaviour
     {
-        [SerializeField] UnityEvent OnActivate;
+        TimeManager timeManager;
+        GameObject player;
+        [SerializeField] GameObject sleepingPlayer;
+        //[SerializeField] UnityEvent OnSleep;
 
-        private InputSystem_Actions input;
         private bool bedReady;
 
-        private void Awake()
+        private void Start()
         {
-            input = new InputSystem_Actions();
-            input.Player.Enable();
-        }
+            timeManager = FindFirstObjectByType<TimeManager>();
+            player = FindFirstObjectByType<Player>().gameObject;
 
-        private void Update()
-        {
-            /*input.Player.Bed.performed += ctx =>
-            {
-                if (bedReady)
-                {
-                    OnActivate?.Invoke();
-                }
-            };*/
+            TimeManager.OnWakeup += WakeUpPlayer;
         }
 
         public bool Sleep()
         {
             if (bedReady)
             {
-                OnActivate?.Invoke();
+                player.SetActive(false);
+                sleepingPlayer?.SetActive(true);
+                timeManager.Sleep();
+
                 return true;
             }
 
             return false;
         }
-
-        private void OnCollisionEnter(Collision other)
+        public void WakeUpPlayer()
         {
-            WorldInteractions.instance.nearestBed = this;
-            bedReady = true;
-        }
-
-        private void OnCollisionExit(Collision other)
-        {
-            WorldInteractions.instance.nearestBed = null;
-            bedReady = false;
+            player.SetActive(true);
+            sleepingPlayer?.SetActive(false);
         }
 
         private void OnTriggerEnter(Collider other)

@@ -1076,10 +1076,28 @@
             "id": "6bfb0f23-4480-452b-9ef0-1d0479776858",
             "actions": [
                 {
-                    "name": "select_slot",
+                    "name": "SelectSlot",
                     "type": "Button",
                     "id": "5c1dfedd-76a3-4794-aeaf-db871d12e611",
                     "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ScrollSlot",
+                    "type": "Value",
+                    "id": "1557019d-2fa5-41a3-b4f5-c2ea2c2bbbb7",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ScrollSlotHold",
+                    "type": "Value",
+                    "id": "0d6cde2e-a431-478b-ad8e-0c4c9f9fbeb0",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -1093,7 +1111,7 @@
                     "interactions": "",
                     "processors": "Scale(factor=0)",
                     "groups": "",
-                    "action": "select_slot",
+                    "action": "SelectSlot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1104,7 +1122,7 @@
                     "interactions": "",
                     "processors": "Scale",
                     "groups": "",
-                    "action": "select_slot",
+                    "action": "SelectSlot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1115,7 +1133,7 @@
                     "interactions": "",
                     "processors": "Scale(factor=2)",
                     "groups": "",
-                    "action": "select_slot",
+                    "action": "SelectSlot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1126,7 +1144,7 @@
                     "interactions": "",
                     "processors": "Scale(factor=3)",
                     "groups": "",
-                    "action": "select_slot",
+                    "action": "SelectSlot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1137,7 +1155,7 @@
                     "interactions": "",
                     "processors": "Scale(factor=4)",
                     "groups": "",
-                    "action": "select_slot",
+                    "action": "SelectSlot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1148,7 +1166,7 @@
                     "interactions": "",
                     "processors": "Scale(factor=5)",
                     "groups": "",
-                    "action": "select_slot",
+                    "action": "SelectSlot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1159,7 +1177,7 @@
                     "interactions": "",
                     "processors": "Scale(factor=6)",
                     "groups": "",
-                    "action": "select_slot",
+                    "action": "SelectSlot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1170,7 +1188,7 @@
                     "interactions": "",
                     "processors": "Scale(factor=7)",
                     "groups": "",
-                    "action": "select_slot",
+                    "action": "SelectSlot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1181,7 +1199,7 @@
                     "interactions": "",
                     "processors": "Scale(factor=8)",
                     "groups": "",
-                    "action": "select_slot",
+                    "action": "SelectSlot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1192,7 +1210,7 @@
                     "interactions": "",
                     "processors": "Scale(factor=9)",
                     "groups": "",
-                    "action": "select_slot",
+                    "action": "SelectSlot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1203,7 +1221,7 @@
                     "interactions": "",
                     "processors": "Scale(factor=10)",
                     "groups": "",
-                    "action": "select_slot",
+                    "action": "SelectSlot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1214,9 +1232,130 @@
                     "interactions": "",
                     "processors": "Scale(factor=11)",
                     "groups": "",
-                    "action": "select_slot",
+                    "action": "SelectSlot",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4f895789-0807-431c-825c-892123bb9af3",
+                    "path": "<Mouse>/scroll",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScrollSlot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Gamepad Bumpers",
+                    "id": "19e96085-1afb-4324-8b10-c79ad26d41cc",
+                    "path": "2DVector",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScrollSlot",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "4732c4b1-c034-4711-803a-f0d35deb27df",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScrollSlot",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "46a4d403-5f7e-404d-bfb1-60653f55de00",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScrollSlot",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "ae0d4503-f772-4a17-8b7a-5bd9022a4544",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScrollSlot",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "102a0a5e-9e0a-4820-9833-057271d553b1",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScrollSlot",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Gamepad Bumpers",
+                    "id": "a73036eb-3d1b-4892-82ab-4845e6f9f1fc",
+                    "path": "2DVector",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScrollSlotHold",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "95f92d18-7d36-4ff6-a31c-c3e9176c102b",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScrollSlotHold",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "e07cdd75-cc16-429f-859c-f0feb08bc866",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScrollSlotHold",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "cc063892-d340-4e80-a19a-caed308624ea",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScrollSlotHold",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "9678735d-6481-4fe9-962b-63d13ab087fc",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScrollSlotHold",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

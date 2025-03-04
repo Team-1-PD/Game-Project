@@ -1,19 +1,16 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
-//using UnityEngine.Windows;
-//using UnityEngine.InputSystem;
 using System.Collections;
-//using UnityEngine.Rendering.LookDev;
-//using static UnityEngine.UIElements.UxmlAttributeDescription;
+using kristina;
 
 namespace HappyValley
 {
     public class TimeManager : MonoBehaviour
     {
         #region Variables
-        [SerializeField] GameObject player;
-        [SerializeField] GameObject playerAsleep;
+        /*[SerializeField]*/ //GameObject player;
+        //[SerializeField] GameObject playerAsleep;
         [SerializeField] GameObject timeMenuUI;
         [SerializeField] GameObject Blackscreen;
 
@@ -46,8 +43,8 @@ namespace HappyValley
 
         public static UnityAction<DateTime> OnDateTimeChanged;
         public static UnityAction<int> TimeElapsed;
+        public static UnityAction OnSleep, OnWakeup;
 
-        private InputSystem_Actions input;
         private bool MenuActive = false;
 
         public CanvasGroup blackScreen;
@@ -65,10 +62,6 @@ namespace HappyValley
         #region Start, Update, etc
         private void Awake()
         {
-            input = new InputSystem_Actions();
-            input.Player.Enable();
-
-
             if(timeData.Save == false)
             {
                 DateTime = new DateTime(dateInMonth, season - 1, year, hour, minutes * 10);
@@ -132,7 +125,7 @@ namespace HappyValley
                 PlayerFaint();
             }
 
-            input.Player.Time.performed += ctx =>
+            PlayerInput.Input.Player.Time.performed += ctx =>
             {
                 TimeSettings();
             };
@@ -231,12 +224,12 @@ namespace HappyValley
         {
             sleeping = true;
 
-            player.SetActive(false);
-            playerAsleep.SetActive(true);
             timeMenuUI.SetActive(false);
 
             FadeIn();
             freezeClock = true;
+
+            OnSleep?.Invoke();
             StartCoroutine(nextDay());
         }
 
@@ -252,9 +245,8 @@ namespace HappyValley
         private IEnumerator WakeUp()
         {
             yield return new WaitForSeconds(2);
-            player.SetActive(true);
-            playerAsleep.SetActive(false);
             FadeOut();
+            OnWakeup?.Invoke();
             sleeping = false;
             StartCoroutine(reactivateClock());
         }

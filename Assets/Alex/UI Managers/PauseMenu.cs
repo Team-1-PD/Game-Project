@@ -15,20 +15,16 @@ namespace HappyValley
         [SerializeField] UnityEvent stopPause;
 
         public static bool GameIsPaused = false;
-        private InputSystem_Actions input;
         private bool timeManagerOpen;
 
         void Awake()
         {
-            input = new InputSystem_Actions();
-            input.Player.Enable();
-
             EventSystem.current.SetSelectedGameObject(resumeButton);
         }
 
         void Update()
         {
-            input.Player.Pause.performed += ctx =>
+            PlayerInput.Input.Player.Pause.performed += ctx =>
             {
                 if(!timeManagerOpen)
                 {
