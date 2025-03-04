@@ -1263,7 +1263,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""id"": ""4f895789-0807-431c-825c-892123bb9af3"",
                     ""path"": ""<Mouse>/scroll"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""InvertVector2"",
                     ""groups"": """",
                     ""action"": ""ScrollSlot"",
                     ""isComposite"": false,
