@@ -45,7 +45,9 @@ namespace kristina
         {
             if (!canPlace) return false;
 
-            if (!data.CheckValidPositions(currentGridPos))
+            if (!data.CheckValidPlacements(currentGridPos))
+                return false;
+            if (!data.CheckPlacedPositions(currentGridPos))
                 return false;
             //if it's valid, continue
             Vector3 worldPos = grid.CellToWorld(new(currentGridPos.x, currentGridPos.y, HEIGHT));
@@ -58,7 +60,7 @@ namespace kristina
         }
         public string TryRemove()
         {
-            if (data.CheckValidPositions(currentGridPos)) return null; //if valid pos, it's empty; can't remove empty
+            if (data.CheckPlacedPositions(currentGridPos)) return null; //if valid pos, it's empty; can't remove empty
 
             return data.RemoveFromGrid(currentGridPos);
         }

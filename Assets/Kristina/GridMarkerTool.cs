@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using Unity.Cinemachine;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace kristina
 {
+#if UNITY_EDITOR
     public class GridMarkerTool : MonoBehaviour
     {
         [SerializeField] GameObject marker;
@@ -15,11 +17,14 @@ namespace kristina
 
         void Start()
         {
+            EditorUtility.SetDirty(Database.PLACEABLES);
+            Debug.Log("starting marker tool");
             PlayerInput.Input.Player.Crouch.performed += ToggleMarkerAt;
             grid = FindFirstObjectByType<Grid>();
 
             foreach (var position in Database.PLACEABLES.ValidPlacements)
             {
+                Debug.Log("valid pos at " + position);
                 CreateMarker(position);
             }
         }
@@ -31,7 +36,7 @@ namespace kristina
             Ray ray = cam.ScreenPointToRay(mouse);
             RaycastHit hit;
 
-            if (!Physics.Raycast(ray, out hit, 50f)) return;
+            if (!Physics.Raycast(ray, out hit, 50f, 3)) return;
 
             Vector3Int pos = grid.WorldToCell(hit.point);
 
@@ -51,16 +56,19 @@ namespace kristina
 
         private void CreateMarker(Vector2Int gridPos)
         {
+            Debug.Log("Valid Pos at " + gridPos);
             GameObject obj = Instantiate(marker, grid.CellToWorld(new (gridPos.x, gridPos.y, 0)), new(), transform);
             obj.transform.position += new Vector3(.5f, 0, .5f);
             markers.Add(gridPos, obj);
         }
         private void DestroyMarker(Vector2Int gridPos)
         {
+            Debug.Log("Remove Valid Pos at " + gridPos);
             GameObject obj = markers[gridPos];
             markers.Remove(gridPos);
 
             Destroy(obj);
         }
     }
+#endif
 }

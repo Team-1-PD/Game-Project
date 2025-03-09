@@ -43,14 +43,22 @@ namespace kristina
             return id;
         }
 
-        public bool CheckValidPositions(Vector2Int position)
+        public bool CheckValidPlacements(Vector2Int position)
+        {
+            if (!Database.PLACEABLES.ValidPlacements.Contains(position))
+            {
+                return false;
+            }
+            return true;
+        }
+        public bool CheckPlacedPositions(Vector2Int position)
         {
             //List<Vector2Int> occupyingPositions = CalculatePositions(gridPositions, occupiedSize);
             /*foreach (var position in occupyingPositions)
             {
             }*/
 
-            if (!Database.PLACEABLES.ValidPlacements.Contains(position) || placedTileObjects.ContainsKey(position))
+            if (placedTileObjects.ContainsKey(position))
             {
                 return false;
             }
