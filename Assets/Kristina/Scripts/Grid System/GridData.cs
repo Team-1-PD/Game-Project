@@ -8,34 +8,49 @@ namespace kristina
 {
     public class GridData : MonoBehaviour
     {
-        private Dictionary<Vector2Int, GameObject> placedTileObjects = new();
-        private Dictionary<Vector2Int, string> placedTiles = new();
+        private Dictionary<Vector2Int, PlaceableObject> placedTileObjects = new();
+        private static List<Vector2Int> illegalLocations;
+
+        //private Dictionary<Vector2Int, string> placedTiles = new();
         public bool SaveTiles()
         {
-            //save placedTiles to json
+            //save placedTileObjects to json
             return true;
         }
         public bool LoadTiles()
         {
-            //load from json to placedTiles
+            //load from json to placedTileObjects
             //then loop through each Tile to instantiate new gameObjects
             return true;
         }
 
-        public void AddToGrid(Vector2Int position, GameObject tileObject, string id)
+        public void AddToGrid(Vector2Int position, PlaceableObject tileObject, string id)
         {
             placedTileObjects.Add(position, tileObject);
-            placedTiles.Add(position, id);
+            //placedTiles.Add(position, id);
         }
 
-        public bool CheckValidPositions(Vector2Int position, string id)
+        public string RemoveFromGrid(Vector2Int position)
+        {
+            GameObject obj = placedTileObjects[position].gameObject;
+            string id = placedTileObjects[position].information.ID;
+
+            placedTileObjects.Remove(position);
+            //placedTiles.Remove(position);
+
+            Destroy(obj);
+
+            return id;
+        }
+
+        public bool CheckValidPositions(Vector2Int position)
         {
             //List<Vector2Int> occupyingPositions = CalculatePositions(gridPositions, occupiedSize);
             /*foreach (var position in occupyingPositions)
             {
             }*/
 
-            if (placedTileObjects.ContainsKey(position))
+            if (!Database.PLACEABLES.ValidPlacements.Contains(position) || placedTileObjects.ContainsKey(position))
             {
                 return false;
             }
@@ -55,14 +70,5 @@ namespace kristina
             }
             return allPositions;
         }*/
-    }
-
-    public class Tile
-    {
-        public string ID { get; private set; }
-        public Tile(string _id)
-        {
-            ID = _id;
-        }
     }
 }

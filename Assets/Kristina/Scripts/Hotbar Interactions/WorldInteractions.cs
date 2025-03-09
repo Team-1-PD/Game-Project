@@ -11,11 +11,13 @@ namespace kristina
         public static WorldInteractions instance;
 
         [SerializeField] private UI_Hotbar hotbar;
+        
 
         public BedActivate nearestBed;
-        public PlantIncubator nearestIncubator;        
+        public PlantIncubator nearestIncubator;
 
         bool placementActivated = false;
+        bool removalActivated = false;
 
         Item currentItem = Item.None();
         // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,10 +27,10 @@ namespace kristina
             instance = this;
 
             HotbarSelector.ChangeSelectedItem += SelectItem;
-            PlayerInput.Input.Player.Interact.performed += Interactions;
+            PlayerInput.Input.Player.Interact.performed += PrimaryInteractions;
+            PlayerInput.Input.Player.Attack.performed += SecondaryInteractions;
         }
-
-        public void Interactions(InputAction.CallbackContext ctx)
+        public void PrimaryInteractions(InputAction.CallbackContext ctx)
         {
             //Debug.Log("Interacting");
 
@@ -38,8 +40,14 @@ namespace kristina
 
             if (InteractIncubator()) return; //try incubator last
         }
+        public void SecondaryInteractions(InputAction.CallbackContext ctx)
+        {
+            if (InteractRepair()) return; //try repairing first
 
-        #region Interaction Types
+            if (InteractRemovePlacement()) return; //try removing last
+        }
+
+        #region Primary Interaction Types
         bool InteractBed() 
         {
             //Debug.Log("try bed");
@@ -52,7 +60,9 @@ namespace kristina
             if (placementActivated)
             {
                 if (PlacementHandler.instance.TryPlace(currentItem.ID))
+                {
                     hotbar.RemoveItem(currentItem, 1);
+                }
                 return true;
             }
 
@@ -83,6 +93,26 @@ namespace kristina
         }
         #endregion
 
+        #region Secondary Interaction Types
+        public bool InteractRepair()
+        {
+            return false;
+        }
+        public bool InteractRemovePlacement()
+        {
+            if (removalActivated)
+            {
+                string id = PlacementHandler.instance.TryRemove();
+                if (id == null) return false;
+
+                hotbar.AddItem(Database.ITEMS.Items[id], 1);
+                return true;
+            }
+
+            return false;
+        }
+        #endregion
+
         #region Change Selection
         public void SelectItem(string ID)
         {
@@ -100,15 +130,17 @@ namespace kristina
         private void PlacementSelected()
         {
             if (!placementActivated)
-                SceneManager.LoadSceneAsync("GridSystem", LoadSceneMode.Additive);
+                PlacementHandler.instance.ActivateHighlighter();
             placementActivated = true;
+            removalActivated = true;
         }
         private void PlacementDeselected()
         {
             if (placementActivated)
             {
-                SceneManager.UnloadSceneAsync("GridSystem");
+                PlacementHandler.instance.DeactivateHighlighter();
                 placementActivated = false;
+                removalActivated= false;
             }
         }
         #endregion

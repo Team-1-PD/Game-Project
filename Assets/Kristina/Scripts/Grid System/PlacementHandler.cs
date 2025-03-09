@@ -7,6 +7,8 @@ namespace kristina
     public class PlacementHandler : MonoBehaviour
     {
         public static PlacementHandler instance;
+        
+        public bool canPlace = true; //TODO:: implement
 
         public UnityEvent<string> OnPlace, OnPickup;
 
@@ -23,6 +25,7 @@ namespace kristina
         public Vector2Int currentGridPos { get; private set; }
 
         [SerializeField] Transform highlighter;
+        [SerializeField] Transform objectParent;
         private Cursor placementCursor;
         bool highlighting;
 
@@ -33,25 +36,32 @@ namespace kristina
 
             placementCursor = FindFirstObjectByType<Cursor>();
             
-            ActivateHighlighter();
+            //ActivateHighlighter();
 
             //hotbar = FindFirstObjectByType<UI_Hotbar>();
         }
 
         public bool TryPlace(string id)
         {
-            if (!data.CheckValidPositions(currentGridPos, id))
+            if (!canPlace) return false;
+
+            if (!data.CheckValidPositions(currentGridPos))
                 return false;
             //if it's valid, continue
             Vector3 worldPos = grid.CellToWorld(new(currentGridPos.x, currentGridPos.y, HEIGHT));
 
-            GameObject placedObject = Instantiate(Database.PLACEABLES.PlaceableObjects[id], worldPos + new Vector3(OFFSET, 0, OFFSET), new()); //maybe rotation?
+            GameObject placedObject = Instantiate(Database.PLACEABLES.PlaceableObjects[id].gameObject, worldPos + new Vector3(OFFSET, 0, OFFSET), new(), objectParent); //maybe rotation?
 
-            data.AddToGrid(currentGridPos, placedObject, id);
+            data.AddToGrid(currentGridPos, placedObject.GetComponent<PlaceableObject>(), id);
             OnPlace.Invoke(id);
             return true;
         }
+        public string TryRemove()
+        {
+            if (data.CheckValidPositions(currentGridPos)) return null; //if valid pos, it's empty; can't remove empty
 
+            return data.RemoveFromGrid(currentGridPos);
+        }
         public void ActivateHighlighter()
         {
             highlighting = true;
@@ -65,7 +75,8 @@ namespace kristina
 
         private IEnumerator MoveHighlighter()
         {
-            
+            highlighter.gameObject.SetActive(highlighting);
+
             while (highlighting)
             {
                 Vector3Int gridPos = grid.WorldToCell(placementCursor.transform.position);
@@ -76,6 +87,8 @@ namespace kristina
 
                 yield return new WaitForEndOfFrame();
             }
+
+            highlighter.gameObject.SetActive(highlighting);
         }
     }
 

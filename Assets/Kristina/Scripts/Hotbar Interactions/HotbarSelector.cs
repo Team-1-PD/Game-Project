@@ -117,7 +117,7 @@ namespace kristina
             while (currentlyScrolling)
             {
                 ScrollToSlot(ctx);
-                yield return new WaitForSeconds(.25f);
+                yield return new WaitForSeconds(gamepadScrollRate);
             }
         }
 

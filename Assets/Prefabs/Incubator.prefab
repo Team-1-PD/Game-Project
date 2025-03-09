@@ -451,6 +451,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4f44abdd3d4e1024792a62244217f290, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9142958071899684816}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4f44abdd3d4e1024792a62244217f290, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5094606945741237968}
   m_SourcePrefab: {fileID: 100100000, guid: 4f44abdd3d4e1024792a62244217f290, type: 3}
 --- !u!4 &6288655437309817515 stripped
 Transform:
@@ -539,3 +542,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantSprite: {fileID: 1560071710971348166}
   glassCase: {fileID: 5313246536304440309}
+--- !u!114 &5094606945741237968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6633268308116138001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd948f3110499e049867471642c2ed8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <information>k__BackingField:
+    <ID>k__BackingField: incubator
