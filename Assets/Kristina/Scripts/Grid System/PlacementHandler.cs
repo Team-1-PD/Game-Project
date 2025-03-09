@@ -38,35 +38,19 @@ namespace kristina
             //hotbar = FindFirstObjectByType<UI_Hotbar>();
         }
 
-
-        /*private void Update()
-        {
-            //TEMPORARY
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                TryPlace("incubator");
-            }
-        }*/
-
         public bool TryPlace(string id)
         {
-            /*if (!data.CheckValidPositions(currentGridPos, furniture.Data.OccupiedSize))
-                return false;*/
-            /*if (inventory.CurrentFurniture == null || !inventory.FurnitureInventory.ContainsKey(inventory.CurrentFurniture.Data.ID))
-                return false;*/
+            if (!data.CheckValidPositions(currentGridPos, id))
+                return false;
             //if it's valid, continue
             Vector3 worldPos = grid.CellToWorld(new(currentGridPos.x, currentGridPos.y, HEIGHT));
+
             GameObject placedObject = Instantiate(Database.PLACEABLES.PlaceableObjects[id], worldPos + new Vector3(OFFSET, 0, OFFSET), new()); //maybe rotation?
 
-            //furnitureGroup.InstantiateFurniture(currentGridPos, furnObject);
-
-            //data.AddFurnAtPosition(currentGridPos, furniture.Data.OccupiedSize, furniture.Data.ID);
-
-            //OnPlace.Invoke(furniture.Data.ID);
+            data.AddToGrid(currentGridPos, placedObject, id);
+            OnPlace.Invoke(id);
             return true;
         }
-
-
 
         public void ActivateHighlighter()
         {

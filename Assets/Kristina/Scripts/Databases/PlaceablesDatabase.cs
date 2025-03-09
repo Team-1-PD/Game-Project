@@ -14,6 +14,5 @@ namespace kristina
         [field: SerializeField, SerializedDictionary("ID", "Objects")]
         private SerializedDictionary<string, GameObject> placeableObjects;
         public Dictionary<string, GameObject> PlaceableObjects => placeableObjects;
-
     }
 }
