@@ -95,11 +95,11 @@ namespace kristina
 
         private void OnTriggerEnter(Collider other)
         {
-            WorldInteractions.instance.nearestIncubator = this;
+            WorldInteractions.Instance.nearestIncubator = this;
         }
         private void OnTriggerExit(Collider other)
         {
-            WorldInteractions.instance.nearestIncubator = null;
+            WorldInteractions.Instance.nearestIncubator = null;
         }
     }
 }

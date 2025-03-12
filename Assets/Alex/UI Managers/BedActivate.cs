@@ -18,7 +18,7 @@ namespace HappyValley
             timeManager = FindFirstObjectByType<TimeManager>();
             player = FindFirstObjectByType<Player>().gameObject;
 
-            TimeManager.OnWakeup += WakeUpPlayer;
+            
         }
 
         public bool Sleep()
@@ -26,9 +26,9 @@ namespace HappyValley
             if (bedReady)
             {
                 player.SetActive(false);
-                sleepingPlayer?.SetActive(true);
+                sleepingPlayer.SetActive(true);
                 timeManager.Sleep();
-
+                TimeManager.OnWakeup += WakeUpPlayer;
                 return true;
             }
 
@@ -37,17 +37,18 @@ namespace HappyValley
         public void WakeUpPlayer()
         {
             player.SetActive(true);
-            sleepingPlayer?.SetActive(false);
+            sleepingPlayer.SetActive(false);
+            TimeManager.OnWakeup -= WakeUpPlayer;
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            WorldInteractions.instance.nearestBed = this;
+            WorldInteractions.Instance.nearestBed = this;
             bedReady = true;
         }
         private void OnTriggerExit(Collider other)
         {
-            WorldInteractions.instance.nearestBed = null;
+            WorldInteractions.Instance.nearestBed = null;
             bedReady = false;
         }
     }

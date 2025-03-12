@@ -8,13 +8,14 @@ namespace kristina
 {
     public class WorldInteractions : MonoBehaviour
     {
-        public static WorldInteractions instance;
+        public static WorldInteractions Instance { get; private set; }
 
         [SerializeField] private UI_Hotbar hotbar;
         
 
         public BedActivate nearestBed;
         public PlantIncubator nearestIncubator;
+        public RepairableModule nearestRepair;
 
         bool placementActivated = false;
         bool removalActivated = false;
@@ -24,27 +25,40 @@ namespace kristina
         void Start()
         {
             //Debug.Log("initializing interactions");
-            instance = this;
+            Instance = this;
 
             HotbarSelector.ChangeSelectedItem += SelectItem;
             PlayerInput.Input.Player.Interact.performed += PrimaryInteractions;
+            PlayerInput.Input.Player.Interact.canceled += PrimaryInteractions;
+
             PlayerInput.Input.Player.Attack.performed += SecondaryInteractions;
+            PlayerInput.Input.Player.Attack.canceled += SecondaryInteractions;
+
         }
         public void PrimaryInteractions(InputAction.CallbackContext ctx)
         {
-            //Debug.Log("Interacting");
+            if (ctx.performed)
+            {
+                if (InteractBed()) return; //try sleep first
 
-            if (InteractBed()) return; //try sleep first
+                if (InteractPlacing()) return; //try place next
 
-            if (InteractPlacing()) return; //try place next
-
-            if (InteractIncubator()) return; //try incubator last
+                if (InteractIncubator()) return; //try incubator last
+            }
+            //Debug.Log("Interacting");            
         }
         public void SecondaryInteractions(InputAction.CallbackContext ctx)
         {
-            if (InteractRepair()) return; //try repairing first
+            if (ctx.performed)
+            {
+                if (InteractRepair()) return; //try repairing first
 
-            if (InteractRemovePlacement()) return; //try removing last
+                if (InteractRemovePlacement()) return; //try removing last
+            }
+            else if (ctx.canceled)
+            {
+                if (InteractCancelRepair()) return;
+            }
         }
 
         #region Primary Interaction Types
@@ -96,7 +110,17 @@ namespace kristina
         #region Secondary Interaction Types
         public bool InteractRepair()
         {
-            return false;
+            if (!nearestRepair) return false;
+
+            nearestRepair.StartRepairing();
+            return true;
+        }
+        public bool InteractCancelRepair()
+        {
+            if (!nearestRepair) return false;
+
+            nearestRepair.StopRepairing();
+            return true;
         }
         public bool InteractRemovePlacement()
         {
