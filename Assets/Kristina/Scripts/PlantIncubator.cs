@@ -53,7 +53,7 @@ namespace kristina
         public Plant CollectPlant()
         {
             Plant returnPlant = currentPlant;
-
+            fullyGrown = false;
             plantSprite.gameObject.SetActive(false);
             currentPlant = null;
 

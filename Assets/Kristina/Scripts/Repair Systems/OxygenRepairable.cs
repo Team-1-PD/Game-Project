@@ -24,6 +24,7 @@ namespace kristina
 
                 //--- where we do the oxygen reduction ---
 
+
                 yield return new WaitForEndOfFrame();
             }
         }
