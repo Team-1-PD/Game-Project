@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using System.Threading;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -13,10 +14,10 @@ namespace kristina
         Vector3 movement = Vector3.zero;
 
         [SerializeField] Transform charObject;
+        [SerializeField] Animator animator;
 
         //Rigidbody rb;
         CharacterController cc;
-
         void Start()
         {
             PlayerInput.Input.Player.Enable();
@@ -40,6 +41,10 @@ namespace kristina
             {
                 charObject.LookAt(this.transform.position + movement);
             }
+
+            animator.SetFloat("Vertical", (float) movement.z);
+
+            animator.SetFloat("Horizontal", (float)movement.x);
         }
 
         public void MoveInput(InputAction.CallbackContext ctx)
