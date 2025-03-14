@@ -42,9 +42,9 @@ namespace kristina
                 charObject.LookAt(this.transform.position + movement);
             }
 
-            animator.SetFloat("Horizontal", (float)movement.x);
+            animator.SetFloat("Horizontal", movement.x);
 
-            animator.SetFloat("Vertical", (float)movement.z);
+            animator.SetFloat("Vertical", movement.z);
 
         }
 
