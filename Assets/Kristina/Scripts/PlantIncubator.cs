@@ -18,7 +18,7 @@ namespace kristina
 
         protected int age = 0;
         protected int stageAge;
-        protected int stageInterval => currentPlant.growDuration / currentPlant.sprites.Length - 1;
+        protected int stageInterval => currentPlant.growDuration / (currentPlant.sprites.Length - 1);
 
         protected int currentStage = 0;
         protected Plant currentPlant;
@@ -54,6 +54,8 @@ namespace kristina
         protected virtual void AddToAge(int tick)
         {
             age += tick;
+            Debug.Log("age: " + age);
+            Debug.Log("interval: " + stageInterval);
             stageAge += tick;
             if (stageAge >= stageInterval)
             {
@@ -62,6 +64,7 @@ namespace kristina
         }
         protected void IncrementStage()
         {
+            Debug.Log("increment stage");
             currentStage++;
             stageAge = 0;
 

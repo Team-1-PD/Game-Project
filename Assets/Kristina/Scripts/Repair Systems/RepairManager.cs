@@ -13,12 +13,10 @@ namespace kristina
 
         public static RepairManager Instance { get; private set; }
         private bool sleeping = false;
-        public int elapsedSinceMalfunction { get; private set; } = 0;
-        private float percentChanceOfMalfuction = 0.0f;
+        public int ElapsedSinceMalfunction { get; private set; } = 0;
 
-        private List<RepairableModule> currentlyFunctioning = new();
-        private List<RepairableModule> currentlyMalfunctioning = new();
-
+        private readonly List<RepairableModule> currentlyFunctioning = new();
+        private readonly List<RepairableModule> currentlyMalfunctioning = new();
         void Start()
         {
             foreach (var module in FindObjectsByType<RepairableModule>(FindObjectsSortMode.None)) 
@@ -36,21 +34,40 @@ namespace kristina
         }
         public void AddToElapsed(int ticks)
         {
-            elapsedSinceMalfunction += ticks;
-            switch (elapsedSinceMalfunction)
+            ElapsedSinceMalfunction += ticks;
+        }
+        private int ChanceOfMalfunction() //multiplied by ChanceDayModifier
+        {
+            switch (ElapsedSinceMalfunction)
             {
                 case < 300:
-                    percentChanceOfMalfuction = 0.0f;
-                    break;
+                    return 0; //0%
                 case < 1500:
-                    percentChanceOfMalfuction = 0.15f;
-                    break;
-                case < 3000:
-                    percentChanceOfMalfuction = 0.40f;
-                    break;
+                    return 1; //1%
+                case < 7500:
+                    return 5; //5%
                 default:
-                    percentChanceOfMalfuction = 1.0f;
-                    break;
+                    return 25; //25%
+            }
+        }
+        private float ChanceDayModifier()
+        {
+            switch (TimeManager.GetTimeElapsed())
+            {
+                case < 4500: // up to 3 days
+                    return 1f;
+                case < 15000: // up to 10 days in
+                    return 1.2f;
+                case < 22500: // up to 15 days in
+                    return 1.5f;
+                case < 30000: // up to 20 days in
+                    return 2.0f;
+                case < 45000: // up to 30 days in
+                    return 2.5f;
+                case < 75000: // up to 50 days in
+                    return 3.0f;
+                default: // anything past 50 days
+                    return 4.0f;
             }
         }
 
@@ -64,9 +81,8 @@ namespace kristina
                     continue; //don't run when paused or sleeping
                 }
 
-                Debug.Log("try malfunction");
-
-                if (Random.Range(0, 1) < percentChanceOfMalfuction)
+                float rolledValue = Random.Range(0, 100);
+                if (rolledValue < ChanceOfMalfunction() * ChanceDayModifier())
                     StartNewMalfunction();
 
                 yield return new WaitForSeconds(5f);
@@ -84,7 +100,7 @@ namespace kristina
             currentlyFunctioning.RemoveAt(index);
 
             currentlyMalfunctioning.Add(module);
-            elapsedSinceMalfunction = 0;
+            ElapsedSinceMalfunction = 0;
             module.StartMalfunctioning();
 
             OnMalfunction.Invoke(module.moduleType);
