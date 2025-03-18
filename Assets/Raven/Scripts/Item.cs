@@ -17,16 +17,17 @@ namespace Raven
 
         //public int amount = 0;
         [field: SerializeField] public string ID { get; private set; }
-
-        public Item(ItemType itemType, string ID)
+        [field: SerializeField] public string NAME { get; private set; }
+        public Item(ItemType _itemType, string _id, string _name)
         {
-            this.itemType = itemType;
-            this.ID = ID;
+            itemType = _itemType;
+            ID = _id;
+            NAME = _name;
         }
 
         public static Item None()
         {
-            return new Item(ItemType.None, "none");
+            return new Item(ItemType.None, "none", "");
         }
     }
 
