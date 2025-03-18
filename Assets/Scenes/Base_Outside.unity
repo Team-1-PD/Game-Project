@@ -48000,6 +48000,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Systems
       objectReference: {fileID: 0}
+    - target: {fileID: 4251819911750998371, guid: 27551c60e3ec88a4aa35430aa578f1e1, type: 3}
+      propertyPath: m_ActiveFontFeatures.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6642993949672359007, guid: 27551c60e3ec88a4aa35430aa578f1e1, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0

@@ -1,40 +1,41 @@
-using kristina;
-using Raven;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 
-public class SelectedItemText : MonoBehaviour
+namespace kristina
 {
-    [SerializeField] Color textColor;
-    [SerializeField] Color hiddenColor;
-
-    [SerializeField] TMP_Text textBox;
-    //[SerializeField] HotbarSelector hotbarSelector;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class SelectedItemText : MonoBehaviour
     {
-        HotbarSelector.ChangeSelectedItem += ChangeSelectedItemName;
-    }
+        [SerializeField] Color textColor;
+        [SerializeField] Color hiddenColor;
 
-    public void ChangeSelectedItemName(string item_id)
-    {
-        //Debug.Log("change item");
-        StopAllCoroutines();
-
-        textBox.color = textColor;
-        textBox.text = Database.ITEMS.Items[item_id].NAME;
-        StartCoroutine(FadeAway());
-    }
-
-    private IEnumerator FadeAway()
-    {
-        yield return new WaitForSeconds(2f);
-
-        for (float i = 0; i < 1.3f; i += Time.deltaTime)
+        [SerializeField] TMP_Text textBox;
+        //[SerializeField] HotbarSelector hotbarSelector;
+        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        void Start()
         {
-            textBox.color = Color.Lerp(textColor, hiddenColor, i);
-            yield return new WaitForEndOfFrame();
+            HotbarSelector.ChangeSelectedItem += ChangeSelectedItemName;
+        }
+
+        public void ChangeSelectedItemName(string item_id)
+        {
+            //Debug.Log("change item");
+            StopAllCoroutines();
+
+            textBox.color = textColor;
+            textBox.text = Database.ITEMS.Items[item_id].NAME;
+            StartCoroutine(FadeAway());
+        }
+
+        private IEnumerator FadeAway()
+        {
+            yield return new WaitForSeconds(2f);
+
+            for (float i = 0; i < 1.3f; i += Time.deltaTime)
+            {
+                textBox.color = Color.Lerp(textColor, hiddenColor, i);
+                yield return new WaitForEndOfFrame();
+            }
         }
     }
 }
