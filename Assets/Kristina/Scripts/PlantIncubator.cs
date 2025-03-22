@@ -54,8 +54,8 @@ namespace kristina
         protected virtual void AddToAge(int tick)
         {
             age += tick;
-            Debug.Log("age: " + age);
-            Debug.Log("interval: " + stageInterval);
+            Debug.Log($"age: {age}");
+            Debug.Log($"interval: {stageInterval}");
             stageAge += tick;
             if (stageAge >= stageInterval)
             {

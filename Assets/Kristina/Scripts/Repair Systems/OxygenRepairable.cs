@@ -19,11 +19,13 @@ namespace kristina
                 else
                     repairProgress -= Time.deltaTime * lossRate;
 
+                Debug.Log(repairProgress);
+
                 if (repairProgress >= 1f)
                     FinishRepair();
 
                 //--- where we do the oxygen reduction ---
-
+                
 
                 yield return new WaitForEndOfFrame();
             }

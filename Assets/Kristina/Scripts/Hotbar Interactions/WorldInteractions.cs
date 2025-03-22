@@ -16,6 +16,7 @@ namespace kristina
         public BedActivate nearestBed;
         public PlantIncubator nearestIncubator;
         public RepairableModule nearestRepair;
+        // nearestBox
 
         bool placementActivated = false;
         bool removalActivated = false;

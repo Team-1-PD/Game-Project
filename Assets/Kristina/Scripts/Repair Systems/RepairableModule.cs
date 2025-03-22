@@ -8,7 +8,11 @@ namespace kristina
         [SerializeField] protected float repairRate = 1.0f;
         [SerializeField] protected float lossRate = 1.0f;
 
-        protected float repairProgress = 0f;
+        protected float repairProgress { 
+            get { return privateRepairProgress; } 
+            set { privateRepairProgress = (value > 0) ? value : 0f; } }
+        private float privateRepairProgress = 0f;
+
         protected bool malfunctioning = false;
         public bool Repairing { get; protected set; } = false;
         [field: SerializeField] public ModuleType moduleType { get; protected set; }

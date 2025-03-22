@@ -10,7 +10,8 @@ namespace Raven
             None,
             Placeable,
             Seed,
-            Produce
+            Produce,
+            Oxygenable
         }
 
         [field: SerializeField] public ItemType itemType { get; private set; } = ItemType.None;

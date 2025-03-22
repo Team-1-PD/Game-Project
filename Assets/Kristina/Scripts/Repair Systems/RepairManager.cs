@@ -80,12 +80,11 @@ namespace kristina
                     yield return new WaitForEndOfFrame();
                     continue; //don't run when paused or sleeping
                 }
-
                 float rolledValue = Random.Range(0, 100);
                 if (rolledValue < ChanceOfMalfunction() * ChanceDayModifier())
                     StartNewMalfunction();
 
-                yield return new WaitForSeconds(5f);
+                yield return new WaitForSeconds(10f);
             }
         }
 
