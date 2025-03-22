@@ -1,38 +1,27 @@
 using UnityEngine;
 using HappyValley;
+using UnityEngine.Events;
 
 namespace kristina
 {
     public class PlantIncubator : MonoBehaviour
     {
-        public bool fullyGrown { get; private set; } = false;
+        public UnityAction OnInputPlant, OnCollectPlant;
+        public bool fullyGrown { get; protected set; } = false;
 
         //[SerializeField] PlantDatabase plantHandler;
-        [SerializeField] SpriteRenderer plantSprite;
+        [SerializeField] protected SpriteRenderer plantSprite;
 
-        [SerializeField] GameObject glassCase;
+        [SerializeField] protected GameObject glassCase;
         
-        float timeElapsed;
+        protected float timeElapsed;
 
-        int age = 0;
-        int stageAge;
-        int stageInterval => currentPlant.growDuration / currentPlant.sprites.Length - 1;
+        protected int age = 0;
+        protected int stageAge;
+        protected int stageInterval => currentPlant.growDuration / (currentPlant.sprites.Length - 1);
 
-        int currentStage = 0;
-
-
-        Plant currentPlant;
-
-        void Start()
-        {
-            //InputPlant("plant_one"); //TEMPORARY
-            //TimeManager.TimeElapsed += AddToAge;
-            //TimeManager.TimeElapsed += DebugTime;
-        }
-        void DebugTime(int tick)
-        {
-            Debug.Log(tick);
-        }
+        protected int currentStage = 0;
+        protected Plant currentPlant;
 
         public bool InputPlant(string plantID)
         {
@@ -48,29 +37,34 @@ namespace kristina
             plantSprite.gameObject.SetActive(true);
             plantSprite.sprite = currentPlant.sprites[currentStage];
 
+            OnInputPlant?.Invoke();
             return true;
         }
         public Plant CollectPlant()
         {
             Plant returnPlant = currentPlant;
-
+            fullyGrown = false;
             plantSprite.gameObject.SetActive(false);
             currentPlant = null;
 
+            OnCollectPlant?.Invoke();
             return returnPlant;
         }
 
-        void AddToAge(int tick)
+        protected virtual void AddToAge(int tick)
         {
             age += tick;
+            Debug.Log($"age: {age}");
+            Debug.Log($"interval: {stageInterval}");
             stageAge += tick;
             if (stageAge >= stageInterval)
             {
                 IncrementStage();
             }
         }
-        void IncrementStage()
+        protected void IncrementStage()
         {
+            Debug.Log("increment stage");
             currentStage++;
             stageAge = 0;
 
@@ -81,25 +75,25 @@ namespace kristina
                 FinishGrowing();
             }
         }
-        void FinishGrowing()
+        protected void FinishGrowing()
         {
             glassCase.SetActive(false);
             TimeManager.TimeElapsed -= AddToAge;
             fullyGrown = true;
         }
 
-        private void OnDisable()
+        protected void OnDisable()
         {
             TimeManager.TimeElapsed -= AddToAge;
         }
 
-        private void OnTriggerEnter(Collider other)
+        protected void OnTriggerEnter(Collider other)
         {
-            WorldInteractions.instance.nearestIncubator = this;
+            WorldInteractions.Instance.nearestIncubator = this;
         }
-        private void OnTriggerExit(Collider other)
+        protected void OnTriggerExit(Collider other)
         {
-            WorldInteractions.instance.nearestIncubator = null;
+            WorldInteractions.Instance.nearestIncubator = null;
         }
     }
 }

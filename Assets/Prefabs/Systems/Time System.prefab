@@ -585,10 +585,10 @@ MonoBehaviour:
   dateInMonth: 1
   season: 1
   year: 1
-  hour: 0
+  hour: 6
   minutes: 0
   TickMinutesIncreased: 10
-  TimeBetweenTicks: 7
+  TimeBetweenTicks: 5
   blackScreen: {fileID: 9087717770081959674}
 --- !u!1 &1897197106331376602
 GameObject:

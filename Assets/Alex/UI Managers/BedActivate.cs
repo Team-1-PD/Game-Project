@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using kristina;
+using System.Collections;
 
 namespace HappyValley
 {
@@ -11,24 +12,25 @@ namespace HappyValley
         [SerializeField] GameObject sleepingPlayer;
         //[SerializeField] UnityEvent OnSleep;
 
-        private bool bedReady;
+        private bool bedReady = true;
 
         private void Start()
         {
             timeManager = FindFirstObjectByType<TimeManager>();
             player = FindFirstObjectByType<Player>().gameObject;
 
-            TimeManager.OnWakeup += WakeUpPlayer;
+            
         }
 
         public bool Sleep()
         {
             if (bedReady)
             {
+                bedReady = false;
                 player.SetActive(false);
-                sleepingPlayer?.SetActive(true);
+                sleepingPlayer.SetActive(true);
                 timeManager.Sleep();
-
+                TimeManager.OnWakeup += WakeUpPlayer;
                 return true;
             }
 
@@ -37,18 +39,26 @@ namespace HappyValley
         public void WakeUpPlayer()
         {
             player.SetActive(true);
-            sleepingPlayer?.SetActive(false);
+            sleepingPlayer.SetActive(false);
+            TimeManager.OnWakeup -= WakeUpPlayer;
+            StartCoroutine(WaitToAllowSleep());
+        }
+        
+        private IEnumerator WaitToAllowSleep()
+        {
+            yield return new WaitForSeconds(5);
+            bedReady = true;
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            WorldInteractions.instance.nearestBed = this;
-            bedReady = true;
+            WorldInteractions.Instance.nearestBed = this;
+            //bedReady = true;
         }
         private void OnTriggerExit(Collider other)
         {
-            WorldInteractions.instance.nearestBed = null;
-            bedReady = false;
+            WorldInteractions.Instance.nearestBed = null;
+            //bedReady = false;
         }
     }
 }

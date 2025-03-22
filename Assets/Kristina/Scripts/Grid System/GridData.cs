@@ -1,27 +1,72 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
+using UnityEngine.UIElements;
 
 namespace kristina
 {
     public class GridData : MonoBehaviour
     {
-        private Dictionary<Vector2Int, GameObject> occupiedTiles = new();
+        private Dictionary<Vector2Int, PlaceableObject> placedTileObjects = new();
+        private static List<Vector2Int> illegalLocations;
 
-        public bool CheckValidPositions(Vector2Int gridPositions, Vector2Int occupiedSize)
+        //private Dictionary<Vector2Int, string> placedTiles = new();
+        public bool SaveTiles()
         {
-            List<Vector2Int> occupyingPositions = CalculatePositions(gridPositions, occupiedSize);
-            foreach (var position in occupyingPositions)
-            {
-                if (occupiedTiles.ContainsKey(position))
-                {
-                    return false;
-                }
-            }
+            //save placedTileObjects to json
+            return true;
+        }
+        public bool LoadTiles()
+        {
+            //load from json to placedTileObjects
+            //then loop through each Tile to instantiate new gameObjects
             return true;
         }
 
-        private List<Vector2Int> CalculatePositions(Vector2Int gridPositions, Vector2Int occupiedSize)
+        public void AddToGrid(Vector2Int position, PlaceableObject tileObject, string id)
+        {
+            placedTileObjects.Add(position, tileObject);
+            //placedTiles.Add(position, id);
+        }
+
+        public string RemoveFromGrid(Vector2Int position)
+        {
+            GameObject obj = placedTileObjects[position].gameObject;
+            string id = placedTileObjects[position].information.ID;
+
+            placedTileObjects.Remove(position);
+            //placedTiles.Remove(position);
+
+            Destroy(obj);
+
+            return id;
+        }
+
+        public bool CheckValidPlacements(Vector2Int position)
+        {
+            if (!Database.PLACEABLES.ValidPlacements.Contains(position))
+            {
+                return false;
+            }
+            return true;
+        }
+        public bool CheckPlacedPositions(Vector2Int position)
+        {
+            //List<Vector2Int> occupyingPositions = CalculatePositions(gridPositions, occupiedSize);
+            /*foreach (var position in occupyingPositions)
+            {
+            }*/
+
+            if (placedTileObjects.ContainsKey(position))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        /*private List<Vector2Int> CalculatePositions(Vector2Int gridPositions, Vector2Int occupiedSize)
         {
             List<Vector2Int> allPositions = new();
             for (int x = 0; x < occupiedSize.x; x++)
@@ -32,6 +77,6 @@ namespace kristina
                 }
             }
             return allPositions;
-        }
+        }*/
     }
 }

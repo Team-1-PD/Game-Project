@@ -77,7 +77,7 @@ namespace HappyValley
             blackScreen.alpha = 0;
 
             OnDateTimeChanged?.Invoke(DateTime);
-            InvokeRepeating("PassTimeElapsed", 0, 1f);
+            //InvokeRepeating("PassTimeElapsed", 0, 1f);
             InvokeRepeating("ForwardElapsedTime", 0, 1f);
         }
 
@@ -135,7 +135,7 @@ namespace HappyValley
         #region Clock
         void PassTimeElapsed()
         {
-            TimeElapsed?.Invoke(1);
+            //TimeElapsed?.Invoke(1);
         }
 
         private void Tick()
@@ -212,6 +212,7 @@ namespace HappyValley
         public static void SetTimeElapsed(int x)
         {
             timeElapsed += x;
+            TimeElapsed?.Invoke(x);
             //Debug.Log("Timer: " + timeElapsed);
         }
 
@@ -247,7 +248,6 @@ namespace HappyValley
             yield return new WaitForSeconds(2);
             FadeOut();
             OnWakeup?.Invoke();
-            sleeping = false;
             StartCoroutine(reactivateClock());
         }
 
@@ -255,6 +255,7 @@ namespace HappyValley
         {
             yield return new WaitForSeconds(2);
             freezeClock = false;
+            sleeping = false;
         }
         #endregion
 
@@ -477,7 +478,6 @@ namespace HappyValley
             {
                 AdvanceMinutes(1);
                 TimeManager.SetTimeElapsed(1);
-                TimeManager.TimeElapsed?.Invoke(1);
                 if (hour == 6 && minutes == 0)
                 {
                     i = 0;

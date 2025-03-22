@@ -18,30 +18,37 @@ MonoBehaviour:
       Value:
         <itemType>k__BackingField: 0
         <ID>k__BackingField: none
+        <NAME>k__BackingField: 
     - Key: plant_one
       Value:
         <itemType>k__BackingField: 2
         <ID>k__BackingField: plant_one
+        <NAME>k__BackingField: Default Plant
     - Key: leaf
       Value:
         <itemType>k__BackingField: 3
         <ID>k__BackingField: leaf
+        <NAME>k__BackingField: Leaf
     - Key: egg
       Value:
         <itemType>k__BackingField: 2
         <ID>k__BackingField: egg
+        <NAME>k__BackingField: Egg
     - Key: flower
       Value:
         <itemType>k__BackingField: 3
         <ID>k__BackingField: flower
+        <NAME>k__BackingField: Flower
     - Key: mushroom
       Value:
         <itemType>k__BackingField: 2
         <ID>k__BackingField: mushroom
+        <NAME>k__BackingField: Mushroom
     - Key: incubator
       Value:
         <itemType>k__BackingField: 1
         <ID>k__BackingField: incubator
+        <NAME>k__BackingField: Incubator
   itemSprites:
     _serializedList:
     - Key: leaf
