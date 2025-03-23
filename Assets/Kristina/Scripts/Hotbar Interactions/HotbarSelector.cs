@@ -1,7 +1,5 @@
 using Raven;
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -34,7 +32,8 @@ namespace kristina
 
             PlayerInput.Input.Hotbar.Enable();
 
-            SelectSlot(0);
+            // Removed so that the selector didnt appear at random position on screen until item selected
+            //SelectSlot(0);
 
             //StartCoroutine(DefaultSlot());
         }

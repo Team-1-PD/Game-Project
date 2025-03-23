@@ -13,6 +13,7 @@ namespace Raven
 
         [SerializeField] private int maxSlots = 0;
 
+
         public Inventory(int size)
         {
             maxSlots = size;
@@ -31,7 +32,7 @@ namespace Raven
                 if (itemSlots[i] != null && itemSlots[i].ID.Equals(itemID))
                 {
                     //itemSlots[i].amount += itemID.amount;
-                    itemCounts[i]+= amount;
+                    itemCounts[i] += amount;
                     Debug.Log("added to stack");
                     return i;
                 }
@@ -89,13 +90,25 @@ namespace Raven
 
             return 0;
         }
+
         public Item GetItemAt(int index)
         {
             return itemSlots[index];
         }
+
         public Item[] GetItems()
         {
             return itemSlots;
+        }
+
+        public int[] GetAmounts()
+        {
+            return itemCounts;
+        }
+
+        public int GetItemCount(int slot)
+        {
+            return itemCounts[slot];
         }
 
         public bool MoveItem(int fromIndex, int toIndex)

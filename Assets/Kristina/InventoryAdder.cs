@@ -1,7 +1,6 @@
-using UnityEngine;
-using Raven;
 using AYellowpaper.SerializedCollections;
-using System.Collections.Generic;
+using Raven;
+using UnityEngine;
 
 namespace kristina
 {
@@ -11,7 +10,7 @@ namespace kristina
 
         [field: SerializeField, SerializedDictionary("Item ID", "Item Count"), Header("Items To Add")]
         private SerializedDictionary<string, int> AddToInventory;
-        
+
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()

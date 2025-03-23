@@ -1,4 +1,5 @@
 using kristina;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,7 @@ namespace Raven
     {
         [SerializeField] Transform slotContainer;
         [SerializeField] GameObject slotTemplate;
+        [SerializeField] TMP_Text amountText;
 
         [SerializeField] private Sprite plant1_sprite;
         [SerializeField] private Sprite plant2_sprite;
@@ -35,7 +37,6 @@ namespace Raven
             {
                 GameObject slotObject = Instantiate(slotTemplate, slotContainer);
                 slotObject.SetActive(true);
-
                 // Assign indexes
                 InventorySlot slot = slotObject.GetComponent<InventorySlot>();
                 if (slot != null)
@@ -104,10 +105,14 @@ namespace Raven
         {
             // Update hotbar UI 
             Item[] slots = inventory.GetItems();
+            int[] counts = inventory.GetAmounts();
             for (int i = 0; i < HOTBAR_SIZE; i++)
             {
                 Item item = slots[i];
+                int count = counts[i];
+
                 Image itemImage = hotbar[i].transform.Find("ItemImage")?.GetComponent<Image>();
+                TMP_Text amountText = hotbar[i].transform.Find("ItemCounter/ItemCount")?.GetComponent<TMP_Text>();
                 if (itemImage == null)
                 {
                     continue;
@@ -122,6 +127,16 @@ namespace Raven
 
                 itemImage.sprite = AssignSprite(slots[i]);
                 itemImage.enabled = true;
+
+                // Display count of items on hotbar
+                if (count > 1)
+                {
+                    amountText.text = count.ToString();
+                }
+                else
+                {
+                    amountText.text = "";
+                }
 
             }
 
