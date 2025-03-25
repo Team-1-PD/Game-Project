@@ -13,15 +13,15 @@ namespace kristina
 
         public static RepairManager Instance { get; private set; }
         private bool sleeping = false;
-        public int ElapsedSinceMalfunction { get; private set; } = 0;
+        public int Elapsed_Since_Malfunction { get; private set; } = 0;
 
-        private readonly List<RepairableModule> currentlyFunctioning = new();
-        private readonly List<RepairableModule> currentlyMalfunctioning = new();
+        private readonly List<RepairableModule> currently_functioning = new();
+        private readonly List<RepairableModule> currently_malfunctioning = new();
         void Start()
         {
             foreach (var module in FindObjectsByType<RepairableModule>(FindObjectsSortMode.None)) 
             {
-                currentlyFunctioning.Add(module);
+                currently_functioning.Add(module);
             }
             
             TimeManager.TimeElapsed += AddToElapsed;
@@ -34,11 +34,11 @@ namespace kristina
         }
         public void AddToElapsed(int ticks)
         {
-            ElapsedSinceMalfunction += ticks;
+            Elapsed_Since_Malfunction += ticks;
         }
         private int ChanceOfMalfunction() //multiplied by ChanceDayModifier
         {
-            switch (ElapsedSinceMalfunction)
+            switch (Elapsed_Since_Malfunction)
             {
                 case < 300:
                     return 0; //0%
@@ -90,29 +90,29 @@ namespace kristina
 
         public void StartNewMalfunction()
         {
-            int count = currentlyFunctioning.Count;
+            int count = currently_functioning.Count;
             if (count <= 0) return;
 
             int index = Random.Range(0, count);
 
-            RepairableModule module = currentlyFunctioning[index];
-            currentlyFunctioning.RemoveAt(index);
+            RepairableModule module = currently_functioning[index];
+            currently_functioning.RemoveAt(index);
 
-            currentlyMalfunctioning.Add(module);
-            ElapsedSinceMalfunction = 0;
+            currently_malfunctioning.Add(module);
+            Elapsed_Since_Malfunction = 0;
             module.StartMalfunctioning();
 
-            OnMalfunction.Invoke(module.moduleType);
+            OnMalfunction.Invoke(module.module_type);
             Debug.Log("start new malfunction");
         }
 
         public void FixedMalfunction(RepairableModule module)
         {
-            currentlyMalfunctioning.Remove(module);
+            currently_malfunctioning.Remove(module);
 
-            currentlyFunctioning.Add(module);
+            currently_functioning.Add(module);
 
-            OnRepair.Invoke(module.moduleType);
+            OnRepair.Invoke(module.module_type);
         }
 
         public void OnSleeping()

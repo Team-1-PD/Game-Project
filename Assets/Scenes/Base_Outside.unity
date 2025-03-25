@@ -37179,9 +37179,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b69843734ae9bf478d4a4a16b17ed74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  repairRate: 1
-  lossRate: 1
-  <moduleType>k__BackingField: 0
+  repair_rate: 1
+  loss_rate: 1
+  <module_type>k__BackingField: 0
 --- !u!135 &1382203297
 SphereCollider:
   m_ObjectHideFlags: 0

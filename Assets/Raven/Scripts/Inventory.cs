@@ -35,7 +35,7 @@ namespace Raven
                     Debug.Log("added to stack");
                     return i;
                 }
-                else if ((itemSlots[i] == null || itemSlots[i].itemType == Item.ItemType.None) && emptySlot < 0)
+                else if ((itemSlots[i] == null || itemSlots[i].TYPE == Item.ItemType.None) && emptySlot < 0)
                 {
                     emptySlot = i;
                 }

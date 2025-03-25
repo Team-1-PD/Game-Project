@@ -113,7 +113,7 @@ namespace Raven
                     continue;
                 }
 
-                if (item == null || item.itemType == Item.ItemType.None)
+                if (item == null || item.TYPE == Item.ItemType.None)
                 {
                     itemImage.sprite = null;
                     itemImage.enabled = false;

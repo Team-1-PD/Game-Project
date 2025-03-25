@@ -1,63 +1,65 @@
-using UnityEngine;
 using HappyValley;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace kristina
 {
     public class PlantIncubator : MonoBehaviour
     {
+        private IncubatorInteractions interactions;
+
         public UnityAction OnInputPlant, OnCollectPlant;
-        public bool fullyGrown { get; protected set; } = false;
+        public bool fully_grown { get; protected set; } = false;
 
         //[SerializeField] PlantDatabase plantHandler;
-        [SerializeField] protected SpriteRenderer plantSprite;
+        [SerializeField] protected SpriteRenderer plant_sprite;
 
-        [SerializeField] protected GameObject glassCase;
+        [SerializeField] protected GameObject glass_case;
         
-        protected float timeElapsed;
+        protected float time_elapsed;
 
         protected int age = 0;
-        protected int stageAge;
-        protected int stageInterval => currentPlant.growDuration / (currentPlant.sprites.Length - 1);
+        protected int stage_age;
+        protected int stage_interval => current_plant.Grow_Duration / (current_plant.Sprites.Length - 1);
 
-        protected int currentStage = 0;
-        protected Plant currentPlant;
+        protected int current_stage = 0;
+        protected Plant current_plant;
 
         public bool InputPlant(string plantID)
         {
-            if (currentPlant != null) return false;
+            if (current_plant != null) return false;
             
-            currentPlant = Database.PLANTS.Plants[plantID];
+            current_plant = Database.PLANTS.Plants[plantID];
             age = 0;
-            stageAge = 0;
-            currentStage = 0;
+            stage_age = 0;
+            current_stage = 0;
             TimeManager.TimeElapsed += AddToAge;
 
-            glassCase.SetActive(true);
-            plantSprite.gameObject.SetActive(true);
-            plantSprite.sprite = currentPlant.sprites[currentStage];
+            glass_case.SetActive(true);
+            plant_sprite.gameObject.SetActive(true);
+            plant_sprite.sprite = current_plant.Sprites[current_stage];
 
             OnInputPlant?.Invoke();
             return true;
         }
         public Plant CollectPlant()
         {
-            Plant returnPlant = currentPlant;
-            fullyGrown = false;
-            plantSprite.gameObject.SetActive(false);
-            currentPlant = null;
+            Plant return_plant = current_plant;
+            fully_grown = false;
+            plant_sprite.gameObject.SetActive(false);
+            current_plant = null;
 
             OnCollectPlant?.Invoke();
-            return returnPlant;
+            return return_plant;
         }
 
         protected virtual void AddToAge(int tick)
         {
             age += tick;
             Debug.Log($"age: {age}");
-            Debug.Log($"interval: {stageInterval}");
-            stageAge += tick;
-            if (stageAge >= stageInterval)
+            Debug.Log($"interval: {stage_interval}");
+            stage_age += tick;
+            if (stage_age >= stage_interval)
             {
                 IncrementStage();
             }
@@ -65,35 +67,39 @@ namespace kristina
         protected void IncrementStage()
         {
             Debug.Log("increment stage");
-            currentStage++;
-            stageAge = 0;
+            current_stage++;
+            stage_age = 0;
 
-            plantSprite.sprite = currentPlant.sprites[currentStage];
+            plant_sprite.sprite = current_plant.Sprites[current_stage];
 
-            if (currentStage == currentPlant.sprites.Length - 1)
+            if (current_stage == current_plant.Sprites.Length - 1)
             {
                 FinishGrowing();
             }
         }
         protected void FinishGrowing()
         {
-            glassCase.SetActive(false);
+            glass_case.SetActive(false);
             TimeManager.TimeElapsed -= AddToAge;
-            fullyGrown = true;
+            fully_grown = true;
+        }
+        private void OnEnable()
+        {
+            interactions = FindFirstObjectByType<IncubatorInteractions>();
         }
 
-        protected void OnDisable()
+        private void OnDisable()
         {
             TimeManager.TimeElapsed -= AddToAge;
         }
 
-        protected void OnTriggerEnter(Collider other)
+        private void OnTriggerEnter(Collider other)
         {
-            WorldInteractions.Instance.nearestIncubator = this;
+            interactions.AddNearbyIncubator(this);
         }
-        protected void OnTriggerExit(Collider other)
+        private void OnTriggerExit(Collider other)
         {
-            WorldInteractions.Instance.nearestIncubator = null;
+            interactions.RemoveNearbyIncubator(this);
         }
     }
 }

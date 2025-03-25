@@ -1,6 +1,5 @@
 using AYellowpaper.SerializedCollections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 namespace kristina
@@ -20,18 +19,18 @@ namespace kristina
     public class Plant
     {
         [field: SerializeField] 
-        public Sprite[] sprites { get; private set; }
+        public Sprite[] Sprites { get; private set; }
         [field: SerializeField] 
-        public string id { get; private set; }
+        public string ID { get; private set; }
         [field: SerializeField] 
-        public string name { get; private set; }
+        public string Name { get; private set; }
 
         [field: SerializeField]
-        public string produceID { get; private set; }
+        public string Produce_ID { get; private set; }
         [field: SerializeField]
-        public int productionAmount { get; private set; }
+        public int Production_Amount { get; private set; }
 
         [field: SerializeField, Header("In Ticks (1500 ticks per day)")]
-        public int growDuration { get; private set; }
+        public int Grow_Duration { get; private set; }
     }
 }

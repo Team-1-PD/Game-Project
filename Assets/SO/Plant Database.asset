@@ -16,13 +16,13 @@ MonoBehaviour:
     _serializedList:
     - Key: plant_one
       Value:
-        <sprites>k__BackingField:
+        <Sprites>k__BackingField:
         - {fileID: 1214293876, guid: 230577affe6a7124ab09a4d78b5a8098, type: 3}
         - {fileID: -1181095360, guid: 230577affe6a7124ab09a4d78b5a8098, type: 3}
         - {fileID: -1440665234, guid: 230577affe6a7124ab09a4d78b5a8098, type: 3}
         - {fileID: 1149020579, guid: 230577affe6a7124ab09a4d78b5a8098, type: 3}
-        <id>k__BackingField: plant_one
-        <name>k__BackingField: Yellow
-        <produceID>k__BackingField: flower
-        <productionAmount>k__BackingField: 1
-        <growDuration>k__BackingField: 6000
+        <ID>k__BackingField: plant_one
+        <Name>k__BackingField: Plane One
+        <Produce_ID>k__BackingField: flower
+        <Production_Amount>k__BackingField: 1
+        <Grow_Duration>k__BackingField: 60

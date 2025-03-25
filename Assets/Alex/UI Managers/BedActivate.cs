@@ -52,12 +52,12 @@ namespace HappyValley
 
         private void OnTriggerEnter(Collider other)
         {
-            WorldInteractions.Instance.nearestBed = this;
+            WorldInteractions.Instance.Nearest_Bed = this;
             //bedReady = true;
         }
         private void OnTriggerExit(Collider other)
         {
-            WorldInteractions.Instance.nearestBed = null;
+            WorldInteractions.Instance.Nearest_Bed = null;
             //bedReady = false;
         }
     }

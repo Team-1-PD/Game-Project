@@ -13,15 +13,15 @@ namespace kristina
         [SerializeField] private UI_Hotbar hotbar;
         
 
-        public BedActivate nearestBed;
-        public PlantIncubator nearestIncubator;
-        public RepairableModule nearestRepair;
+        public BedActivate Nearest_Bed;
+        public PlantIncubator Nearest_Incubator;
+        public RepairableModule Nearest_Repair;
         // nearestBox
 
-        bool placementActivated = false;
-        bool removalActivated = false;
+        bool placement_activated = false;
+        bool removal_activated = false;
 
-        Item currentItem = Item.None();
+        Item current_item = Item.None();
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
@@ -66,17 +66,17 @@ namespace kristina
         bool InteractBed() 
         {
             //Debug.Log("try bed");
-            return nearestBed != null && nearestBed.Sleep();
+            return Nearest_Bed != null && Nearest_Bed.Sleep();
         }
 
         bool InteractPlacing()
         {
             //Debug.Log("try place");
-            if (placementActivated)
+            if (placement_activated)
             {
-                if (PlacementHandler.instance.TryPlace(currentItem.ID))
+                if (PlacementHandler.instance.TryPlace(current_item.ID))
                 {
-                    hotbar.RemoveItem(currentItem, 1);
+                    hotbar.RemoveItem(current_item, 1);
                 }
                 return true;
             }
@@ -87,20 +87,20 @@ namespace kristina
         bool InteractIncubator()
         {
             //Debug.Log("try incubator");
-            if (nearestIncubator != null)
+            if (Nearest_Incubator != null)
             {
-                if (nearestIncubator.fullyGrown)
+                if (Nearest_Incubator.fully_grown)
                 {
                     //try pickup produce next
-                    Plant plant = nearestIncubator.CollectPlant();
+                    Plant plant = Nearest_Incubator.CollectPlant();
 
-                    hotbar.AddItem(Database.ITEMS.Items[plant.produceID], plant.productionAmount);
+                    hotbar.AddItem(Database.ITEMS.Items[plant.Produce_ID], plant.Production_Amount);
                     return true;
                 }
-                else if (currentItem.itemType == Item.ItemType.Seed && nearestIncubator.InputPlant(currentItem.ID))
+                else if (current_item.TYPE == Item.ItemType.Seed && Nearest_Incubator.InputPlant(current_item.ID))
                 {
                     //finally try inputting seeds into incubator
-                    hotbar.RemoveItem(currentItem, 1);
+                    hotbar.RemoveItem(current_item, 1);
                     return true;
                 }
             }
@@ -111,21 +111,21 @@ namespace kristina
         #region Secondary Interaction Types
         public bool InteractRepair()
         {
-            if (!nearestRepair) return false;
+            if (!Nearest_Repair) return false;
 
-            nearestRepair.StartRepairing();
+            Nearest_Repair.StartRepairing();
             return true;
         }
         public bool InteractCancelRepair()
         {
-            if (!nearestRepair) return false;
+            if (!Nearest_Repair) return false;
 
-            nearestRepair.StopRepairing();
+            Nearest_Repair.StopRepairing();
             return true;
         }
         public bool InteractRemovePlacement()
         {
-            if (removalActivated)
+            if (removal_activated)
             {
                 string id = PlacementHandler.instance.TryRemove();
                 if (id == null) return false;
@@ -141,9 +141,9 @@ namespace kristina
         #region Change Selection
         public void SelectItem(string ID)
         {
-            currentItem = Database.ITEMS.Items[ID];
+            current_item = Database.ITEMS.Items[ID];
 
-            if (currentItem.itemType == Item.ItemType.Placeable)
+            if (current_item.TYPE == Item.ItemType.Placeable)
             {
                 PlacementSelected();
             }
@@ -154,18 +154,18 @@ namespace kristina
         }
         private void PlacementSelected()
         {
-            if (!placementActivated)
+            if (!placement_activated)
                 PlacementHandler.instance.ActivateHighlighter();
-            placementActivated = true;
-            removalActivated = true;
+            placement_activated = true;
+            removal_activated = true;
         }
         private void PlacementDeselected()
         {
-            if (placementActivated)
+            if (placement_activated)
             {
                 PlacementHandler.instance.DeactivateHighlighter();
-                placementActivated = false;
-                removalActivated= false;
+                placement_activated = false;
+                removal_activated= false;
             }
         }
         #endregion

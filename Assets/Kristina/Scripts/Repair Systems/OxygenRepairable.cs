@@ -15,13 +15,13 @@ namespace kristina
             while (malfunctioning)
             {
                 if (Repairing)
-                    repairProgress += Time.deltaTime * repairRate;
+                    repair_progress += Time.deltaTime * repair_rate;
                 else
-                    repairProgress -= Time.deltaTime * lossRate;
+                    repair_progress -= Time.deltaTime * loss_rate;
 
-                Debug.Log(repairProgress);
+                Debug.Log(repair_progress);
 
-                if (repairProgress >= 1f)
+                if (repair_progress >= 1f)
                     FinishRepair();
 
                 //--- where we do the oxygen reduction ---

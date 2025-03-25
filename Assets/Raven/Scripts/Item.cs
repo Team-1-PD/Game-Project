@@ -14,14 +14,14 @@ namespace Raven
             Oxygenable
         }
 
-        [field: SerializeField] public ItemType itemType { get; private set; } = ItemType.None;
+        [field: SerializeField] public ItemType TYPE { get; private set; } = ItemType.None;
 
         //public int amount = 0;
         [field: SerializeField] public string ID { get; private set; }
         [field: SerializeField] public string NAME { get; private set; }
         public Item(ItemType _itemType, string _id, string _name)
         {
-            itemType = _itemType;
+            TYPE = _itemType;
             ID = _id;
             NAME = _name;
         }

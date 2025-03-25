@@ -540,8 +540,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e237e19cdd20bd479f7784f2073d63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantSprite: {fileID: 1560071710971348166}
-  glassCase: {fileID: 5313246536304440309}
+  plant_sprite: {fileID: 1560071710971348166}
+  glass_case: {fileID: 5313246536304440309}
 --- !u!114 &5094606945741237968
 MonoBehaviour:
   m_ObjectHideFlags: 0

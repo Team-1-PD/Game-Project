@@ -117,6 +117,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8899801772825708917}
+  - component: {fileID: 2843478900950353505}
   m_Layer: 0
   m_Name: Placed Objects
   m_TagString: Untagged
@@ -139,6 +140,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3258397817816324248}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2843478900950353505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573477466491936858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dcf7f71844c4b941b368bdb4f09f49f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5682554818841572931
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,6 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a8ecb54848a5314f8bccd928d348a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canPlace: 1
   OnPlace:
     m_PersistentCalls:
       m_Calls: []
