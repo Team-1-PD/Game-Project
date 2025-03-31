@@ -1,7 +1,6 @@
 using AYellowpaper.SerializedCollections;
 using Raven;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 namespace kristina
@@ -16,5 +15,7 @@ namespace kristina
         [field: SerializeField, SerializedDictionary("ID", "Sprites")]
         private SerializedDictionary<string, Sprite> itemSprites;
         public Dictionary<string, Sprite> ItemSprites => itemSprites;
+
+
     }
 }
