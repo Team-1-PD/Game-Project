@@ -41,6 +41,12 @@ namespace Raven
                     continue;
                 }
 
+                // Only spawn specific item types in shop
+                if (item.itemType != Item.ItemType.Seed && item.itemType != Item.ItemType.Placeable)
+                {
+                    continue;
+                }
+
                 // Instantiate slot from template
                 GameObject shopSlotObject = Instantiate(shopSlot, scrollArea);
 
