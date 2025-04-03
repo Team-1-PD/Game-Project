@@ -20,7 +20,7 @@ namespace Raven
         [field: SerializeField] public string ID { get; private set; }
         [field: SerializeField] public string NAME { get; private set; }
 
-        [field: SerializeField] public string DESCRIPTION { get; private set; }
+        [field: SerializeField, TextArea(3, 10)] public string DESCRIPTION { get; private set; }
         [field: SerializeField] public int COST { get; private set; }
 
         public Item(ItemType _itemType, string _id, string _name, string _desc, int _cost)

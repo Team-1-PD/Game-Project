@@ -18,12 +18,21 @@ namespace Raven
         [SerializeField] TMP_Text shopDetails;
         [SerializeField] TMP_Text shopPrice;
         [SerializeField] Button buyButton;
+        [SerializeField] TMP_Text bankAmount;
 
         private Item currentItem;
+        [SerializeField] Player player;
 
+        // Force bank to be amount for **TESTING**
+        private void Awake()
+        {
+            player.getBank = 1000;
+        }
         void Start()
         {
+            buyButton.gameObject.SetActive(false);
             UpdateShop();
+            bankAmount.text = player.getBank.ToString();
         }
 
         void UpdateShop()
@@ -67,6 +76,7 @@ namespace Raven
                 Button slotButton = shopSlotObject.GetComponent<Button>();
                 slotButton.onClick.AddListener(() => UpdateDetails(item));
 
+
             }
 
         }
@@ -77,6 +87,27 @@ namespace Raven
 
             shopDetails.text = item.DESCRIPTION;
             shopPrice.text = item.COST.ToString();
+
+            buyButton.onClick.RemoveAllListeners();
+            buyButton.onClick.AddListener(() => { BuyItem(item, currentItem.COST); });
+
+            buyButton.gameObject.SetActive(true);
+
+        }
+
+        void BuyItem(Item item, int price)
+        {
+            if (player.getBank >= price)
+            {
+                player.getBank -= price;
+                bankAmount.text = player.getBank.ToString();
+                Debug.Log("Purchased: " + item.ID);
+            }
+            else
+            {
+                Debug.Log("Not enough funds!");
+            }
+
         }
     }
 }
