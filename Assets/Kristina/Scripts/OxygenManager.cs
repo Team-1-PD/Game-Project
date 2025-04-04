@@ -1,19 +1,35 @@
 using HappyValley;
+using System.Collections;
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace kristina
 {
     public class OxygenManager : MonoBehaviour
     {
         [SerializeField] Oxygen oxygen;
-        [field: SerializeField, WriteOnly] readonly float default_depletion_rate = 10f;
+        [field: SerializeField] float default_depletion_rate = 10f;
+
+        
+        [SerializeField, Header("<Current, Max>")] UnityEvent<float, float> OxygenAmount; 
+
         float depletion_rate;
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
             depletion_rate = default_depletion_rate;
-            TimeManager.TimeElapsed += ReduceOxygen;
+            OxygenAmount?.Invoke(oxygen.CurrentOxygen, oxygen.MaxOxygen);
+            StartCoroutine(OxygenReducer());
+        }
+
+        public IEnumerator OxygenReducer()
+        {
+            while (oxygen.CurrentOxygen > 0)
+            {
+                ReduceOxygen();
+                yield return new WaitForSeconds(1);
+            }
         }
 
         public void IncreaseDepletionRate(float amount)
@@ -29,10 +45,10 @@ namespace kristina
             depletion_rate = default_depletion_rate;
         }
 
-        public void ReduceOxygen(int ticks)
+        public void ReduceOxygen()
         {
-            Debug.Log(default_depletion_rate);
-            oxygen.DecreaseOxygen(depletion_rate / ticks);
+            oxygen.DecreaseOxygen(depletion_rate);
+            OxygenAmount?.Invoke(oxygen.CurrentOxygen, oxygen.MaxOxygen);
         }
     }
 }

@@ -736,7 +736,7 @@ GameObject:
   - component: {fileID: 5725891607428841627}
   - component: {fileID: 3303467872798430198}
   - component: {fileID: 7042172502266408224}
-  - component: {fileID: 225024171095858876}
+  - component: {fileID: 6660438194578160819}
   m_Layer: 5
   m_Name: OxygenBar
   m_TagString: Untagged
@@ -801,7 +801,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &225024171095858876
+--- !u!114 &6660438194578160819
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -810,11 +810,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7288902104330627122}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b12dba2ba8c3dd54fb6a2fac13af41f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f5ab46f20b36ee45a7411ba658c2cd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerOxygen: {fileID: 11400000, guid: b67f72aedb8b9ac4d86f2d614400c629, type: 2}
-  oxygenBar: {fileID: 7042172502266408224}
+  progress_bar: {fileID: 7042172502266408224}
 --- !u!1 &7733836986800195137
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,6 +917,7 @@ GameObject:
   - component: {fileID: 3409327868599726032}
   - component: {fileID: 486354288028569051}
   - component: {fileID: 4755414906891927593}
+  - component: {fileID: 4664342556773167011}
   m_Layer: 5
   m_Name: Oxygen
   m_TagString: Untagged
@@ -983,6 +983,35 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4664342556773167011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8011753916784639535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e618d75ea1d4be44a7ade8ac05dd122, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oxygen: {fileID: 11400000, guid: b67f72aedb8b9ac4d86f2d614400c629, type: 2}
+  default_depletion_rate: 10
+  OxygenAmount:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6660438194578160819}
+        m_TargetAssemblyTypeName: ProgressBar, Assembly-CSharp
+        m_MethodName: UpdateProgressBar
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8334668721359737197
 GameObject:
   m_ObjectHideFlags: 0

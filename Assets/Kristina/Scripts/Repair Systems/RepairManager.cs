@@ -88,6 +88,7 @@ namespace kristina
             }
         }
 
+        [ContextMenu("Start a Malfunction")]
         public void StartNewMalfunction()
         {
             int count = currently_functioning.Count;
@@ -102,7 +103,7 @@ namespace kristina
             Elapsed_Since_Malfunction = 0;
             module.StartMalfunctioning();
 
-            OnMalfunction.Invoke(module.module_type);
+            OnMalfunction?.Invoke(module.module_type);
             Debug.Log("start new malfunction");
         }
 
@@ -112,7 +113,7 @@ namespace kristina
 
             currently_functioning.Add(module);
 
-            OnRepair.Invoke(module.module_type);
+            OnRepair?.Invoke(module.module_type);
         }
 
         public void OnSleeping()

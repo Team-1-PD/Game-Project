@@ -10,6 +10,7 @@ namespace kristina
         [SerializeField] protected float loss_rate = 1.0f;
 
         public UnityEvent OnMalfunction, OnRepair, OnTickMalfunctioning;
+        public UnityEvent<float, float> RepairProgress;
 
         protected float repair_progress { 
             get { return private_repair_progress; } 
@@ -24,7 +25,7 @@ namespace kristina
             repair_progress = 0f;
             malfunctioning = true;
             Repairing = false;
-            OnMalfunction.Invoke();
+            OnMalfunction?.Invoke();
             StartCoroutine(Malfunctioning());
         }
 
@@ -37,12 +38,12 @@ namespace kristina
                 else
                     repair_progress -= Time.deltaTime * loss_rate;
 
-                Debug.Log(repair_progress);
+                RepairProgress?.Invoke(repair_progress, 1);
 
                 if (repair_progress >= 1f)
                     FinishRepair();
 
-                OnTickMalfunctioning.Invoke();
+                OnTickMalfunctioning?.Invoke();
 
                 yield return new WaitForEndOfFrame();
             }
@@ -62,7 +63,7 @@ namespace kristina
             malfunctioning = false;
             RepairManager.Instance.FixedMalfunction(this);
             WorldInteractions.Instance.Nearest_Repair = null;
-            OnRepair.Invoke();
+            OnRepair?.Invoke();
             Debug.Log("Repaired Oxygen");
         }
 
