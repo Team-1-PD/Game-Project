@@ -10,7 +10,7 @@ namespace HappyValley
 
         void Start()
         {
-            InvokeRepeating("DepleteOxygen", 0, 1f);
+            //InvokeRepeating("DepleteOxygen", 0, 1f);
         }
 
         void Update()

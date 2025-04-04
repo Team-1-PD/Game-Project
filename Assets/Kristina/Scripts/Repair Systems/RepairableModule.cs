@@ -1,12 +1,15 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace kristina
 {
-    public abstract class RepairableModule : MonoBehaviour
+    public class RepairableModule : MonoBehaviour
     {
         [SerializeField] protected float repair_rate = 1.0f;
         [SerializeField] protected float loss_rate = 1.0f;
+
+        public UnityEvent OnMalfunction, OnRepair, OnTickMalfunctioning;
 
         protected float repair_progress { 
             get { return private_repair_progress; } 
@@ -21,17 +24,46 @@ namespace kristina
             repair_progress = 0f;
             malfunctioning = true;
             Repairing = false;
+            OnMalfunction.Invoke();
             StartCoroutine(Malfunctioning());
         }
 
-        protected abstract IEnumerator Malfunctioning();
-        public abstract void StartRepairing();
-        public abstract void StopRepairing();
+        protected virtual IEnumerator Malfunctioning()
+        {
+            while (malfunctioning)
+            {
+                if (Repairing)
+                    repair_progress += Time.deltaTime * repair_rate;
+                else
+                    repair_progress -= Time.deltaTime * loss_rate;
+
+                Debug.Log(repair_progress);
+
+                if (repair_progress >= 1f)
+                    FinishRepair();
+
+                OnTickMalfunctioning.Invoke();
+
+                yield return new WaitForEndOfFrame();
+            }
+        }
+        public virtual void StartRepairing()
+        {
+            Debug.Log("Start Repairing");
+            Repairing = true;
+        }
+        public virtual void StopRepairing()
+        {
+            Debug.Log("Stop Repairing");
+            Repairing = false;
+        }
         public virtual void FinishRepair()
         {
             malfunctioning = false;
             RepairManager.Instance.FixedMalfunction(this);
             WorldInteractions.Instance.Nearest_Repair = null;
+            OnRepair.Invoke();
+            Debug.Log("Repaired Oxygen");
         }
 
         private void OnTriggerEnter(Collider other)
