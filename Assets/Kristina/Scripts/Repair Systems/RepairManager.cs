@@ -101,9 +101,9 @@ namespace kristina
 
             currently_malfunctioning.Add(module);
             Elapsed_Since_Malfunction = 0;
-            module.StartMalfunctioning();
 
             OnMalfunction?.Invoke(module.module_type);
+            module.StartMalfunctioning();
             Debug.Log("start new malfunction");
         }
 

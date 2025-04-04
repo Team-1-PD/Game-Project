@@ -47,10 +47,14 @@ namespace kristina
         public void AddNearbyIncubator(PlantIncubator incubator)
         {
             nearby_incubators.Add(incubator);
+            if (nearby_incubators.Count == 1)
+                WorldInteractions.Instance.Nearest_Incubator = incubator;
         }
         public void RemoveNearbyIncubator(PlantIncubator incubator)
         {
             nearby_incubators.Remove(incubator);
+            if (nearby_incubators.Count == 0)
+                WorldInteractions.Instance.Nearest_Incubator = null;
         }
     }
 }

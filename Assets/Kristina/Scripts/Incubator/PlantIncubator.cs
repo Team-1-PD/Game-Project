@@ -55,6 +55,8 @@ namespace kristina
 
         protected virtual void AddToAge(int tick)
         {
+            if (!PowerManager.power_to_base) return; //no growth w/o power
+
             age += tick;
             Debug.Log($"age: {age}");
             Debug.Log($"interval: {stage_interval}");
@@ -90,6 +92,7 @@ namespace kristina
 
         private void OnDisable()
         {
+            interactions.RemoveNearbyIncubator(this);
             TimeManager.TimeElapsed -= AddToAge;
         }
 
