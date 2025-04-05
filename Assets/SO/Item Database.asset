@@ -19,38 +19,61 @@ MonoBehaviour:
         <TYPE>k__BackingField: 0
         <ID>k__BackingField: none
         <NAME>k__BackingField: 
+        <DESCRIPTION>k__BackingField: 
+        <COST>k__BackingField: 0
     - Key: plant_one
       Value:
         <TYPE>k__BackingField: 2
         <ID>k__BackingField: plant_one
         <NAME>k__BackingField: Default Plant
+        <DESCRIPTION>k__BackingField: This is plant one.
+        <COST>k__BackingField: 10
     - Key: leaf
       Value:
         <TYPE>k__BackingField: 3
         <ID>k__BackingField: leaf
         <NAME>k__BackingField: Leaf
+        <DESCRIPTION>k__BackingField: This is a leaf.
+        <COST>k__BackingField: 20
     - Key: egg
       Value:
         <TYPE>k__BackingField: 3
         <ID>k__BackingField: egg
         <NAME>k__BackingField: Egg
+        <DESCRIPTION>k__BackingField: E G G
+        <COST>k__BackingField: 30
     - Key: flower
       Value:
         <TYPE>k__BackingField: 3
         <ID>k__BackingField: flower
         <NAME>k__BackingField: Flower
+        <DESCRIPTION>k__BackingField: This is a flower.
+        <COST>k__BackingField: 40
     - Key: mushroom
       Value:
         <TYPE>k__BackingField: 3
         <ID>k__BackingField: mushroom
         <NAME>k__BackingField: Mushroom
+        <DESCRIPTION>k__BackingField: This is a mushroom.
+        <COST>k__BackingField: 50
     - Key: incubator
       Value:
         <TYPE>k__BackingField: 1
         <ID>k__BackingField: incubator
         <NAME>k__BackingField: Incubator
+        <DESCRIPTION>k__BackingField: This is an incubator.
+        <COST>k__BackingField: 60
+    - Key: seedpack_yg
+      Value:
+        <itemType>k__BackingField: 2
+        <ID>k__BackingField: seedpack_yg
+        <NAME>k__BackingField: Seedpack
+        <DESCRIPTION>k__BackingField: A packet containing yellow and green seeds.
+        <COST>k__BackingField: 70
   itemSprites:
     _serializedList:
+    - Key: seedpack_yg
+      Value: {fileID: 21300000, guid: e273b4c2251846f48abbd7481aa73fb1, type: 3}
     - Key: leaf
       Value: {fileID: -659071828, guid: 5ea64d8792e683a4fbc3653e99c7e2e8, type: 3}
     - Key: plant_one

@@ -19,6 +19,11 @@ namespace kristina
 
         //Rigidbody rb;
         CharacterController cc;
+
+        //Currency manager
+        private int currentBank;
+        public int getBank { get { return currentBank; } set { currentBank = value; } }
+
         void Start()
         {
             PlayerInput.Input.Player.Enable();
@@ -29,6 +34,7 @@ namespace kristina
 
             //rb = GetComponent<Rigidbody>();
             cc = GetComponent<CharacterController>();
+
         }
         void Update()
         {
@@ -40,7 +46,7 @@ namespace kristina
 
             if (movement.magnitude > 0.1f)
             {
-                charObject.LookAt(this.transform.position + movement);
+                charObject.LookAt(transform.position + movement);
             }
 
             animator.SetFloat("Horizontal", movement.x);
@@ -61,7 +67,7 @@ namespace kristina
             //--
 
             Vector3 input = ctx.ReadValue<Vector2>();
-            movement = (input.x * camRight + input.y * camForward).normalized;
+            movement = ((input.x * camRight) + (input.y * camForward)).normalized;
         }
 
         public void Sprint(InputAction.CallbackContext ctx)

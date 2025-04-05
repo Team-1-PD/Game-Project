@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.Cinemachine;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -18,13 +17,13 @@ namespace kristina
         void Start()
         {
             EditorUtility.SetDirty(Database.PLACEABLES);
-            Debug.Log("starting marker tool");
+            //Debug.Log("starting marker tool");
             PlayerInput.Input.Player.Crouch.performed += ToggleMarkerAt;
             grid = FindFirstObjectByType<Grid>();
 
             foreach (var position in Database.PLACEABLES.ValidPlacements)
             {
-                Debug.Log("valid pos at " + position);
+                // Debug.Log("valid pos at " + position);
                 CreateMarker(position);
             }
         }
@@ -56,14 +55,14 @@ namespace kristina
 
         private void CreateMarker(Vector2Int gridPos)
         {
-            Debug.Log("Valid Pos at " + gridPos);
-            GameObject obj = Instantiate(marker, grid.CellToWorld(new (gridPos.x, gridPos.y, 0)), new(), transform);
+            // Debug.Log("Valid Pos at " + gridPos);
+            GameObject obj = Instantiate(marker, grid.CellToWorld(new(gridPos.x, gridPos.y, 0)), new(), transform);
             obj.transform.position += new Vector3(.5f, 0, .5f);
             markers.Add(gridPos, obj);
         }
         private void DestroyMarker(Vector2Int gridPos)
         {
-            Debug.Log("Remove Valid Pos at " + gridPos);
+            //Debug.Log("Remove Valid Pos at " + gridPos);
             GameObject obj = markers[gridPos];
             markers.Remove(gridPos);
 
