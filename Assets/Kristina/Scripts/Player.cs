@@ -1,3 +1,5 @@
+using HappyValley;
+using System.Security.Cryptography;
 using System.Threading;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -13,10 +15,10 @@ namespace kristina
         Vector3 movement = Vector3.zero;
 
         [SerializeField] Transform charObject;
+        [SerializeField] Animator animator;
 
         //Rigidbody rb;
         CharacterController cc;
-
         void Start()
         {
             PlayerInput.Input.Player.Enable();
@@ -40,6 +42,10 @@ namespace kristina
             {
                 charObject.LookAt(this.transform.position + movement);
             }
+
+            animator.SetFloat("Horizontal", movement.x);
+
+            animator.SetFloat("Vertical", movement.z);
         }
 
         public void MoveInput(InputAction.CallbackContext ctx)
