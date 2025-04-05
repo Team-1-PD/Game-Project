@@ -1,3 +1,4 @@
+using HappyValley;
 using System.Security.Cryptography;
 using System.Threading;
 using Unity.Cinemachine;
@@ -45,7 +46,6 @@ namespace kristina
             animator.SetFloat("Horizontal", movement.x);
 
             animator.SetFloat("Vertical", movement.z);
-
         }
 
         public void MoveInput(InputAction.CallbackContext ctx)
