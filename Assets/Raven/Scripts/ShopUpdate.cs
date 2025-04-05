@@ -23,6 +23,8 @@ namespace Raven
         private Item currentItem;
         [SerializeField] Player player;
 
+        private UI_Hotbar hotbar;
+
         // Force bank to be amount for **TESTING**
         private void Awake()
         {
@@ -30,6 +32,8 @@ namespace Raven
         }
         void Start()
         {
+            hotbar = FindFirstObjectByType<UI_Hotbar>();
+
             buyButton.gameObject.SetActive(false);
             UpdateShop();
             bankAmount.text = player.getBank.ToString();
@@ -102,6 +106,10 @@ namespace Raven
                 player.getBank -= price;
                 bankAmount.text = player.getBank.ToString();
                 Debug.Log("Purchased: " + item.ID);
+
+                hotbar.AddItem(Database.ITEMS.Items[item.ID], 1);
+                Debug.Log("Added: " + item.ID + " to inventory");
+
             }
             else
             {
