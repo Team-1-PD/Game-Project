@@ -55,7 +55,7 @@ namespace Raven
                 }
 
                 // Only spawn specific item types in shop
-                if (item.itemType != Item.ItemType.Seed && item.itemType != Item.ItemType.Placeable)
+                if (item.TYPE != Item.ItemType.Seed && item.TYPE != Item.ItemType.Placeable)
                 {
                     continue;
                 }
