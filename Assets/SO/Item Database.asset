@@ -65,7 +65,7 @@ MonoBehaviour:
         <COST>k__BackingField: 60
     - Key: seedpack_yg
       Value:
-        <itemType>k__BackingField: 2
+        <TYPE>k__BackingField: 2
         <ID>k__BackingField: seedpack_yg
         <NAME>k__BackingField: Seedpack
         <DESCRIPTION>k__BackingField: A packet containing yellow and green seeds.

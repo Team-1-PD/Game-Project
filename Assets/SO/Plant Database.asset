@@ -14,9 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plants:
     _serializedList:
-    - Key: plant_one
+    - Key: seedpack_yg
       Value:
-        <Sprites>k__BackingField: []
+        <Sprites>k__BackingField:
+        - {fileID: 1214293876, guid: 230577affe6a7124ab09a4d78b5a8098, type: 3}
+        - {fileID: -1181095360, guid: 230577affe6a7124ab09a4d78b5a8098, type: 3}
+        - {fileID: -1440665234, guid: 230577affe6a7124ab09a4d78b5a8098, type: 3}
+        - {fileID: 1149020579, guid: 230577affe6a7124ab09a4d78b5a8098, type: 3}
         <ID>k__BackingField: plant_one
         <Name>k__BackingField: Yellow
         <Produce_ID>k__BackingField: flower
