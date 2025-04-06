@@ -38,7 +38,7 @@ namespace kristina
         }
         public void PrimaryInteractions(InputAction.CallbackContext ctx)
         {
-            if (ctx.performed)
+            if (ctx.performed && !SceneManager.GetSceneByName("ShopTerminal").isLoaded)
             {
                 if (InteractBed()) return; //try sleep first
 

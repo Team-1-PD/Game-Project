@@ -33,7 +33,7 @@ namespace kristina
             PlayerInput.Input.Hotbar.Enable();
 
             // Removed so that the selector didnt appear at random position on screen until item selected
-            //SelectSlot(0);
+            SelectSlot(0);
 
             //StartCoroutine(DefaultSlot());
         }
