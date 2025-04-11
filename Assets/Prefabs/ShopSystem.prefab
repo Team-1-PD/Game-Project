@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6996980692345131220}
   - component: {fileID: 6313573124609466936}
   - component: {fileID: 7512955441492374983}
-  - component: {fileID: 742114579515800340}
+  - component: {fileID: 8780361976026298382}
   m_Layer: 0
   m_Name: ShopSystem
   m_TagString: Untagged
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene_name: ShopTerminal
---- !u!114 &742114579515800340
+--- !u!114 &8780361976026298382
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,10 +154,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 9137191492357695354}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58dcaf24d7ee112458aed68185e23658, type: 3}
+  m_Script: {fileID: 11500000, guid: 2297c37fe4080e2448213bc9f78f0c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnEnter:
+  OnInteract:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7512955441492374983}
@@ -172,6 +172,3 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnExit:
-    m_PersistentCalls:
-      m_Calls: []

@@ -104,6 +104,8 @@ GameObject:
   - component: {fileID: 7422207489748419557}
   - component: {fileID: 7208521284772066757}
   - component: {fileID: 125380475205010334}
+  - component: {fileID: 7569868319497728207}
+  - component: {fileID: 5846448633750953089}
   m_Layer: 3
   m_Name: Sprite
   m_TagString: Untagged
@@ -121,7 +123,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -1, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.22, y: 0.22, z: 0.22}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3507179326378164681}
@@ -195,6 +197,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookDirect: 1
   divideByHeight: 15
+--- !u!95 &7569868319497728207
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3838102720659033101}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 16bd9aefb2dc8e4459ef09597adbe2ee, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5846448633750953089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3838102720659033101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1db7855f286dd8499ae86d80cc42e8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseFootstep1: {fileID: 0}
+  baseFootstep2: {fileID: 0}
+  gravelFootstep1: {fileID: 0}
+  gravelFootstep2: {fileID: 0}
 --- !u!1 &4187194567200514403
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,6 +342,7 @@ MonoBehaviour:
   speed: 6
   sprint: 10
   charObject: {fileID: 7858099970232150585}
+  animator: {fileID: 7569868319497728207}
 --- !u!143 &1459531097666102619
 CharacterController:
   m_ObjectHideFlags: 0
@@ -320,7 +361,7 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 2
+  m_Height: 1.8
   m_Radius: 0.3
   m_SlopeLimit: 45
   m_StepOffset: 0.3
