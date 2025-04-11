@@ -27,18 +27,18 @@ namespace HappyValley
                 SoundFXManager.instance.PlaySoundFXClip(navigateMenu, transform, .1f);
             }
         }
-        public void NewGame()
+        public void NewGame(string scene_name)
         {
             SoundFXManager.instance.PlaySoundFXClip(selectMenu, transform, .1f);
             timeData.NewGame();
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(scene_name);
         }
 
-        public void LoadGame()
+        public void LoadGame(string scene_name)
         {
             SoundFXManager.instance.PlaySoundFXClip(selectMenu, transform, .1f);
             timeData.LoadGame();
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(scene_name);
         }
 
         public void QuitGame()

@@ -21,7 +21,7 @@ namespace kristina
         CharacterController cc;
 
         //Currency manager
-        private int currentBank;
+        private int currentBank = 1000;
         public int getBank { get { return currentBank; } set { currentBank = value; } }
 
         void Start()
