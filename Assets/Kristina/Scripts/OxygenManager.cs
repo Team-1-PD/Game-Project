@@ -8,9 +8,10 @@ namespace kristina
 {
     public class OxygenManager : MonoBehaviour
     {
+        [SerializeField] UnityEvent OnOxygenEmpty;
+
         [SerializeField] Oxygen oxygen;
         [field: SerializeField] float default_depletion_rate = 10f;
-
         
         [SerializeField, Header("<Current, Max>")] UnityEvent<float, float> OxygenAmount; 
 
@@ -30,6 +31,7 @@ namespace kristina
                 ReduceOxygen();
                 yield return new WaitForSeconds(1);
             }
+            OnOxygenEmpty.Invoke();
         }
 
         public void IncreaseDepletionRate(float amount)
