@@ -1,3 +1,4 @@
+using Raven;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,10 +7,10 @@ namespace kristina
     public class Interactible : MonoBehaviour
     {
         public static Interactible current_interactible { get; private set; }
-        [SerializeField] UnityEvent OnInteract;
-        public bool Interact()
+        [SerializeField] UnityEvent<Item> OnInteract;
+        public bool Interact(Item current_item)
         {
-            OnInteract?.Invoke();
+            OnInteract?.Invoke(current_item);
             return true;
         }
 

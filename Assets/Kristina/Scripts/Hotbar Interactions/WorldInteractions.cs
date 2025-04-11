@@ -65,7 +65,7 @@ namespace kristina
         {
             //generic interactions, for things like the bed, opening dropboxes, opening the shop, etc.
             //Debug.Log("try Interactibles");
-            return Interactible.current_interactible != null && Interactible.current_interactible.Interact();
+            return Interactible.current_interactible != null && Interactible.current_interactible.Interact(current_item);
         }
 
         bool InteractPlacing()
