@@ -21,6 +21,7 @@ MonoBehaviour:
         <NAME>k__BackingField: 
         <DESCRIPTION>k__BackingField: 
         <COST>k__BackingField: 0
+        <OXYGEN_VALUE>k__BackingField: 0
     - Key: plant_one
       Value:
         <TYPE>k__BackingField: 2
@@ -28,6 +29,7 @@ MonoBehaviour:
         <NAME>k__BackingField: Default Plant
         <DESCRIPTION>k__BackingField: This is plant one.
         <COST>k__BackingField: 10
+        <OXYGEN_VALUE>k__BackingField: 0
     - Key: leaf
       Value:
         <TYPE>k__BackingField: 3
@@ -35,6 +37,7 @@ MonoBehaviour:
         <NAME>k__BackingField: Leaf
         <DESCRIPTION>k__BackingField: This is a leaf.
         <COST>k__BackingField: 20
+        <OXYGEN_VALUE>k__BackingField: 100
     - Key: egg
       Value:
         <TYPE>k__BackingField: 3
@@ -42,6 +45,7 @@ MonoBehaviour:
         <NAME>k__BackingField: Egg
         <DESCRIPTION>k__BackingField: E G G
         <COST>k__BackingField: 30
+        <OXYGEN_VALUE>k__BackingField: 200
     - Key: flower
       Value:
         <TYPE>k__BackingField: 3
@@ -49,6 +53,7 @@ MonoBehaviour:
         <NAME>k__BackingField: Flower
         <DESCRIPTION>k__BackingField: This is a flower.
         <COST>k__BackingField: 40
+        <OXYGEN_VALUE>k__BackingField: 400
     - Key: mushroom
       Value:
         <TYPE>k__BackingField: 3
@@ -56,6 +61,7 @@ MonoBehaviour:
         <NAME>k__BackingField: Mushroom
         <DESCRIPTION>k__BackingField: This is a mushroom.
         <COST>k__BackingField: 50
+        <OXYGEN_VALUE>k__BackingField: 500
     - Key: incubator
       Value:
         <TYPE>k__BackingField: 1
@@ -63,6 +69,7 @@ MonoBehaviour:
         <NAME>k__BackingField: Incubator
         <DESCRIPTION>k__BackingField: This is an incubator.
         <COST>k__BackingField: 60
+        <OXYGEN_VALUE>k__BackingField: 0
     - Key: seedpack_yg
       Value:
         <TYPE>k__BackingField: 2
@@ -70,6 +77,7 @@ MonoBehaviour:
         <NAME>k__BackingField: Seedpack
         <DESCRIPTION>k__BackingField: A packet containing yellow and green seeds.
         <COST>k__BackingField: 70
+        <OXYGEN_VALUE>k__BackingField: 0
   itemSprites:
     _serializedList:
     - Key: seedpack_yg

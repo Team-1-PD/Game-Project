@@ -1,75 +1,72 @@
+using HappyValley;
 using Raven;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Events;
 
 namespace kristina
 {
-    public class ProduceDropBox : MonoBehaviour
+    public class ProduceDropBox : DropBoxGeneric
     {
-        [SerializeField] private UI_Hotbar hotbar;
-        [SerializeField] Image sprite;
+        public UnityEvent OnOpen, OnClose;
 
-        [SerializeField] private Item.ItemType[] valid_types;
+        bool is_open = false;
 
-        
-        readonly Stack<string> input_items = new Stack<string>();
-        readonly Stack<int> input_amounts = new Stack<int>();
+        [SerializeField] int open_hour;
+        [SerializeField] int close_hour;
 
-        public void Interact(Item current_item)
+        Player player;
+        private void Awake()
         {
-            if (current_item.TYPE == Item.ItemType.None)
+            player = FindFirstObjectByType<Player>();
+            TimeManager.OnDateTimeChanged += CheckTime;
+        }
+
+        public void CheckTime(DateTime time)
+        {
+            Debug.Log($"hour: {time.hour}");
+            if (time.hour < close_hour && time.hour >= open_hour)
             {
-                CollectItem();
+                if (is_open) return;
+                //just opened
+                OpenBox();
             }
             else
             {
-                InputItem(current_item.ID);
+                if (!is_open) return;
+                //just closed
+                CloseBox();
             }
         }
 
-
-        private void CollectItem()
+        public override void Interact(Item current_item)
         {
-            if (input_items.Count <= 0) return;
-            
-            hotbar.AddItem(Database.ITEMS.Items[input_items.Pop()], input_amounts.Pop());
+            if (is_open)
+                base.Interact(current_item);
+        }
 
-
-            if (input_items.Count <= 0)
-                sprite.gameObject.SetActive(false);
-            else
+        public void SellCollectedProduce()
+        {
+            while (input_items.Count > 0)
             {
-                sprite.sprite = Database.ITEMS.ItemSprites[input_items.Peek()];
+                string item = input_items.Pop();
+                int count = input_amounts.Pop();
+
+                int value = count * Database.ITEMS.Items[item].COST;
+                player.getBank += value;
             }
         }
-        private void InputItem(string item_id)
+
+        public void OpenBox()
         {
-            bool is_valid = false;
-            foreach (Item.ItemType type in valid_types) 
-            {
-                if (Database.ITEMS.Items[item_id].TYPE == type)
-                {
-                    is_valid = true;
-                    break;
-                }
-            }
-            if (!is_valid) return;
-
-            hotbar.RemoveItem(Database.ITEMS.Items[item_id], 1);
-            if (input_items.Count > 0 && input_items.Peek().Equals(item_id))
-            {
-                int amount = input_amounts.Pop() + 1;
-                input_amounts.Push(amount);
-            }
-            else
-            {
-                input_items.Push(item_id);
-                input_amounts.Push(1);
-
-                sprite.sprite = Database.ITEMS.ItemSprites[item_id];
-                sprite.gameObject.SetActive(true);
-            }
+            is_open = true;
+            OnOpen?.Invoke();
+        }
+        public void CloseBox()
+        {
+            is_open = false;
+            OnClose?.Invoke();
+            sprite.gameObject.SetActive(false);
+            SellCollectedProduce();
         }
     }
 }

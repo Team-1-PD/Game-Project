@@ -52,5 +52,11 @@ namespace kristina
             oxygen.DecreaseOxygen(depletion_rate);
             OxygenAmount?.Invoke(oxygen.CurrentOxygen, oxygen.MaxOxygen);
         }
+
+        public void AddToOxygen(int amount)
+        {
+            oxygen.IncreaseOxygen(amount);
+            OxygenAmount?.Invoke(oxygen.CurrentOxygen, oxygen.MaxOxygen);
+        }
     }
 }

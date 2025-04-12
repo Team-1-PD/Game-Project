@@ -23,18 +23,21 @@ namespace Raven
         [field: SerializeField, TextArea(3, 10)] public string DESCRIPTION { get; private set; }
         [field: SerializeField] public int COST { get; private set; }
 
-        public Item(ItemType _itemType, string _id, string _name, string _desc, int _cost)
+        [field: SerializeField] public int OXYGEN_VALUE { get; private set; }
+
+        public Item(ItemType _itemType, string _id, string _name, string _desc, int _cost, int _oxygenValue)
         {
             TYPE = _itemType;
             ID = _id;
             NAME = _name;
             DESCRIPTION = _desc;
             COST = _cost;
+            OXYGEN_VALUE = _oxygenValue;
         }
 
         public static Item None()
         {
-            return new Item(ItemType.None, "none", "", "none", 0);
+            return new Item(ItemType.None, "none", "", "none", 0, 0);
         }
     }
 
