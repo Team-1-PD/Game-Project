@@ -8,8 +8,15 @@ namespace Raven
     {
         public Image image;
         [HideInInspector] public Transform parentAfterDrag;
+        private Transform dragLayer;
         public int currentSlotIndex = -1;
 
+        private void Awake()
+        {
+            // Assign to drag layer
+            dragLayer = GameObject.Find("DragLayer")?.transform;
+
+        }
         public void OnBeginDrag(PointerEventData eventData)
         {
             InventorySlot slot = GetComponentInParent<InventorySlot>();
@@ -20,7 +27,7 @@ namespace Raven
 
             // Debug.Log("Begin drag");
             parentAfterDrag = transform.parent;
-            transform.SetParent(transform.root);
+            transform.SetParent(dragLayer != null ? dragLayer : transform.parent);
             transform.SetAsLastSibling();
             image.raycastTarget = false;
 

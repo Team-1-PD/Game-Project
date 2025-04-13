@@ -82,6 +82,10 @@ namespace Raven
         public bool MoveItem(int fromIndex, int toIndex)
         {
             bool moved = inventory.MoveItem(fromIndex, toIndex);
+            if (moved)
+            {
+                RefreshHotbar();
+            }
             hotbarSelector.SelectSlot(hotbarSelector.currentSlotIndex);
             return moved;
         }
@@ -122,6 +126,7 @@ namespace Raven
                 {
                     itemImage.sprite = null;
                     itemImage.enabled = false;
+                    amountText.text = "";
                     continue;
                 }
 
