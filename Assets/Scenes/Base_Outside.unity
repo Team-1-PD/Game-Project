@@ -26539,6 +26539,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -83.37036
       objectReference: {fileID: 0}
+    - target: {fileID: 2559528673117973192, guid: 27551c60e3ec88a4aa35430aa578f1e1, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2621164952645907900, guid: 27551c60e3ec88a4aa35430aa578f1e1, type: 3}
       propertyPath: m_Name
       value: UI Systems
@@ -26601,6 +26605,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8799308706576712080, guid: 27551c60e3ec88a4aa35430aa578f1e1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8953819848399101987, guid: 27551c60e3ec88a4aa35430aa578f1e1, type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9113491802317030731, guid: 27551c60e3ec88a4aa35430aa578f1e1, type: 3}
