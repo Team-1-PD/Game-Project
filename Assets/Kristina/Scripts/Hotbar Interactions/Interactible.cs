@@ -1,12 +1,26 @@
 using Raven;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace kristina
 {
-    public abstract class Interactible : MonoBehaviour
+    public class Interactible : MonoBehaviour
     {
-        protected Item.ItemType[] valid_interact_items;
+        public static Interactible current_interactible { get; private set; }
+        [SerializeField] UnityEvent<Item> OnInteract;
+        public bool Interact(Item current_item)
+        {
+            OnInteract?.Invoke(current_item);
+            return true;
+        }
 
-        public abstract bool TryInteract(Item item);
+        private void OnTriggerEnter(Collider other)
+        {
+            current_interactible = this;
+        }
+        private void OnTriggerExit(Collider other)
+        {
+            current_interactible = null;
+        }
     }
 }

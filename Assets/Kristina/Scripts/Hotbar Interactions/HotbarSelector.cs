@@ -32,6 +32,10 @@ namespace kristina
 
             PlayerInput.Input.Hotbar.Enable();
 
+            PlayerInput.Input.Menu.DirectionSlot.performed += ScrollToSlot;
+            PlayerInput.Input.Menu.DirectionSlotHold.performed += HoldScroll;
+            PlayerInput.Input.Menu.DirectionSlotHold.canceled += HoldScroll;
+
             // Removed so that the selector didnt appear at random position on screen until item selected
             SelectSlot(0);
 

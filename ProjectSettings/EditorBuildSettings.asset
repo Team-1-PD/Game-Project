@@ -11,15 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Base_Outside.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 0
-    path: Assets/Scenes/Pause_Menu.unity
-    guid: 82355f80afa03d64790ef8d5a2c5edf0
   - enabled: 1
-    path: Assets/Scenes/KristinaSampleScene.unity
-    guid: 239dc94946ac4a44697e6201db1fd7b9
+    path: Assets/Scenes/ShopTerminal.unity
+    guid: 28d0508c06317ab41bff2d18adad9194
   - enabled: 1
-    path: Assets/Scenes/GridSystem.unity
-    guid: a7d3c5d89f5d56d4f8d5d5b38f6681bd
+    path: Assets/Scenes/Die_Screen.unity
+    guid: 35cea446ba8c8ed4bba3eb46862f0924
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -12,8 +12,6 @@ namespace kristina
 
         [SerializeField] private UI_Hotbar hotbar;
         
-
-        public BedActivate Nearest_Bed;
         public PlantIncubator Nearest_Incubator;
         public RepairableModule Nearest_Repair;
         // nearestBox
@@ -40,7 +38,7 @@ namespace kristina
         {
             if (ctx.performed && !SceneManager.GetSceneByName("ShopTerminal").isLoaded)
             {
-                if (InteractBed()) return; //try sleep first
+                if (InteractGeneric()) return; //try sleep first
 
                 if (InteractPlacing()) return; //try place next
 
@@ -63,10 +61,11 @@ namespace kristina
         }
 
         #region Primary Interaction Types
-        bool InteractBed() 
+        bool InteractGeneric() 
         {
-            //Debug.Log("try bed");
-            return Nearest_Bed != null && Nearest_Bed.Sleep();
+            //generic interactions, for things like the bed, opening dropboxes, opening the shop, etc.
+            //Debug.Log("try Interactibles");
+            return Interactible.current_interactible != null && Interactible.current_interactible.Interact(current_item);
         }
 
         bool InteractPlacing()

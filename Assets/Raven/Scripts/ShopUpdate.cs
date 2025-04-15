@@ -21,18 +21,19 @@ namespace Raven
         [SerializeField] TMP_Text bankAmount;
 
         private Item currentItem;
-        [SerializeField] Player player;
+        Player player;
 
         private UI_Hotbar hotbar;
 
         // Force bank to be amount for **TESTING**
-        private void Awake()
+        /*private void Awake()
         {
             player.getBank = 1000;
-        }
+        }*/
         void Start()
         {
             hotbar = FindFirstObjectByType<UI_Hotbar>();
+            player = FindFirstObjectByType<Player>();
 
             buyButton.gameObject.SetActive(false);
             UpdateShop();

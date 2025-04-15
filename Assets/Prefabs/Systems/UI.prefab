@@ -918,6 +918,7 @@ GameObject:
   - component: {fileID: 486354288028569051}
   - component: {fileID: 4755414906891927593}
   - component: {fileID: 4664342556773167011}
+  - component: {fileID: 4977619787669915707}
   m_Layer: 5
   m_Name: Oxygen
   m_TagString: Untagged
@@ -995,6 +996,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e618d75ea1d4be44a7ade8ac05dd122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnOxygenEmpty:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4977619787669915707}
+        m_TargetAssemblyTypeName: kristina.SceneLoader, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   oxygen: {fileID: 11400000, guid: b67f72aedb8b9ac4d86f2d614400c629, type: 2}
   default_depletion_rate: 10
   OxygenAmount:
@@ -1012,6 +1028,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4977619787669915707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8011753916784639535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6861f76d65f5cec419b6926b7a33802e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene_name: Die_Screen
 --- !u!1 &8334668721359737197
 GameObject:
   m_ObjectHideFlags: 0

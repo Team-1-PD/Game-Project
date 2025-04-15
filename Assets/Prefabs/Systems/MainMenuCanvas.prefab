@@ -227,13 +227,13 @@ MonoBehaviour:
       - m_Target: {fileID: 4392458983543323665}
         m_TargetAssemblyTypeName: HappyValley.MainMenu, Assembly-CSharp
         m_MethodName: LoadGame
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Base_Outside
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &4052472230441788058
@@ -327,6 +327,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7f27b9f470e2104a97e6094d59581dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeData: {fileID: 0}
+  navigateMenu: {fileID: 0}
+  selectMenu: {fileID: 0}
   newGameButton: {fileID: 7608205989313722850}
 --- !u!1 &5515922575436188010
 GameObject:
@@ -936,13 +939,13 @@ MonoBehaviour:
       - m_Target: {fileID: 4392458983543323665}
         m_TargetAssemblyTypeName: HappyValley.MainMenu, Assembly-CSharp
         m_MethodName: NewGame
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Base_Outside
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &8514912965132865022

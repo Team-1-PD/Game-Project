@@ -22,7 +22,7 @@ namespace HappyValley
             
         }
 
-        public bool Sleep()
+        public void Sleep()
         {
             if (bedReady)
             {
@@ -31,10 +31,7 @@ namespace HappyValley
                 sleepingPlayer.SetActive(true);
                 timeManager.Sleep();
                 TimeManager.OnWakeup += WakeUpPlayer;
-                return true;
             }
-
-            return false;
         }
         public void WakeUpPlayer()
         {
@@ -48,17 +45,6 @@ namespace HappyValley
         {
             yield return new WaitForSeconds(5);
             bedReady = true;
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            WorldInteractions.Instance.Nearest_Bed = this;
-            //bedReady = true;
-        }
-        private void OnTriggerExit(Collider other)
-        {
-            WorldInteractions.Instance.Nearest_Bed = null;
-            //bedReady = false;
         }
     }
 }
