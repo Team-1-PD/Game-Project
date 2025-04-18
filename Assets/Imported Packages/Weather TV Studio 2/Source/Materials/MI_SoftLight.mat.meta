@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 89d1717f548f28843a5526e47b519ce6
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 238433
+  packageName: Weather TV Studio 2. (URP)
+  packageVersion: 2
+  assetPath: Assets/Weather TV Studio 2/Source/Materials/MI_SoftLight.mat
+  uploadId: 727920

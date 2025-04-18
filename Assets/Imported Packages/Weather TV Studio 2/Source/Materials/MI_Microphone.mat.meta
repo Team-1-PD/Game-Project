@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a5636c40dbd7bae41aa5f9872d7eb71e
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 238433
+  packageName: Weather TV Studio 2. (URP)
+  packageVersion: 2
+  assetPath: Assets/Weather TV Studio 2/Source/Materials/MI_Microphone.mat
+  uploadId: 727920

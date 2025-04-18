@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: bc245119e721fee4b906225fff650617
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 238433
+  packageName: Weather TV Studio 2. (URP)
+  packageVersion: 2
+  assetPath: Assets/Weather TV Studio 2/Source/Materials/MI_Plastic_BlackShine.mat
+  uploadId: 727920

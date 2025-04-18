@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a7f657370131d9a4eae9ad5c65ef0749
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 238433
+  packageName: Weather TV Studio 2. (URP)
+  packageVersion: 2
+  assetPath: Assets/Weather TV Studio 2/Source/Materials/MI_FloorTiles.mat
+  uploadId: 727920

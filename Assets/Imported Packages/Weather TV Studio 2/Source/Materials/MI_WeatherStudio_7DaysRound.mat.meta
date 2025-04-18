@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4738f05f8a4c41e43ab120945a5743e9
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 238433
+  packageName: Weather TV Studio 2. (URP)
+  packageVersion: 2
+  assetPath: Assets/Weather TV Studio 2/Source/Materials/MI_WeatherStudio_7DaysRound.mat
+  uploadId: 727920

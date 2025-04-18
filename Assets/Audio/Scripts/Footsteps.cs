@@ -9,9 +9,9 @@ public class Footsteps : MonoBehaviour
     [SerializeField] AudioSource gravelFootstep1;
     [SerializeField] AudioSource gravelFootstep2;
 
-    bool inside;
+    bool inside = false;
 
-    public void FirstStep()
+    private void FirstStep()
     {
         if(!baseFootstep1.isPlaying && inside == true )
         {
@@ -23,7 +23,7 @@ public class Footsteps : MonoBehaviour
         }
     }
 
-    public void SecondStep()
+    private void SecondStep()
     {
         if (!baseFootstep2.isPlaying && inside == true)
         {
@@ -37,9 +37,14 @@ public class Footsteps : MonoBehaviour
         //SoundFXManager.instance.PlaySoundFXClip(secondFootstep, transform, .05f);
     }
 
-    public void Inside()
+    public void Change()
     {
         inside = !inside;
     }
 
+    public void Inside()
+    {
+        inside = true;
+        Debug.Log("Inside");
+    }
 }
