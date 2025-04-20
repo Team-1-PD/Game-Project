@@ -104,8 +104,8 @@ GameObject:
   - component: {fileID: 7422207489748419557}
   - component: {fileID: 7208521284772066757}
   - component: {fileID: 125380475205010334}
+  - component: {fileID: 4430134759927177082}
   - component: {fileID: 7569868319497728207}
-  - component: {fileID: 5846448633750953089}
   m_Layer: 3
   m_Name: Sprite
   m_TagString: Untagged
@@ -197,6 +197,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookDirect: 1
   divideByHeight: 15
+--- !u!114 &4430134759927177082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3838102720659033101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1db7855f286dd8499ae86d80cc42e8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseFootstep1: {fileID: 0}
+  baseFootstep2: {fileID: 0}
+  gravelFootstep1: {fileID: 0}
+  gravelFootstep2: {fileID: 0}
 --- !u!95 &7569868319497728207
 Animator:
   serializedVersion: 7
@@ -219,22 +235,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5846448633750953089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3838102720659033101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1db7855f286dd8499ae86d80cc42e8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseFootstep1: {fileID: 0}
-  baseFootstep2: {fileID: 0}
-  gravelFootstep1: {fileID: 0}
-  gravelFootstep2: {fileID: 0}
 --- !u!1 &4187194567200514403
 GameObject:
   m_ObjectHideFlags: 0
