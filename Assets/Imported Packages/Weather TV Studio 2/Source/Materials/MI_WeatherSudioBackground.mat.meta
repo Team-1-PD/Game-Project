@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 837fb2c33ca93764ea3690c9fe8965a4
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 238433
+  packageName: Weather TV Studio 2. (URP)
+  packageVersion: 2
+  assetPath: Assets/Weather TV Studio 2/Source/Materials/MI_WeatherSudioBackground.mat
+  uploadId: 727920

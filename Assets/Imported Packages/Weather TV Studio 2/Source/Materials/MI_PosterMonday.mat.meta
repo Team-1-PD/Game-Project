@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 50bbbff8393b72845aa7bded86271475
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 238433
+  packageName: Weather TV Studio 2. (URP)
+  packageVersion: 2
+  assetPath: Assets/Weather TV Studio 2/Source/Materials/MI_PosterMonday.mat
+  uploadId: 727920

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9f73c51978fad5c4bb7c8cd9cb45cbdd
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 238433
+  packageName: Weather TV Studio 2. (URP)
+  packageVersion: 2
+  assetPath: Assets/Weather TV Studio 2/Source/Materials/MI_LaptopBlackScreen.mat
+  uploadId: 727920

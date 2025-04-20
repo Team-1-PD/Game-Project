@@ -54,6 +54,13 @@ namespace kristina
             animator.SetFloat("Vertical", movement.z);
         }
 
+        private void LateUpdate()
+        {
+            Vector3 clampedPosition = transform.position;
+            clampedPosition.y = Mathf.Clamp(1f, 1f, 1.5f);
+            transform.position = clampedPosition;
+        }
+
         public void MoveInput(InputAction.CallbackContext ctx)
         {
             //camera directional movement

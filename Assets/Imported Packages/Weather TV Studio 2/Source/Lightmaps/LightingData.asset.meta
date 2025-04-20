@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 07ced00023f6f084a8d88c1320c25f4c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 112000000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 238433
+  packageName: Weather TV Studio 2. (URP)
+  packageVersion: 2
+  assetPath: Assets/Weather TV Studio 2/Source/Lightmaps/LightingData.asset
+  uploadId: 727920

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 2c0d61229ae52bc418fa8c13a1b42644
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 238433
+  packageName: Weather TV Studio 2. (URP)
+  packageVersion: 2
+  assetPath: Assets/Weather TV Studio 2/Prefabs/ChartBase.prefab
+  uploadId: 727920

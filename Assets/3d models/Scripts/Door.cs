@@ -6,6 +6,8 @@ namespace HappyValley
     {
         Animator animator;
 
+        [SerializeField] AudioClip open;
+
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
@@ -14,6 +16,7 @@ namespace HappyValley
         public void OpenDoor()
         {
             animator.SetTrigger("Open");
+            SoundFXManager.instance.PlaySoundFXClip(open, transform, .3f);
         }
         public void CloseDoor()
         {

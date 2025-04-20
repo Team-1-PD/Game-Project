@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2822da4a806199845aa1b96881751b0e
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 238433
+  packageName: Weather TV Studio 2. (URP)
+  packageVersion: 2
+  assetPath: Assets/Weather TV Studio 2/Source/Materials/MI_GlowBlue4.mat
+  uploadId: 727920

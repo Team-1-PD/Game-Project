@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 43da2d11d25cba44dafdab56dd827cb3
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 238433
+  packageName: Weather TV Studio 2. (URP)
+  packageVersion: 2
+  assetPath: Assets/Weather TV Studio 2/Source/Materials/WeatherTicker2.mat
+  uploadId: 727920
