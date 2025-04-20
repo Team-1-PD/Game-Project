@@ -22,44 +22,68 @@ MonoBehaviour:
         <DESCRIPTION>k__BackingField: 
         <COST>k__BackingField: 0
         <OXYGEN_VALUE>k__BackingField: 0
-    - Key: plant_one
-      Value:
-        <TYPE>k__BackingField: 2
-        <ID>k__BackingField: plant_one
-        <NAME>k__BackingField: Default Plant
-        <DESCRIPTION>k__BackingField: This is plant one.
-        <COST>k__BackingField: 10
-        <OXYGEN_VALUE>k__BackingField: 0
-    - Key: leaf
+    - Key: plant_red_fruit
       Value:
         <TYPE>k__BackingField: 3
-        <ID>k__BackingField: leaf
-        <NAME>k__BackingField: Leaf
-        <DESCRIPTION>k__BackingField: This is a leaf.
+        <ID>k__BackingField: plant_red_fruit
+        <NAME>k__BackingField: Red Fruit
+        <DESCRIPTION>k__BackingField: This is a red fruit.
+        <COST>k__BackingField: 15
+        <OXYGEN_VALUE>k__BackingField: 0
+    - Key: plant_pink_fruit
+      Value:
+        <TYPE>k__BackingField: 3
+        <ID>k__BackingField: plant_pink_fruit
+        <NAME>k__BackingField: Pink Fruit
+        <DESCRIPTION>k__BackingField: This is a pink fruit.
         <COST>k__BackingField: 20
         <OXYGEN_VALUE>k__BackingField: 100
-    - Key: egg
+    - Key: plant_purple_fruit
       Value:
         <TYPE>k__BackingField: 3
-        <ID>k__BackingField: egg
-        <NAME>k__BackingField: Egg
-        <DESCRIPTION>k__BackingField: E G G
-        <COST>k__BackingField: 30
+        <ID>k__BackingField: plant_purple_fruit
+        <NAME>k__BackingField: Purple Fruit
+        <DESCRIPTION>k__BackingField: This is a purple fruit.
+        <COST>k__BackingField: 20
+        <OXYGEN_VALUE>k__BackingField: 100
+    - Key: plant_black_fruit
+      Value:
+        <TYPE>k__BackingField: 3
+        <ID>k__BackingField: plant_black_fruit
+        <NAME>k__BackingField: Black Fruit
+        <DESCRIPTION>k__BackingField: This is a black fruit.
+        <COST>k__BackingField: 150
         <OXYGEN_VALUE>k__BackingField: 200
-    - Key: flower
+    - Key: seedpack_black
       Value:
-        <TYPE>k__BackingField: 3
-        <ID>k__BackingField: flower
-        <NAME>k__BackingField: Flower
-        <DESCRIPTION>k__BackingField: This is a flower.
+        <TYPE>k__BackingField: 2
+        <ID>k__BackingField: seedpack_black
+        <NAME>k__BackingField: Black Seedpack
+        <DESCRIPTION>k__BackingField: This pack contains black seeds.
         <COST>k__BackingField: 40
         <OXYGEN_VALUE>k__BackingField: 400
-    - Key: mushroom
+    - Key: seedpack_red
       Value:
-        <TYPE>k__BackingField: 3
-        <ID>k__BackingField: mushroom
-        <NAME>k__BackingField: Mushroom
-        <DESCRIPTION>k__BackingField: This is a mushroom.
+        <TYPE>k__BackingField: 2
+        <ID>k__BackingField: seedpack_red
+        <NAME>k__BackingField: Red Plant Seeds
+        <DESCRIPTION>k__BackingField: A packet containing red seeds.
+        <COST>k__BackingField: 20
+        <OXYGEN_VALUE>k__BackingField: 0
+    - Key: seedpack_yellow
+      Value:
+        <TYPE>k__BackingField: 2
+        <ID>k__BackingField: seedpack_yellow
+        <NAME>k__BackingField: Yellow Plant Seeds
+        <DESCRIPTION>k__BackingField: A packet containing yellow and green seeds.
+        <COST>k__BackingField: 30
+        <OXYGEN_VALUE>k__BackingField: 0
+    - Key: seedpack_pink
+      Value:
+        <TYPE>k__BackingField: 2
+        <ID>k__BackingField: seedpack_pink
+        <NAME>k__BackingField: Pink Seedpack
+        <DESCRIPTION>k__BackingField: This seedpack contains pink and blue seeds.
         <COST>k__BackingField: 50
         <OXYGEN_VALUE>k__BackingField: 500
     - Key: incubator
@@ -68,29 +92,59 @@ MonoBehaviour:
         <ID>k__BackingField: incubator
         <NAME>k__BackingField: Incubator
         <DESCRIPTION>k__BackingField: This is an incubator.
-        <COST>k__BackingField: 60
-        <OXYGEN_VALUE>k__BackingField: 0
-    - Key: seedpack_yg
-      Value:
-        <TYPE>k__BackingField: 2
-        <ID>k__BackingField: seedpack_yg
-        <NAME>k__BackingField: Seedpack
-        <DESCRIPTION>k__BackingField: A packet containing yellow and green seeds.
-        <COST>k__BackingField: 70
+        <COST>k__BackingField: 100
         <OXYGEN_VALUE>k__BackingField: 0
   itemSprites:
     _serializedList:
-    - Key: seedpack_yg
+    - Key: plant_red_stage1
+      Value: {fileID: 21300000, guid: d40791af18fa8374087f54a630fcf72a, type: 3}
+    - Key: plant_red_stage2
+      Value: {fileID: 21300000, guid: 91082c8cff891f14d96ff1d50cdb18cc, type: 3}
+    - Key: plant_red_stage3
+      Value: {fileID: 21300000, guid: ade4cdf2c6ebb7e45b0af882cf490fe7, type: 3}
+    - Key: plant_red_fruit
+      Value: {fileID: 21300000, guid: 634f36edc5308164785d8de9526d92ad, type: 3}
+    - Key: plant_yellow_stage1
+      Value: {fileID: 21300000, guid: 9c9812beb50e72541840265fb17fc576, type: 3}
+    - Key: plant_yellow_stage2
+      Value: {fileID: 21300000, guid: 147d0606099134f4794cb5e95bc2384b, type: 3}
+    - Key: plant_yellow_stage3
+      Value: {fileID: 21300000, guid: 24baaca10bccbac47bf8cf706f14c175, type: 3}
+    - Key: plant_yellow_fruit
+      Value: {fileID: 21300000, guid: 5f437404eb2b9f74d8074b2b0a214316, type: 3}
+    - Key: plant_pink_stage1
+      Value: {fileID: 21300000, guid: 0eb57468e24d6b94f91cfc7448df68ff, type: 3}
+    - Key: plant_pink_stage2
+      Value: {fileID: 21300000, guid: b157758b28ad4e54fa8006ed909d6972, type: 3}
+    - Key: plant_pink_stage3
+      Value: {fileID: 21300000, guid: 1c16746c0e7705f4aad3b254842b7130, type: 3}
+    - Key: plant_pink_fruit
+      Value: {fileID: 21300000, guid: db2cc78966d55cf44878bed4b0b400ff, type: 3}
+    - Key: plant_purple_stage1
+      Value: {fileID: 21300000, guid: d155312e3667f1042aa31440d2bdc8d9, type: 3}
+    - Key: plant_purple_stage2
+      Value: {fileID: 21300000, guid: 39245730c04e82242b1acae48e7769d1, type: 3}
+    - Key: plant_purple_stage3
+      Value: {fileID: 21300000, guid: 39245730c04e82242b1acae48e7769d1, type: 3}
+    - Key: plant_purple_fruit
+      Value: {fileID: 21300000, guid: f618ec984330a87469e36ad743886217, type: 3}
+    - Key: plant_black_stage1
+      Value: {fileID: 21300000, guid: 1e7d0ea254e0ada4fab0ad136cfe87b3, type: 3}
+    - Key: plant_black_stage2
+      Value: {fileID: 21300000, guid: d4673dc9d94f38449b81b467ba13f72c, type: 3}
+    - Key: plant_black_stage3
+      Value: {fileID: 21300000, guid: 7e16bb7181ffb574ba069a081e7c3c1b, type: 3}
+    - Key: plant_black_fruit
+      Value: {fileID: 98853655, guid: 7fcd8237e282a0e4fa237355c8be7b90, type: 3}
+    - Key: seedpack_red
+      Value: {fileID: 21300000, guid: fe0f369dc215db4419f4340ce6c276f6, type: 3}
+    - Key: seedpack_yellow
       Value: {fileID: 21300000, guid: e273b4c2251846f48abbd7481aa73fb1, type: 3}
-    - Key: leaf
-      Value: {fileID: -659071828, guid: 5ea64d8792e683a4fbc3653e99c7e2e8, type: 3}
-    - Key: plant_one
-      Value: {fileID: 1214293876, guid: 230577affe6a7124ab09a4d78b5a8098, type: 3}
-    - Key: egg
-      Value: {fileID: 564522325, guid: 5ea64d8792e683a4fbc3653e99c7e2e8, type: 3}
-    - Key: flower
-      Value: {fileID: -1817556686, guid: 5ea64d8792e683a4fbc3653e99c7e2e8, type: 3}
-    - Key: mushroom
-      Value: {fileID: 378105468, guid: 5ea64d8792e683a4fbc3653e99c7e2e8, type: 3}
+    - Key: seedpack_pink
+      Value: {fileID: 21300000, guid: 6427d7a0ace6cd04abb1534056103e16, type: 3}
+    - Key: seedpack_purple
+      Value: {fileID: 21300000, guid: 2a3f0dd30f181c44aac28c05dfcef4ca, type: 3}
+    - Key: seedpack_black
+      Value: {fileID: 21300000, guid: da0b016f148a1c54d8e099e5caa4af01, type: 3}
     - Key: incubator
       Value: {fileID: -1338455514, guid: 5ea64d8792e683a4fbc3653e99c7e2e8, type: 3}

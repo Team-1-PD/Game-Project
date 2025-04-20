@@ -2658,11 +2658,11 @@ MonoBehaviour:
     _serializedList:
     - Key: incubator
       Value: 3
-    - Key: leaf
+    - Key: plant_black_fruit
       Value: 2
-    - Key: seedpack_yg
+    - Key: plant_red_fruit
       Value: 3
-    - Key: egg
+    - Key: plant_pink_fruit
       Value: 5
 --- !u!1001 &210380079
 PrefabInstance:
@@ -16827,19 +16827,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MalfunctionSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 9035753447722735937, guid: ab30e347c58ced24eab23a593fd047c8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7849632211360408137, guid: ab30e347c58ced24eab23a593fd047c8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 420568782365818015, guid: ab30e347c58ced24eab23a593fd047c8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 1856292425394243961, guid: ab30e347c58ced24eab23a593fd047c8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab30e347c58ced24eab23a593fd047c8, type: 3}
 --- !u!1001 &1148403429
 PrefabInstance:
@@ -17620,6 +17615,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1773572227202417670, guid: d96cecd51a9878b40ad5f119b0b8f47d, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6618294616774683215, guid: d96cecd51a9878b40ad5f119b0b8f47d, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -17703,6 +17702,10 @@ PrefabInstance:
     - target: {fileID: 8493979859251431924, guid: d96cecd51a9878b40ad5f119b0b8f47d, type: 3}
       propertyPath: m_Name
       value: UI Overlays
+      objectReference: {fileID: 0}
+    - target: {fileID: 8493979859251431924, guid: d96cecd51a9878b40ad5f119b0b8f47d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19963,7 +19966,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1322967766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27316,7 +27319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3860579016795043189, guid: 27551c60e3ec88a4aa35430aa578f1e1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5857606522189490406, guid: 27551c60e3ec88a4aa35430aa578f1e1, type: 3}
       propertyPath: m_IsActive
