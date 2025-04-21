@@ -3864,7 +3864,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &209917160
 Transform:
   m_ObjectHideFlags: 0
@@ -10030,10 +10030,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3738716956316179895, guid: 25f4ae8dfebf0804e97ed2c8993df112, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25f4ae8dfebf0804e97ed2c8993df112, type: 3}
 --- !u!4 &530417829 stripped
 Transform:
@@ -31117,10 +31114,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3738716956316179895, guid: 25f4ae8dfebf0804e97ed2c8993df112, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25f4ae8dfebf0804e97ed2c8993df112, type: 3}
 --- !u!1001 &1499520743
 PrefabInstance:
@@ -39549,7 +39543,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1951208736
 MonoBehaviour:
   m_ObjectHideFlags: 0

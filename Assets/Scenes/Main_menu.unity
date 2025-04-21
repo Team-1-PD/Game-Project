@@ -750,6 +750,62 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 2262097176892530222, guid: dcb5c0af72846b44f89bdc5613977e7c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262097176892530222, guid: dcb5c0af72846b44f89bdc5613977e7c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262097176892530222, guid: dcb5c0af72846b44f89bdc5613977e7c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262097176892530222, guid: dcb5c0af72846b44f89bdc5613977e7c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: b67f72aedb8b9ac4d86f2d614400c629, type: 2}
+    - target: {fileID: 2262097176892530222, guid: dcb5c0af72846b44f89bdc5613977e7c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 6112879775026937109}
+    - target: {fileID: 2262097176892530222, guid: dcb5c0af72846b44f89bdc5613977e7c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262097176892530222, guid: dcb5c0af72846b44f89bdc5613977e7c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FullyRestoreOxygen
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262097176892530222, guid: dcb5c0af72846b44f89bdc5613977e7c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: NewGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262097176892530222, guid: dcb5c0af72846b44f89bdc5613977e7c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: HappyValley.Oxygen, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262097176892530222, guid: dcb5c0af72846b44f89bdc5613977e7c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: HappyValley.MainMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262097176892530222, guid: dcb5c0af72846b44f89bdc5613977e7c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262097176892530222, guid: dcb5c0af72846b44f89bdc5613977e7c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: Base_Outside
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262097176892530222, guid: dcb5c0af72846b44f89bdc5613977e7c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262097176892530222, guid: dcb5c0af72846b44f89bdc5613977e7c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4242148737887320599, guid: dcb5c0af72846b44f89bdc5613977e7c, type: 3}
       propertyPath: m_Color.a
       value: 0
@@ -787,6 +843,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcb5c0af72846b44f89bdc5613977e7c, type: 3}
+--- !u!114 &6112879775026937109 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4392458983543323665, guid: dcb5c0af72846b44f89bdc5613977e7c, type: 3}
+  m_PrefabInstance: {fileID: 6112879775026937108}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7f27b9f470e2104a97e6094d59581dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

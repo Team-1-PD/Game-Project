@@ -12,9 +12,13 @@ namespace kristina
         [SerializeField] TMP_Text textBox;
         //[SerializeField] HotbarSelector hotbarSelector;
         // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
+        void OnEnable()
         {
             HotbarSelector.ChangeSelectedItem += ChangeSelectedItemName;
+        }
+        private void OnDisable()
+        {
+            HotbarSelector.ChangeSelectedItem -= ChangeSelectedItemName;
         }
 
         public void ChangeSelectedItemName(string item_id)

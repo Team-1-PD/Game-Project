@@ -46,10 +46,9 @@ namespace Raven
             var shopList = new List<Item>(itemDatabase.Items.Values);
 
             // Create shop slots 
-            for (int i = 0; i < maxSlots; i++)
+            //int count = 0;
+            foreach (Item item in itemDatabase.Items.Values)
             {
-                Item item = shopList[i];
-
                 if (item.ID == "none")
                 {
                     continue;
@@ -81,9 +80,13 @@ namespace Raven
                 Button slotButton = shopSlotObject.GetComponent<Button>();
                 slotButton.onClick.AddListener(() => UpdateDetails(item));
 
-
-            }
-
+                //if we wanted limited slots:
+                /*count++;
+                if (count >= maxSlots)
+                {
+                    break;
+                }*/
+            } 
         }
 
         void UpdateDetails(Item item)

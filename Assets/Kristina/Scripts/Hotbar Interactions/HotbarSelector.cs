@@ -41,6 +41,19 @@ namespace kristina
 
             //StartCoroutine(DefaultSlot());
         }
+        private void OnDestroy()
+        {
+            PlayerInput.Input.Hotbar.SelectSlot.performed -= KeyPressToSlot;
+            PlayerInput.Input.Hotbar.ScrollSlot.performed -= ScrollToSlot;
+            PlayerInput.Input.Hotbar.ScrollSlotHold.performed -= HoldScroll;
+            PlayerInput.Input.Hotbar.ScrollSlotHold.canceled -= HoldScroll;
+
+            PlayerInput.Input.Hotbar.Enable();
+
+            PlayerInput.Input.Menu.DirectionSlot.performed -= ScrollToSlot;
+            PlayerInput.Input.Menu.DirectionSlotHold.performed -= HoldScroll;
+            PlayerInput.Input.Menu.DirectionSlotHold.canceled -= HoldScroll;
+        }
 
         public IEnumerator DefaultSlot()
         {
