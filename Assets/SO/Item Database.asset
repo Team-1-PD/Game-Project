@@ -22,6 +22,14 @@ MonoBehaviour:
         <DESCRIPTION>k__BackingField: 
         <COST>k__BackingField: 0
         <OXYGEN_VALUE>k__BackingField: 0
+    - Key: plant_yellow_fruit
+      Value:
+        <TYPE>k__BackingField: 3
+        <ID>k__BackingField: plant_yellow_fruit
+        <NAME>k__BackingField: Yellow Fruit
+        <DESCRIPTION>k__BackingField: This is a yellow fruit.
+        <COST>k__BackingField: 10
+        <OXYGEN_VALUE>k__BackingField: 10
     - Key: plant_red_fruit
       Value:
         <TYPE>k__BackingField: 3
@@ -54,14 +62,6 @@ MonoBehaviour:
         <DESCRIPTION>k__BackingField: This is a black fruit.
         <COST>k__BackingField: 150
         <OXYGEN_VALUE>k__BackingField: 200
-    - Key: seedpack_black
-      Value:
-        <TYPE>k__BackingField: 2
-        <ID>k__BackingField: seedpack_black
-        <NAME>k__BackingField: Black Seedpack
-        <DESCRIPTION>k__BackingField: This pack contains black seeds.
-        <COST>k__BackingField: 40
-        <OXYGEN_VALUE>k__BackingField: 400
     - Key: seedpack_red
       Value:
         <TYPE>k__BackingField: 2
@@ -78,6 +78,14 @@ MonoBehaviour:
         <DESCRIPTION>k__BackingField: A packet containing yellow and green seeds.
         <COST>k__BackingField: 30
         <OXYGEN_VALUE>k__BackingField: 0
+    - Key: seedpack_purple
+      Value:
+        <TYPE>k__BackingField: 2
+        <ID>k__BackingField: seedpack_purple
+        <NAME>k__BackingField: Purple Seedpack
+        <DESCRIPTION>k__BackingField: This seedpack contains purple seeds.
+        <COST>k__BackingField: 50
+        <OXYGEN_VALUE>k__BackingField: 500
     - Key: seedpack_pink
       Value:
         <TYPE>k__BackingField: 2
@@ -86,6 +94,14 @@ MonoBehaviour:
         <DESCRIPTION>k__BackingField: This seedpack contains pink and blue seeds.
         <COST>k__BackingField: 50
         <OXYGEN_VALUE>k__BackingField: 500
+    - Key: seedpack_black
+      Value:
+        <TYPE>k__BackingField: 2
+        <ID>k__BackingField: seedpack_black
+        <NAME>k__BackingField: Black Seedpack
+        <DESCRIPTION>k__BackingField: This pack contains black seeds.
+        <COST>k__BackingField: 40
+        <OXYGEN_VALUE>k__BackingField: 400
     - Key: incubator
       Value:
         <TYPE>k__BackingField: 1
@@ -97,43 +113,43 @@ MonoBehaviour:
   itemSprites:
     _serializedList:
     - Key: plant_red_stage1
-      Value: {fileID: 21300000, guid: d40791af18fa8374087f54a630fcf72a, type: 3}
+      Value: {fileID: 1340742666, guid: d40791af18fa8374087f54a630fcf72a, type: 3}
     - Key: plant_red_stage2
-      Value: {fileID: 21300000, guid: 91082c8cff891f14d96ff1d50cdb18cc, type: 3}
+      Value: {fileID: 1827921227, guid: 91082c8cff891f14d96ff1d50cdb18cc, type: 3}
     - Key: plant_red_stage3
-      Value: {fileID: 21300000, guid: ade4cdf2c6ebb7e45b0af882cf490fe7, type: 3}
+      Value: {fileID: -1106875095, guid: ade4cdf2c6ebb7e45b0af882cf490fe7, type: 3}
     - Key: plant_red_fruit
-      Value: {fileID: 21300000, guid: 634f36edc5308164785d8de9526d92ad, type: 3}
+      Value: {fileID: 1227471903, guid: 634f36edc5308164785d8de9526d92ad, type: 3}
     - Key: plant_yellow_stage1
-      Value: {fileID: 21300000, guid: 9c9812beb50e72541840265fb17fc576, type: 3}
+      Value: {fileID: 460968180, guid: 9c9812beb50e72541840265fb17fc576, type: 3}
     - Key: plant_yellow_stage2
-      Value: {fileID: 21300000, guid: 147d0606099134f4794cb5e95bc2384b, type: 3}
+      Value: {fileID: 619558676, guid: 147d0606099134f4794cb5e95bc2384b, type: 3}
     - Key: plant_yellow_stage3
-      Value: {fileID: 21300000, guid: 24baaca10bccbac47bf8cf706f14c175, type: 3}
+      Value: {fileID: 1859229981, guid: 24baaca10bccbac47bf8cf706f14c175, type: 3}
     - Key: plant_yellow_fruit
-      Value: {fileID: 21300000, guid: 5f437404eb2b9f74d8074b2b0a214316, type: 3}
+      Value: {fileID: 1111885137, guid: 5f437404eb2b9f74d8074b2b0a214316, type: 3}
     - Key: plant_pink_stage1
-      Value: {fileID: 21300000, guid: 0eb57468e24d6b94f91cfc7448df68ff, type: 3}
+      Value: {fileID: 1799959642, guid: 0eb57468e24d6b94f91cfc7448df68ff, type: 3}
     - Key: plant_pink_stage2
-      Value: {fileID: 21300000, guid: b157758b28ad4e54fa8006ed909d6972, type: 3}
+      Value: {fileID: 576079673, guid: b157758b28ad4e54fa8006ed909d6972, type: 3}
     - Key: plant_pink_stage3
-      Value: {fileID: 21300000, guid: 1c16746c0e7705f4aad3b254842b7130, type: 3}
+      Value: {fileID: 1564752923, guid: 1c16746c0e7705f4aad3b254842b7130, type: 3}
     - Key: plant_pink_fruit
-      Value: {fileID: 21300000, guid: db2cc78966d55cf44878bed4b0b400ff, type: 3}
+      Value: {fileID: 1380558007, guid: db2cc78966d55cf44878bed4b0b400ff, type: 3}
     - Key: plant_purple_stage1
-      Value: {fileID: 21300000, guid: d155312e3667f1042aa31440d2bdc8d9, type: 3}
+      Value: {fileID: -2119991999, guid: d155312e3667f1042aa31440d2bdc8d9, type: 3}
     - Key: plant_purple_stage2
-      Value: {fileID: 21300000, guid: 39245730c04e82242b1acae48e7769d1, type: 3}
+      Value: {fileID: -1489647712, guid: 39245730c04e82242b1acae48e7769d1, type: 3}
     - Key: plant_purple_stage3
-      Value: {fileID: 21300000, guid: 39245730c04e82242b1acae48e7769d1, type: 3}
+      Value: {fileID: -1489647712, guid: 39245730c04e82242b1acae48e7769d1, type: 3}
     - Key: plant_purple_fruit
-      Value: {fileID: 21300000, guid: f618ec984330a87469e36ad743886217, type: 3}
+      Value: {fileID: -552042630, guid: f618ec984330a87469e36ad743886217, type: 3}
     - Key: plant_black_stage1
-      Value: {fileID: 21300000, guid: 1e7d0ea254e0ada4fab0ad136cfe87b3, type: 3}
+      Value: {fileID: -55837757, guid: 1e7d0ea254e0ada4fab0ad136cfe87b3, type: 3}
     - Key: plant_black_stage2
-      Value: {fileID: 21300000, guid: d4673dc9d94f38449b81b467ba13f72c, type: 3}
+      Value: {fileID: -1199397946, guid: d4673dc9d94f38449b81b467ba13f72c, type: 3}
     - Key: plant_black_stage3
-      Value: {fileID: 21300000, guid: 7e16bb7181ffb574ba069a081e7c3c1b, type: 3}
+      Value: {fileID: 12404816, guid: 7e16bb7181ffb574ba069a081e7c3c1b, type: 3}
     - Key: plant_black_fruit
       Value: {fileID: 98853655, guid: 7fcd8237e282a0e4fa237355c8be7b90, type: 3}
     - Key: seedpack_red

@@ -2657,13 +2657,17 @@ MonoBehaviour:
   AddToInventory:
     _serializedList:
     - Key: incubator
-      Value: 3
-    - Key: plant_black_fruit
-      Value: 2
-    - Key: plant_red_fruit
-      Value: 3
-    - Key: plant_pink_fruit
       Value: 5
+    - Key: seedpack_red
+      Value: 1
+    - Key: seedpack_yellow
+      Value: 1
+    - Key: seedpack_pink
+      Value: 1
+    - Key: seedpack_purple
+      Value: 1
+    - Key: seedpack_black
+      Value: 1
 --- !u!1001 &210380079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16829,12 +16833,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9035753447722735937, guid: ab30e347c58ced24eab23a593fd047c8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7849632211360408137, guid: ab30e347c58ced24eab23a593fd047c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 420568782365818015, guid: ab30e347c58ced24eab23a593fd047c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 1856292425394243961, guid: ab30e347c58ced24eab23a593fd047c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: ab30e347c58ced24eab23a593fd047c8, type: 3}
 --- !u!1001 &1148403429
 PrefabInstance:
@@ -27319,7 +27332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3860579016795043189, guid: 27551c60e3ec88a4aa35430aa578f1e1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5857606522189490406, guid: 27551c60e3ec88a4aa35430aa578f1e1, type: 3}
       propertyPath: m_IsActive
