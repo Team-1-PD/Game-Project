@@ -14,15 +14,58 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plants:
     _serializedList:
-    - Key: seedpack_yg
+    - Key: seedpack_red
       Value:
         <Sprites>k__BackingField:
-        - {fileID: 1214293876, guid: 230577affe6a7124ab09a4d78b5a8098, type: 3}
-        - {fileID: -1181095360, guid: 230577affe6a7124ab09a4d78b5a8098, type: 3}
-        - {fileID: -1440665234, guid: 230577affe6a7124ab09a4d78b5a8098, type: 3}
-        - {fileID: 1149020579, guid: 230577affe6a7124ab09a4d78b5a8098, type: 3}
-        <ID>k__BackingField: plant_one
-        <Name>k__BackingField: Yellow
-        <Produce_ID>k__BackingField: flower
+        - {fileID: 1340742666, guid: d40791af18fa8374087f54a630fcf72a, type: 3}
+        - {fileID: 1827921227, guid: 91082c8cff891f14d96ff1d50cdb18cc, type: 3}
+        - {fileID: -1106875095, guid: ade4cdf2c6ebb7e45b0af882cf490fe7, type: 3}
+        <ID>k__BackingField: plant_red
+        <Name>k__BackingField: Red
+        <Produce_ID>k__BackingField: plant_red_fruit
         <Production_Amount>k__BackingField: 1
-        <Grow_Duration>k__BackingField: 40
+        <Grow_Duration>k__BackingField: 30
+    - Key: seedpack_yellow
+      Value:
+        <Sprites>k__BackingField:
+        - {fileID: 460968180, guid: 9c9812beb50e72541840265fb17fc576, type: 3}
+        - {fileID: 619558676, guid: 147d0606099134f4794cb5e95bc2384b, type: 3}
+        - {fileID: -2107700207, guid: 33e08675a045be84ca665095a386301e, type: 3}
+        - {fileID: 1859229981, guid: 24baaca10bccbac47bf8cf706f14c175, type: 3}
+        <ID>k__BackingField: plant_yellow
+        <Name>k__BackingField: Yellow
+        <Produce_ID>k__BackingField: plant_yellow_fruit
+        <Production_Amount>k__BackingField: 1
+        <Grow_Duration>k__BackingField: 30
+    - Key: seedpack_pink
+      Value:
+        <Sprites>k__BackingField:
+        - {fileID: 1799959642, guid: 0eb57468e24d6b94f91cfc7448df68ff, type: 3}
+        - {fileID: 576079673, guid: b157758b28ad4e54fa8006ed909d6972, type: 3}
+        - {fileID: 1564752923, guid: 1c16746c0e7705f4aad3b254842b7130, type: 3}
+        <ID>k__BackingField: plant_pink
+        <Name>k__BackingField: Pink
+        <Produce_ID>k__BackingField: plant_pink_fruit
+        <Production_Amount>k__BackingField: 1
+        <Grow_Duration>k__BackingField: 30
+    - Key: seedpack_purple
+      Value:
+        <Sprites>k__BackingField:
+        - {fileID: -2119991999, guid: d155312e3667f1042aa31440d2bdc8d9, type: 3}
+        - {fileID: -1489647712, guid: 39245730c04e82242b1acae48e7769d1, type: 3}
+        <ID>k__BackingField: plant_purple
+        <Name>k__BackingField: Purple
+        <Produce_ID>k__BackingField: plant_purple_fruit
+        <Production_Amount>k__BackingField: 1
+        <Grow_Duration>k__BackingField: 30
+    - Key: seedpack_black
+      Value:
+        <Sprites>k__BackingField:
+        - {fileID: -55837757, guid: 1e7d0ea254e0ada4fab0ad136cfe87b3, type: 3}
+        - {fileID: -1199397946, guid: d4673dc9d94f38449b81b467ba13f72c, type: 3}
+        - {fileID: 12404816, guid: 7e16bb7181ffb574ba069a081e7c3c1b, type: 3}
+        <ID>k__BackingField: plant_black
+        <Name>k__BackingField: Black
+        <Produce_ID>k__BackingField: plant_black_fruit
+        <Production_Amount>k__BackingField: 1
+        <Grow_Duration>k__BackingField: 30
