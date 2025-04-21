@@ -1,7 +1,6 @@
 using HappyValley;
 using System.Security.Cryptography;
 using System.Threading;
-using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 

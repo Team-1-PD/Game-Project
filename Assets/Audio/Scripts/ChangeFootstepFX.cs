@@ -1,19 +1,21 @@
-using HappyValley;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ChangeFootstepFX : MonoBehaviour
+namespace HappyValley
 {
-    [SerializeField] UnityEvent OnEnter;
-    [SerializeField] UnityEvent OnExit;
-
-    private void OnTriggerEnter(Collider other)
+    public class ChangeFootstepFX : MonoBehaviour
     {
-        OnEnter?.Invoke();
-    }
+        [SerializeField] UnityEvent OnEnter;
+        [SerializeField] UnityEvent OnExit;
 
-    private void OnTriggerExit(Collider other)
-    {
-        OnExit?.Invoke();
+        private void OnTriggerEnter(Collider other)
+        {
+            OnEnter?.Invoke();
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            OnExit?.Invoke();
+        }
     }
 }

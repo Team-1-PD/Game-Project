@@ -35,6 +35,6 @@ namespace kristina
                 validPlacements = new();
             validPlacements.Remove(position);
         }
-    }
 #endif
+    }
 }

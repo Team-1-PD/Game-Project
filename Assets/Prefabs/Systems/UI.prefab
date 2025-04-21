@@ -1012,7 +1012,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   oxygen: {fileID: 11400000, guid: b67f72aedb8b9ac4d86f2d614400c629, type: 2}
-  default_depletion_rate: 10
+  default_depletion_rate: 2
   OxygenAmount:
     m_PersistentCalls:
       m_Calls:

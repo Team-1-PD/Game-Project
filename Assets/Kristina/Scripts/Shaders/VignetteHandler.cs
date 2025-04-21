@@ -1,43 +1,44 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-
-public class VignetteHandler : MonoBehaviour
+namespace kristina
 {
-    [SerializeField] float change_rate = .1f;
-    [SerializeField] Volume volume;
-    Vignette vignette;
-    private void Awake()
+    public class VignetteHandler : MonoBehaviour
     {
-        volume.profile.TryGet<Vignette>(out vignette);
-    }
-    public void AddVignette()
-    {
-        StartCoroutine(ModifyVignette(change_rate, true));
-    }
-    public void RemoveVignette()
-    {
-        StartCoroutine(ModifyVignette(change_rate, false));
-    }
-    public IEnumerator ModifyVignette(float rate, bool adding)
-    {
-        if (adding)
+        [SerializeField] float change_rate = .1f;
+        [SerializeField] Volume volume;
+        Vignette vignette;
+        private void Awake()
         {
-            while (vignette.smoothness.value < 1f)
-            {
-                vignette.smoothness.value += rate;
-                yield return new WaitForEndOfFrame();
-            }
+            volume.profile.TryGet(out vignette);
         }
-        else
+        public void AddVignette()
         {
-            while (vignette.smoothness.value >= 0.02f)
+            StartCoroutine(ModifyVignette(change_rate, true));
+        }
+        public void RemoveVignette()
+        {
+            StartCoroutine(ModifyVignette(change_rate, false));
+        }
+        public IEnumerator ModifyVignette(float rate, bool adding)
+        {
+            if (adding)
             {
-                vignette.smoothness.value -= rate;
-                yield return new WaitForEndOfFrame();
+                while (vignette.smoothness.value < 1f)
+                {
+                    vignette.smoothness.value += rate;
+                    yield return new WaitForEndOfFrame();
+                }
+            }
+            else
+            {
+                while (vignette.smoothness.value >= 0.02f)
+                {
+                    vignette.smoothness.value -= rate;
+                    yield return new WaitForEndOfFrame();
+                }
             }
         }
     }

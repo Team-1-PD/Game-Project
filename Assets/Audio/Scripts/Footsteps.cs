@@ -1,50 +1,52 @@
-using HappyValley;
 using UnityEngine;
 
-public class Footsteps : MonoBehaviour
+namespace HappyValley
 {
-    [SerializeField] AudioSource baseFootstep1;
-    [SerializeField] AudioSource baseFootstep2;
-
-    [SerializeField] AudioSource gravelFootstep1;
-    [SerializeField] AudioSource gravelFootstep2;
-
-    bool inside = false;
-
-    private void FirstStep()
+    public class Footsteps : MonoBehaviour
     {
-        if(!baseFootstep1.isPlaying && inside == true )
-        {
-            baseFootstep1.Play();
-        }
-        else if(!baseFootstep1.isPlaying)
-        {
-            gravelFootstep1.Play();
-        }
-    }
+        [SerializeField] AudioSource baseFootstep1;
+        [SerializeField] AudioSource baseFootstep2;
 
-    private void SecondStep()
-    {
-        if (!baseFootstep2.isPlaying && inside == true)
+        [SerializeField] AudioSource gravelFootstep1;
+        [SerializeField] AudioSource gravelFootstep2;
+
+        bool inside = false;
+
+        private void FirstStep()
         {
-            baseFootstep2.Play();
-        }
-        else if (!baseFootstep2.isPlaying)
-        {
-            gravelFootstep2.Play();
+            if (!baseFootstep1.isPlaying && inside == true)
+            {
+                baseFootstep1.Play();
+            }
+            else if (!baseFootstep1.isPlaying)
+            {
+                gravelFootstep1.Play();
+            }
         }
 
-        //SoundFXManager.instance.PlaySoundFXClip(secondFootstep, transform, .05f);
-    }
+        private void SecondStep()
+        {
+            if (!baseFootstep2.isPlaying && inside == true)
+            {
+                baseFootstep2.Play();
+            }
+            else if (!baseFootstep2.isPlaying)
+            {
+                gravelFootstep2.Play();
+            }
 
-    public void Change()
-    {
-        inside = !inside;
-    }
+            //SoundFXManager.instance.PlaySoundFXClip(secondFootstep, transform, .05f);
+        }
 
-    public void Inside()
-    {
-        inside = true;
-        Debug.Log("Inside");
+        public void Change()
+        {
+            inside = !inside;
+        }
+
+        public void Inside()
+        {
+            inside = true;
+            Debug.Log("Inside");
+        }
     }
 }

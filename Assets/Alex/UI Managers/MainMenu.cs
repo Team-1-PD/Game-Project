@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
-using UnityEditor;
 
 
 namespace HappyValley
@@ -44,8 +43,10 @@ namespace HappyValley
         public void QuitGame()
         {
             SoundFXManager.instance.PlaySoundFXClip(selectMenu, transform, .1f);
-            EditorApplication.isPlaying = false;
-            //Application.Quit();
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
+            Application.Quit();
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Raven
         [SerializeField] Transform scrollArea;
         [SerializeField] GameObject shopSlot;
         [SerializeField] ItemDatabase itemDatabase;
-        [SerializeField] int maxSlots = 8;
+        //[SerializeField] int maxSlots = 8;
 
         [Header("Shop Item Details Settings")]
         [SerializeField] TMP_Text shopDetails;
