@@ -124,10 +124,10 @@ namespace HappyValley
                 PlayerFaint();
             }
 
-            PlayerInput.Input.Player.Time.performed += ctx =>
+            /*PlayerInput.Input.Player.Time.performed += ctx =>
             {
                 TimeSettings();
-            };
+            };*/
         }
         #endregion
 

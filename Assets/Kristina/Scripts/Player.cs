@@ -35,6 +35,13 @@ namespace kristina
             cc = GetComponent<CharacterController>();
 
         }
+        private void OnDestroy()
+        {
+            PlayerInput.Input.Player.Move.performed -= MoveInput;
+            PlayerInput.Input.Player.Move.canceled -= MoveInput;
+            PlayerInput.Input.Player.Sprint.performed -= Sprint;
+            PlayerInput.Input.Player.Sprint.canceled -= Sprint;
+        }
         void Update()
         {
             //rb.linearVelocity = movement * Time.deltaTime * speed;

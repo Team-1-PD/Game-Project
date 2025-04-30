@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 
 namespace HappyValley
@@ -19,24 +20,26 @@ namespace HappyValley
         void Awake()
         {
             EventSystem.current.SetSelectedGameObject(resumeButton);
+            PlayerInput.Input.Player.Pause.performed += TogglePauseMenu;
+        }
+        private void OnDestroy()
+        {
+            PlayerInput.Input.Player.Pause.performed -= TogglePauseMenu;
         }
 
-        void Update()
+        public void TogglePauseMenu(InputAction.CallbackContext ctx)
         {
-            PlayerInput.Input.Player.Pause.performed += ctx =>
+            if (!timeManagerOpen)
             {
-                if(!timeManagerOpen)
+                if (!GameIsPaused)
                 {
-                    if (!GameIsPaused)
-                    {
-                        Pause();
-                    }
-                    else
-                    {
-                        Resume();
-                    }
+                    Pause();
                 }
-            };
+                else
+                {
+                    Resume();
+                }
+            }
         }
 
         public void Resume()
