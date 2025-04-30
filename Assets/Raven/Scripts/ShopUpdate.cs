@@ -39,6 +39,14 @@ namespace Raven
             UpdateShop();
             bankAmount.text = player.getBank.ToString();
         }
+        private void OnEnable()
+        {
+            PlayerInput.Input.Player.Disable();
+        }
+        private void OnDisable()
+        {
+            PlayerInput.Input.Player.Enable();
+        }
 
         void UpdateShop()
         {
