@@ -23,7 +23,7 @@ namespace kristina
 
         public void CheckTime(DateTime time)
         {
-            Debug.Log($"hour: {time.hour}");
+            //Debug.Log($"hour: {time.hour}");
             if (time.hour < close_hour && time.hour >= open_hour)
             {
                 if (is_open) return;

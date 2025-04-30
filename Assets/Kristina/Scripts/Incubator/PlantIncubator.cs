@@ -61,8 +61,8 @@ namespace kristina
             if (!PowerManager.power_to_base) return; //no growth w/o power
 
             age += tick;
-            Debug.Log($"age: {age}");
-            Debug.Log($"interval: {stage_interval}");
+            //Debug.Log($"age: {age}");
+            //Debug.Log($"interval: {stage_interval}");
             stage_age += tick;
             if (stage_age >= stage_interval)
             {
@@ -71,7 +71,7 @@ namespace kristina
         }
         protected void IncrementStage()
         {
-            Debug.Log("increment stage");
+            //Debug.Log("increment stage");
             current_stage++;
             stage_age = 0;
 
