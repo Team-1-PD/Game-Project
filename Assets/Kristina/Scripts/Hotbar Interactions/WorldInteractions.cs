@@ -25,13 +25,26 @@ namespace kristina
             //Debug.Log("initializing interactions");
             Instance = this;
 
+            
+
+        }
+        private void OnEnable()
+        {
             HotbarSelector.ChangeSelectedItem += SelectItem;
             PlayerInput.Input.Player.Interact.performed += PrimaryInteractions;
             PlayerInput.Input.Player.Interact.canceled += PrimaryInteractions;
 
             PlayerInput.Input.Player.Attack.performed += SecondaryInteractions;
             PlayerInput.Input.Player.Attack.canceled += SecondaryInteractions;
+        }
+        private void OnDisable()
+        {
+            HotbarSelector.ChangeSelectedItem -= SelectItem;
+            PlayerInput.Input.Player.Interact.performed -= PrimaryInteractions;
+            PlayerInput.Input.Player.Interact.canceled -= PrimaryInteractions;
 
+            PlayerInput.Input.Player.Attack.performed -= SecondaryInteractions;
+            PlayerInput.Input.Player.Attack.canceled -= SecondaryInteractions;
         }
         public void PrimaryInteractions(InputAction.CallbackContext ctx)
         {
