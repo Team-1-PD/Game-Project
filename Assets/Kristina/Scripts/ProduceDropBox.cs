@@ -18,7 +18,7 @@ namespace kristina
         private void Awake()
         {
             player = FindFirstObjectByType<Player>();
-            TimeManager.OnDateTimeChanged += CheckTime;
+            //TimeManager.OnDateTimeChanged += CheckTime;
         }
 
         public void CheckTime(DateTime time)
@@ -40,7 +40,7 @@ namespace kristina
 
         public override void Interact(Item current_item)
         {
-            if (is_open)
+            //if (is_open)
                 base.Interact(current_item);
         }
 
@@ -68,5 +68,13 @@ namespace kristina
             sprite.gameObject.SetActive(false);
             SellCollectedProduce();
         }
+        private void OnTriggerExit(Collider other)
+        {
+            CloseBox();
+            OpenBox();
+        }
     }
 }
+
+
+

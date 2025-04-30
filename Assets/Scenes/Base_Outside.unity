@@ -10760,6 +10760,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Produce Drop Box
       objectReference: {fileID: 0}
+    - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
+      propertyPath: hotbar
+      value: 
+      objectReference: {fileID: 1055013786}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28261,6 +28265,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1111885137, guid: 5f437404eb2b9f74d8074b2b0a214316, type: 3}
+    - target: {fileID: 670675140128190342, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
+      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 670675140128190342, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
+      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: kristina.ProduceDropBox, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 763761819906848534, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -28317,6 +28329,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Produce Drop Box (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
+      propertyPath: hotbar
+      value: 
+      objectReference: {fileID: 1055013786}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
