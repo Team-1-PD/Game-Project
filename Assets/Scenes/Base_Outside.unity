@@ -36617,9 +36617,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4093118024131301384, guid: 27551c60e3ec88a4aa35430aa578f1e1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093118024131301384, guid: 27551c60e3ec88a4aa35430aa578f1e1, type: 3}
       propertyPath: m_PreserveAspect
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4375572956864837930, guid: 27551c60e3ec88a4aa35430aa578f1e1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1380558007, guid: db2cc78966d55cf44878bed4b0b400ff, type: 3}
     - target: {fileID: 5857606522189490406, guid: 27551c60e3ec88a4aa35430aa578f1e1, type: 3}
       propertyPath: m_IsActive
       value: 1
