@@ -23,7 +23,7 @@ namespace kristina
         protected int stage_interval => current_plant.Grow_Duration / (current_plant.Sprites.Length - 1);
 
         protected int current_stage = 0;
-        protected Plant current_plant;
+        public Plant current_plant { get; protected set; }
 
         public bool InputPlant(string plantID)
         {
@@ -42,15 +42,18 @@ namespace kristina
             OnInputPlant?.Invoke();
             return true;
         }
-        public Plant CollectPlant()
+        public Plant TryCollectPlant()
         {
             Plant return_plant = current_plant;
+            return return_plant;
+        }
+        public void CollectedPlant()
+        {
             fully_grown = false;
             plant_sprite.gameObject.SetActive(false);
             current_plant = null;
 
             OnCollectPlant?.Invoke();
-            return return_plant;
         }
 
         protected virtual void AddToAge(int tick)

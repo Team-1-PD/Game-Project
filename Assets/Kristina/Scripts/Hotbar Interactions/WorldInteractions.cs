@@ -90,9 +90,15 @@ namespace kristina
                 if (Nearest_Incubator.fully_grown)
                 {
                     //try pickup produce next
-                    Plant plant = Nearest_Incubator.CollectPlant();
 
-                    hotbar.AddItem(Database.ITEMS.Items[plant.Produce_ID], plant.Production_Amount);
+                    Plant plant = Nearest_Incubator.TryCollectPlant();
+
+                    int index = hotbar.AddItem(Database.ITEMS.Items[plant.Produce_ID], plant.Production_Amount);
+
+                    if (index >= 0)
+                    {
+                        Nearest_Incubator.CollectedPlant();
+                    }
                     return true;
                 }
                 else if (current_item.TYPE == Item.ItemType.Seed && Nearest_Incubator.InputPlant(current_item.ID))
