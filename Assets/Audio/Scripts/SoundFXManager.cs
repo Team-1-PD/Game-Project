@@ -30,5 +30,11 @@ namespace HappyValley
 
             Destroy(audioSource.gameObject, clipLength);
         }
+        public void PlaySoundFXClip(AudioSource sfx)
+        {
+            sfx.Play();
+
+            float clipLength = sfx.clip.length;
+        }
     }
 }

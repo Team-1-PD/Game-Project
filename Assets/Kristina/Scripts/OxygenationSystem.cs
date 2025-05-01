@@ -3,11 +3,13 @@ using Raven;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace kristina
 {
     public class OxygenationSystem : MonoBehaviour
     {
+        public UnityEvent OnOxygenation;
         [SerializeField] OxygenManager oxygen_manager;
         [SerializeField] Oxygen oxygen;
 
@@ -43,6 +45,7 @@ namespace kristina
             {
                 yield return new WaitForSeconds(1);
             }
+            OnOxygenation.Invoke();
             oxygen_manager.AddToOxygen(item.OXYGEN_VALUE);
             yield return new WaitForSeconds(1);
             currently_oxygenating = false;
