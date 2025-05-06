@@ -49,7 +49,7 @@ namespace HappyValley
                 stopPause?.Invoke();
                 pauseMenuUI.SetActive(false);
                 UI.SetActive(true);
-                timeButton.SetActive(true);
+                //timeButton.SetActive(true);
                 Time.timeScale = 1f;
                 GameIsPaused = false;
             }
