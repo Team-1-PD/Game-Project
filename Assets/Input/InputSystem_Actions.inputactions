@@ -1690,6 +1690,34 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "Tutorial",
+            "id": "4c0f9ae6-019b-465d-8e47-af6cbda33012",
+            "actions": [
+                {
+                    "name": "Toggle",
+                    "type": "Button",
+                    "id": "5b74cf31-3b8a-4f12-9037-107fc8d0a4b7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "86244ab7-3a40-46b0-8dff-71c5ece21e75",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Toggle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
