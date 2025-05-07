@@ -8941,17 +8941,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 6.5, y: 0.2, z: 4.7}
   m_Center: {x: 0.0063878396, y: 0.03372157, z: -0.0017176983}
---- !u!114 &478219229 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2374354509942829468, guid: 27551c60e3ec88a4aa35430aa578f1e1, type: 3}
-  m_PrefabInstance: {fileID: 1790028130}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e618d75ea1d4be44a7ade8ac05dd122, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &483388165 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8998657096571305509, guid: 95c12aea438e34b41ab9fb7a62aea92f, type: 3}
@@ -12370,6 +12359,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7869101769223579279, guid: 144534d054c84054991594161e32cca0, type: 3}
   m_PrefabInstance: {fileID: 619982045}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &622266327 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7087475885998790184, guid: 27551c60e3ec88a4aa35430aa578f1e1, type: 3}
+  m_PrefabInstance: {fileID: 1790028130}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e618d75ea1d4be44a7ade8ac05dd122, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &622759426 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5354931619580669419, guid: 7c1e853eb082e465d9eccd07bac0fbd5, type: 3}
@@ -21473,7 +21473,7 @@ PrefabInstance:
     - target: {fileID: 6419079722250320152, guid: ab30e347c58ced24eab23a593fd047c8, type: 3}
       propertyPath: OnRepair.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 622266327}
     - target: {fileID: 6419079722250320152, guid: ab30e347c58ced24eab23a593fd047c8, type: 3}
       propertyPath: OnRepair.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -21497,7 +21497,7 @@ PrefabInstance:
     - target: {fileID: 6419079722250320152, guid: ab30e347c58ced24eab23a593fd047c8, type: 3}
       propertyPath: OnMalfunction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 622266327}
     - target: {fileID: 6419079722250320152, guid: ab30e347c58ced24eab23a593fd047c8, type: 3}
       propertyPath: OnMalfunction.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -24401,7 +24401,7 @@ PrefabInstance:
     - target: {fileID: 698198136466698184, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
       propertyPath: oxygen_manager
       value: 
-      objectReference: {fileID: 478219229}
+      objectReference: {fileID: 622266327}
     - target: {fileID: 698198136466698184, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
       propertyPath: OnOxygenation.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -36978,10 +36978,6 @@ PrefabInstance:
     - target: {fileID: 325243317923424033, guid: 27551c60e3ec88a4aa35430aa578f1e1, type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 968843778171713007, guid: 27551c60e3ec88a4aa35430aa578f1e1, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 986440814673565275, guid: 27551c60e3ec88a4aa35430aa578f1e1, type: 3}
       propertyPath: m_AnchoredPosition.x
