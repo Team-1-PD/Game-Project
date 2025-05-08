@@ -91,7 +91,9 @@ namespace HappyValley
 
         public void QuitGame()
         {
-            //EditorApplication.isPlaying = false;
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
             Application.Quit();
         }
 
