@@ -1009,6 +1009,7 @@ GameObject:
   - component: {fileID: 1615455360}
   - component: {fileID: 1615455362}
   - component: {fileID: 1615455361}
+  - component: {fileID: 1615455363}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1055,7 +1056,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: 000000'
+  m_text: 'Score: '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 79c061fd29ca88847a8fc2bcf0472ef8, type: 2}
   m_sharedMaterial: {fileID: 6235383712638033478, guid: 79c061fd29ca88847a8fc2bcf0472ef8, type: 2}
@@ -1088,7 +1089,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 2
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1134,6 +1135,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1615455359}
   m_CullTransparentMesh: 1
+--- !u!114 &1615455363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615455359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 434efab2343542b4fb8f36a3171df0a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tmp_text: {fileID: 1615455361}
+  score_keeper: {fileID: 11400000, guid: 3dc3bd19c255a4444b0d57dc64958112, type: 2}
 --- !u!1 &2067367188
 GameObject:
   m_ObjectHideFlags: 0
@@ -1461,7 +1476,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Time's Up!
+  m_text: Oxygen Depleted
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 79c061fd29ca88847a8fc2bcf0472ef8, type: 2}
   m_sharedMaterial: {fileID: 6235383712638033478, guid: 79c061fd29ca88847a8fc2bcf0472ef8, type: 2}

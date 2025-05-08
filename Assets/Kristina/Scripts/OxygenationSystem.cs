@@ -9,7 +9,7 @@ namespace kristina
 {
     public class OxygenationSystem : MonoBehaviour
     {
-        public UnityEvent OnOxygenation;
+        public UnityEvent<int> OnOxygenation;
         [SerializeField] OxygenManager oxygen_manager;
         [SerializeField] Oxygen oxygen;
 
@@ -45,7 +45,7 @@ namespace kristina
             {
                 yield return new WaitForSeconds(1);
             }
-            OnOxygenation.Invoke();
+            OnOxygenation.Invoke(item.OXYGEN_VALUE);
             oxygen_manager.AddToOxygen(item.OXYGEN_VALUE);
             yield return new WaitForSeconds(1);
             currently_oxygenating = false;
