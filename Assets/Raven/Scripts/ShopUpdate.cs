@@ -12,6 +12,7 @@ namespace Raven
         [SerializeField] Transform scrollArea;
         [SerializeField] GameObject shopSlot;
         [SerializeField] ItemDatabase itemDatabase;
+        [SerializeField] PlantDatabase plantDatabase;
         //[SerializeField] int maxSlots = 8;
 
         [Header("Shop Item Details Settings")]
@@ -19,8 +20,11 @@ namespace Raven
         [SerializeField] TMP_Text shopPrice;
         [SerializeField] Button buyButton;
         [SerializeField] TMP_Text bankAmount;
+        [SerializeField] TMP_Text oxygenAmount;
+        [SerializeField] TMP_Text sellAmount;
 
         private Item currentItem;
+
         Player player;
 
         private UI_Hotbar hotbar;
@@ -94,15 +98,33 @@ namespace Raven
                 {
                     break;
                 }*/
-            } 
+            }
         }
 
         void UpdateDetails(Item item)
         {
+
             currentItem = item;
 
+
             shopDetails.text = item.DESCRIPTION;
-            shopPrice.text = item.COST.ToString();
+
+            shopPrice.text = "$ " + item.COST.ToString();
+
+            if (item.TYPE == Item.ItemType.Placeable)
+            {
+                oxygenAmount.text = "";
+                sellAmount.text = "";
+                return;
+            }
+            string produce_id = Database.PLANTS.Plants[item.ID].Produce_ID;
+            int produce_value = Database.ITEMS.Items[produce_id].COST;
+
+            int produce_oxygen = Database.ITEMS.Items[produce_id].OXYGEN_VALUE;
+
+            oxygenAmount.text = "Oxygen Amount: " + produce_oxygen;
+            sellAmount.text = "Sell Value: " + produce_value;
+
 
             buyButton.onClick.RemoveAllListeners();
             buyButton.onClick.AddListener(() => { BuyItem(item, currentItem.COST); });
