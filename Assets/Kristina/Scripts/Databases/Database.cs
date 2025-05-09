@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace kristina
@@ -11,8 +10,8 @@ namespace kristina
         [SerializeField] ItemDatabase itemDatabase;
         [SerializeField] PlaceablesDatabase placeablesDatabase;
 
-        [FixedAddressValueType]
-        public static PlantDatabase PLANTS;
+
+        public static PlantDatabase PLANTS { get; private set; }
         public static ItemDatabase ITEMS { get; private set; }
         public static PlaceablesDatabase PLACEABLES { get; private set; }
 

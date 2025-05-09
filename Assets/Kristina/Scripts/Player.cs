@@ -1,6 +1,3 @@
-using HappyValley;
-using System.Security.Cryptography;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,9 +12,12 @@ namespace kristina
 
         [SerializeField] Transform charObject;
         [SerializeField] Animator animator;
+        [SerializeField] Canvas tutorial;
 
         //Rigidbody rb;
         CharacterController cc;
+
+
 
         //Currency manager
         private int currentBank = 1000;
@@ -26,15 +26,39 @@ namespace kristina
         void Start()
         {
             PlayerInput.Input.Player.Enable();
+            PlayerInput.Input.Tutorial.Enable();
+
             PlayerInput.Input.Player.Move.performed += MoveInput;
             PlayerInput.Input.Player.Move.canceled += MoveInput;
             PlayerInput.Input.Player.Sprint.performed += Sprint;
             PlayerInput.Input.Player.Sprint.canceled += Sprint;
+            PlayerInput.Input.Tutorial.Toggle.performed += ToggleTutorial;
 
             //rb = GetComponent<Rigidbody>();
             cc = GetComponent<CharacterController>();
-
         }
+
+        public void ToggleTutorial(InputAction.CallbackContext ctx)
+        {
+            if (ctx.performed)
+            {
+
+                if (tutorial.gameObject.activeSelf)
+                {
+                    tutorial.gameObject.SetActive(false);
+                }
+
+                else
+                {
+                    tutorial.gameObject.SetActive(true);
+                }
+            }
+        }
+
+
+
+
+
         private void OnDestroy()
         {
             PlayerInput.Input.Player.Move.performed -= MoveInput;

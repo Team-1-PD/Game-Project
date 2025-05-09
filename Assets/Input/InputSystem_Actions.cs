@@ -1712,6 +1712,34 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""Tutorial"",
+            ""id"": ""4c0f9ae6-019b-465d-8e47-af6cbda33012"",
+            ""actions"": [
+                {
+                    ""name"": ""Toggle"",
+                    ""type"": ""Button"",
+                    ""id"": ""5b74cf31-3b8a-4f12-9037-107fc8d0a4b7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""86244ab7-3a40-46b0-8dff-71c5ece21e75"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Toggle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -1814,6 +1842,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Menu_Interact = m_Menu.FindAction("Interact", throwIfNotFound: true);
         m_Menu_DirectionSlot = m_Menu.FindAction("DirectionSlot", throwIfNotFound: true);
         m_Menu_DirectionSlotHold = m_Menu.FindAction("DirectionSlotHold", throwIfNotFound: true);
+        // Tutorial
+        m_Tutorial = asset.FindActionMap("Tutorial", throwIfNotFound: true);
+        m_Tutorial_Toggle = m_Tutorial.FindAction("Toggle", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
@@ -1822,6 +1853,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, InputSystem_Actions.UI.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Hotbar.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Hotbar.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Menu.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Menu.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Tutorial.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Tutorial.Disable() has not been called.");
     }
 
     public void Dispose()
@@ -2263,6 +2295,52 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         }
     }
     public MenuActions @Menu => new MenuActions(this);
+
+    // Tutorial
+    private readonly InputActionMap m_Tutorial;
+    private List<ITutorialActions> m_TutorialActionsCallbackInterfaces = new List<ITutorialActions>();
+    private readonly InputAction m_Tutorial_Toggle;
+    public struct TutorialActions
+    {
+        private @InputSystem_Actions m_Wrapper;
+        public TutorialActions(@InputSystem_Actions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Toggle => m_Wrapper.m_Tutorial_Toggle;
+        public InputActionMap Get() { return m_Wrapper.m_Tutorial; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(TutorialActions set) { return set.Get(); }
+        public void AddCallbacks(ITutorialActions instance)
+        {
+            if (instance == null || m_Wrapper.m_TutorialActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_TutorialActionsCallbackInterfaces.Add(instance);
+            @Toggle.started += instance.OnToggle;
+            @Toggle.performed += instance.OnToggle;
+            @Toggle.canceled += instance.OnToggle;
+        }
+
+        private void UnregisterCallbacks(ITutorialActions instance)
+        {
+            @Toggle.started -= instance.OnToggle;
+            @Toggle.performed -= instance.OnToggle;
+            @Toggle.canceled -= instance.OnToggle;
+        }
+
+        public void RemoveCallbacks(ITutorialActions instance)
+        {
+            if (m_Wrapper.m_TutorialActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ITutorialActions instance)
+        {
+            foreach (var item in m_Wrapper.m_TutorialActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_TutorialActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public TutorialActions @Tutorial => new TutorialActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -2348,5 +2426,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnDirectionSlot(InputAction.CallbackContext context);
         void OnDirectionSlotHold(InputAction.CallbackContext context);
+    }
+    public interface ITutorialActions
+    {
+        void OnToggle(InputAction.CallbackContext context);
     }
 }
