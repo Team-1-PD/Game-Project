@@ -216,18 +216,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7503113427669532933}
-        m_TargetAssemblyTypeName: HappyValley.MainMenu, Assembly-CSharp
-        m_MethodName: LoadGame
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Main_Menu
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 21457350}
         m_TargetAssemblyTypeName: ChangePlayButtonImage, Assembly-CSharp
         m_MethodName: ChangeButtonImage
@@ -238,6 +226,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7503113427669532933}
+        m_TargetAssemblyTypeName: HappyValley.MainMenu, Assembly-CSharp
+        m_MethodName: LoadGame
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Main_Menu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &21457352
@@ -765,18 +765,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7503113427669532933}
-        m_TargetAssemblyTypeName: HappyValley.MainMenu, Assembly-CSharp
-        m_MethodName: QuitGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Main_Menu
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 902985159}
         m_TargetAssemblyTypeName: ChangePlayButtonImage, Assembly-CSharp
         m_MethodName: ChangeButtonImage
@@ -787,6 +775,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7503113427669532933}
+        m_TargetAssemblyTypeName: HappyValley.MainMenu, Assembly-CSharp
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Main_Menu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &902985161
@@ -924,6 +924,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1370111332}
+        m_TargetAssemblyTypeName: ChangePlayButtonImage, Assembly-CSharp
+        m_MethodName: ChangeButtonImage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 11400000, guid: b67f72aedb8b9ac4d86f2d614400c629, type: 2}
         m_TargetAssemblyTypeName: HappyValley.Oxygen, Assembly-CSharp
         m_MethodName: FullyRestoreOxygen
@@ -946,18 +958,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Base_Outside
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1370111332}
-        m_TargetAssemblyTypeName: ChangePlayButtonImage, Assembly-CSharp
-        m_MethodName: ChangeButtonImage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1370111334

@@ -282,18 +282,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8799308706576712080}
     m_Modifications:
-    - target: {fileID: 229708059683766325, guid: dd32fb977933bb54c9c06c2257c1f240, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 229708059683766325, guid: dd32fb977933bb54c9c06c2257c1f240, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2938342761021892163}
-    - target: {fileID: 229708059683766325, guid: dd32fb977933bb54c9c06c2257c1f240, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: QuitGame
-      objectReference: {fileID: 0}
     - target: {fileID: 1200117043251955754, guid: dd32fb977933bb54c9c06c2257c1f240, type: 3}
       propertyPath: m_Name
       value: PauseMenu
@@ -494,10 +482,6 @@ PrefabInstance:
       propertyPath: m_HorizontalAlignment
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 8872753300107858313, guid: dd32fb977933bb54c9c06c2257c1f240, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4180630363563647771, guid: dd32fb977933bb54c9c06c2257c1f240, type: 3}
     m_RemovedGameObjects: []
@@ -655,9 +639,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2332308558400909745, guid: a3317358ef6355945a6578c691910b8e, type: 3}
+      propertyPath: m_Name
+      value: coin
+      objectReference: {fileID: 0}
     - target: {fileID: 2819955605549630658, guid: a3317358ef6355945a6578c691910b8e, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3428032457921580132, guid: a3317358ef6355945a6578c691910b8e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7750370805982424690, guid: a3317358ef6355945a6578c691910b8e, type: 3}
       propertyPath: m_Pivot.x

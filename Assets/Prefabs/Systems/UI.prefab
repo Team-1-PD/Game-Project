@@ -307,7 +307,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 150, y: 0}
-  m_SizeDelta: {x: 400, y: 110}
+  m_SizeDelta: {x: 380, y: 77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4979512865542009341
 CanvasRenderer:
@@ -661,7 +661,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 10, y: 0}
-  m_SizeDelta: {x: 100, y: 105}
+  m_SizeDelta: {x: 70, y: 73.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2765987488539616499
 CanvasRenderer:
@@ -977,9 +977,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '00000
-
-'
+  m_text: 0000000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 79c061fd29ca88847a8fc2bcf0472ef8, type: 2}
   m_sharedMaterial: {fileID: 6235383712638033478, guid: 79c061fd29ca88847a8fc2bcf0472ef8, type: 2}
@@ -1006,7 +1004,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 47.55
+  m_fontSize: 33.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1540,6 +1538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_asset: {fileID: 4118438546611637398}
+  max_digits: 7
   player: {fileID: 0}
 --- !u!1 &6823498020478756701
 GameObject:

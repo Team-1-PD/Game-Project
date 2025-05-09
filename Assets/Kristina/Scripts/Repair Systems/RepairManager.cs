@@ -43,11 +43,11 @@ namespace kristina
                 case < 300:
                     return 0; //0%
                 case < 1500:
-                    return 1; //1%
+                    return 10; //10%
                 case < 7500:
-                    return 5; //5%
-                default:
                     return 25; //25%
+                default:
+                    return 50; //50%
             }
         }
         private float ChanceDayModifier()
