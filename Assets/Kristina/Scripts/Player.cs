@@ -61,10 +61,12 @@ namespace kristina
 
         private void OnDestroy()
         {
+
             PlayerInput.Input.Player.Move.performed -= MoveInput;
             PlayerInput.Input.Player.Move.canceled -= MoveInput;
             PlayerInput.Input.Player.Sprint.performed -= Sprint;
             PlayerInput.Input.Player.Sprint.canceled -= Sprint;
+            PlayerInput.Input.Tutorial.Toggle.performed -= ToggleTutorial;
         }
         void Update()
         {

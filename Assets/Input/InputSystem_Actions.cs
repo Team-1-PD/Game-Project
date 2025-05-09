@@ -1167,6 +1167,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""HideUI"",
+                    ""type"": ""Button"",
+                    ""id"": ""65374e4c-0408-4847-85b8-59ba74d95b0c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1422,6 +1431,28 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""action"": ""ScrollSlotHold"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fa43ebe5-31e4-4ecd-a7f5-75e74d9f3e8c"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HideUI"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fe488ef8-9b48-44d0-969b-9f350084dbdf"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HideUI"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -1740,6 +1771,45 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Shop"",
+            ""id"": ""6a021162-03e2-4c02-9f34-4f07ca0b63d7"",
+            ""actions"": [
+                {
+                    ""name"": ""Quit"",
+                    ""type"": ""Button"",
+                    ""id"": ""d0b53eb5-882a-4541-9e23-1e55f3e00221"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""5049e855-4b49-4a16-b2bd-2fe4560daea8"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Quit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a3122829-52f2-4246-803f-8191e6c08ad9"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Quit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -1837,6 +1907,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Hotbar_SelectSlot = m_Hotbar.FindAction("SelectSlot", throwIfNotFound: true);
         m_Hotbar_ScrollSlot = m_Hotbar.FindAction("ScrollSlot", throwIfNotFound: true);
         m_Hotbar_ScrollSlotHold = m_Hotbar.FindAction("ScrollSlotHold", throwIfNotFound: true);
+        m_Hotbar_HideUI = m_Hotbar.FindAction("HideUI", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Interact = m_Menu.FindAction("Interact", throwIfNotFound: true);
@@ -1845,6 +1916,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         // Tutorial
         m_Tutorial = asset.FindActionMap("Tutorial", throwIfNotFound: true);
         m_Tutorial_Toggle = m_Tutorial.FindAction("Toggle", throwIfNotFound: true);
+        // Shop
+        m_Shop = asset.FindActionMap("Shop", throwIfNotFound: true);
+        m_Shop_Quit = m_Shop.FindAction("Quit", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
@@ -1854,6 +1928,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         UnityEngine.Debug.Assert(!m_Hotbar.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Hotbar.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Menu.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Menu.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Tutorial.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Tutorial.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Shop.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Shop.Disable() has not been called.");
     }
 
     public void Dispose()
@@ -2178,6 +2253,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Hotbar_SelectSlot;
     private readonly InputAction m_Hotbar_ScrollSlot;
     private readonly InputAction m_Hotbar_ScrollSlotHold;
+    private readonly InputAction m_Hotbar_HideUI;
     public struct HotbarActions
     {
         private @InputSystem_Actions m_Wrapper;
@@ -2185,6 +2261,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         public InputAction @SelectSlot => m_Wrapper.m_Hotbar_SelectSlot;
         public InputAction @ScrollSlot => m_Wrapper.m_Hotbar_ScrollSlot;
         public InputAction @ScrollSlotHold => m_Wrapper.m_Hotbar_ScrollSlotHold;
+        public InputAction @HideUI => m_Wrapper.m_Hotbar_HideUI;
         public InputActionMap Get() { return m_Wrapper.m_Hotbar; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -2203,6 +2280,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @ScrollSlotHold.started += instance.OnScrollSlotHold;
             @ScrollSlotHold.performed += instance.OnScrollSlotHold;
             @ScrollSlotHold.canceled += instance.OnScrollSlotHold;
+            @HideUI.started += instance.OnHideUI;
+            @HideUI.performed += instance.OnHideUI;
+            @HideUI.canceled += instance.OnHideUI;
         }
 
         private void UnregisterCallbacks(IHotbarActions instance)
@@ -2216,6 +2296,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @ScrollSlotHold.started -= instance.OnScrollSlotHold;
             @ScrollSlotHold.performed -= instance.OnScrollSlotHold;
             @ScrollSlotHold.canceled -= instance.OnScrollSlotHold;
+            @HideUI.started -= instance.OnHideUI;
+            @HideUI.performed -= instance.OnHideUI;
+            @HideUI.canceled -= instance.OnHideUI;
         }
 
         public void RemoveCallbacks(IHotbarActions instance)
@@ -2341,6 +2424,52 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         }
     }
     public TutorialActions @Tutorial => new TutorialActions(this);
+
+    // Shop
+    private readonly InputActionMap m_Shop;
+    private List<IShopActions> m_ShopActionsCallbackInterfaces = new List<IShopActions>();
+    private readonly InputAction m_Shop_Quit;
+    public struct ShopActions
+    {
+        private @InputSystem_Actions m_Wrapper;
+        public ShopActions(@InputSystem_Actions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Quit => m_Wrapper.m_Shop_Quit;
+        public InputActionMap Get() { return m_Wrapper.m_Shop; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ShopActions set) { return set.Get(); }
+        public void AddCallbacks(IShopActions instance)
+        {
+            if (instance == null || m_Wrapper.m_ShopActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_ShopActionsCallbackInterfaces.Add(instance);
+            @Quit.started += instance.OnQuit;
+            @Quit.performed += instance.OnQuit;
+            @Quit.canceled += instance.OnQuit;
+        }
+
+        private void UnregisterCallbacks(IShopActions instance)
+        {
+            @Quit.started -= instance.OnQuit;
+            @Quit.performed -= instance.OnQuit;
+            @Quit.canceled -= instance.OnQuit;
+        }
+
+        public void RemoveCallbacks(IShopActions instance)
+        {
+            if (m_Wrapper.m_ShopActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IShopActions instance)
+        {
+            foreach (var item in m_Wrapper.m_ShopActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_ShopActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public ShopActions @Shop => new ShopActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -2420,6 +2549,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         void OnSelectSlot(InputAction.CallbackContext context);
         void OnScrollSlot(InputAction.CallbackContext context);
         void OnScrollSlotHold(InputAction.CallbackContext context);
+        void OnHideUI(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {
@@ -2430,5 +2560,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     public interface ITutorialActions
     {
         void OnToggle(InputAction.CallbackContext context);
+    }
+    public interface IShopActions
+    {
+        void OnQuit(InputAction.CallbackContext context);
     }
 }

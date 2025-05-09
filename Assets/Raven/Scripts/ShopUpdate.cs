@@ -2,6 +2,8 @@ using kristina;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Raven
@@ -46,10 +48,14 @@ namespace Raven
         private void OnEnable()
         {
             PlayerInput.Input.Player.Disable();
+            PlayerInput.Input.Shop.Enable();
+            PlayerInput.Input.Shop.Quit.performed += QuitShop;
         }
         private void OnDisable()
         {
             PlayerInput.Input.Player.Enable();
+            PlayerInput.Input.Shop.Quit.performed -= QuitShop;
+            PlayerInput.Input.Shop.Disable();
         }
 
         void UpdateShop()
@@ -111,20 +117,21 @@ namespace Raven
 
             shopPrice.text = "$ " + item.COST.ToString();
 
-            if (item.TYPE == Item.ItemType.Placeable)
+            if (item.TYPE != Item.ItemType.Seed)
             {
                 oxygenAmount.text = "";
                 sellAmount.text = "";
-                return;
             }
-            string produce_id = Database.PLANTS.Plants[item.ID].Produce_ID;
-            int produce_value = Database.ITEMS.Items[produce_id].COST;
+            else
+            {
+                string produce_id = Database.PLANTS.Plants[item.ID].Produce_ID;
+                int produce_value = Database.ITEMS.Items[produce_id].COST;
 
-            int produce_oxygen = Database.ITEMS.Items[produce_id].OXYGEN_VALUE;
+                int produce_oxygen = Database.ITEMS.Items[produce_id].OXYGEN_VALUE;
 
-            oxygenAmount.text = "Oxygen Amount: " + produce_oxygen;
-            sellAmount.text = "Sell Value: " + produce_value;
-
+                oxygenAmount.text = "Oxygen Amount: " + produce_oxygen;
+                sellAmount.text = "Sell Value: " + produce_value;
+            }
 
             buyButton.onClick.RemoveAllListeners();
             buyButton.onClick.AddListener(() => { BuyItem(item, currentItem.COST); });
@@ -150,6 +157,11 @@ namespace Raven
                 Debug.Log("Not enough funds!");
             }
 
+        }
+
+        public void QuitShop(InputAction.CallbackContext ctx)
+        {
+            SceneManager.UnloadSceneAsync("ShopTerminal");
         }
     }
 }

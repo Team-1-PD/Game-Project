@@ -14,110 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
     _serializedList:
-    - Key: none
-      Value:
-        <TYPE>k__BackingField: 0
-        <ID>k__BackingField: none
-        <NAME>k__BackingField: 
-        <DESCRIPTION>k__BackingField: 
-        <COST>k__BackingField: 0
-        <OXYGEN_VALUE>k__BackingField: 0
-        <SELL_VALUE>k__BackingField: 0
-    - Key: plant_yellow_fruit
-      Value:
-        <TYPE>k__BackingField: 3
-        <ID>k__BackingField: plant_yellow_fruit
-        <NAME>k__BackingField: Yellow Fruit
-        <DESCRIPTION>k__BackingField: The fruit of the Dancing Kiwi plant.
-        <COST>k__BackingField: 10
-        <OXYGEN_VALUE>k__BackingField: 10
-        <SELL_VALUE>k__BackingField: 5
-    - Key: plant_red_fruit
-      Value:
-        <TYPE>k__BackingField: 3
-        <ID>k__BackingField: plant_red_fruit
-        <NAME>k__BackingField: Red Fruit
-        <DESCRIPTION>k__BackingField: The fruit of the Eggdrop plant.
-        <COST>k__BackingField: 15
-        <OXYGEN_VALUE>k__BackingField: 12
-        <SELL_VALUE>k__BackingField: 8
-    - Key: plant_pink_fruit
-      Value:
-        <TYPE>k__BackingField: 3
-        <ID>k__BackingField: plant_pink_fruit
-        <NAME>k__BackingField: Pink Fruit
-        <DESCRIPTION>k__BackingField: The fruit of the Haya Fruit plant.
-        <COST>k__BackingField: 20
-        <OXYGEN_VALUE>k__BackingField: 25
-        <SELL_VALUE>k__BackingField: 15
-    - Key: plant_purple_fruit
-      Value:
-        <TYPE>k__BackingField: 3
-        <ID>k__BackingField: plant_purple_fruit
-        <NAME>k__BackingField: Purple Fruit
-        <DESCRIPTION>k__BackingField: The fruit of the Tarrot plant.
-        <COST>k__BackingField: 10
-        <OXYGEN_VALUE>k__BackingField: 5
-        <SELL_VALUE>k__BackingField: 5
-    - Key: plant_black_fruit
-      Value:
-        <TYPE>k__BackingField: 3
-        <ID>k__BackingField: plant_black_fruit
-        <NAME>k__BackingField: Black Fruit
-        <DESCRIPTION>k__BackingField: The fruit of the Ash Trumpet plant.
-        <COST>k__BackingField: 150
-        <OXYGEN_VALUE>k__BackingField: 100
-        <SELL_VALUE>k__BackingField: 80
-    - Key: seedpack_red
-      Value:
-        <TYPE>k__BackingField: 2
-        <ID>k__BackingField: seedpack_red
-        <NAME>k__BackingField: Eggdrop Seeds
-        <DESCRIPTION>k__BackingField: A packet containing red seeds that grow into
-          Eggdrop plants.
-        <COST>k__BackingField: 20
-        <OXYGEN_VALUE>k__BackingField: 50
-        <SELL_VALUE>k__BackingField: 40
-    - Key: seedpack_yellow
-      Value:
-        <TYPE>k__BackingField: 2
-        <ID>k__BackingField: seedpack_yellow
-        <NAME>k__BackingField: Dancing Kiwi Seeds
-        <DESCRIPTION>k__BackingField: A packet containing yellow and green seeds
-          that grow into Dancing Kiwi plants.
-        <COST>k__BackingField: 30
-        <OXYGEN_VALUE>k__BackingField: 0
-        <SELL_VALUE>k__BackingField: 0
-    - Key: seedpack_purple
-      Value:
-        <TYPE>k__BackingField: 2
-        <ID>k__BackingField: seedpack_purple
-        <NAME>k__BackingField: Tarrot Seeds
-        <DESCRIPTION>k__BackingField: A packet containing purple seeds that grow
-          into Tarrot plants.
-        <COST>k__BackingField: 50
-        <OXYGEN_VALUE>k__BackingField: 0
-        <SELL_VALUE>k__BackingField: 0
-    - Key: seedpack_pink
-      Value:
-        <TYPE>k__BackingField: 2
-        <ID>k__BackingField: seedpack_pink
-        <NAME>k__BackingField: Haya Fruit Seeds
-        <DESCRIPTION>k__BackingField: A packet containing pink and blue seeds that
-          grow into Haya Fruit plants.
-        <COST>k__BackingField: 50
-        <OXYGEN_VALUE>k__BackingField: 0
-        <SELL_VALUE>k__BackingField: 0
-    - Key: seedpack_black
-      Value:
-        <TYPE>k__BackingField: 2
-        <ID>k__BackingField: seedpack_black
-        <NAME>k__BackingField: Ash Trumpet Seeds
-        <DESCRIPTION>k__BackingField: A packet containing black seeds that grow into
-          Ash Trumpet plants.
-        <COST>k__BackingField: 40
-        <OXYGEN_VALUE>k__BackingField: 0
-        <SELL_VALUE>k__BackingField: 0
     - Key: incubator
       Value:
         <TYPE>k__BackingField: 1
@@ -127,7 +23,99 @@ MonoBehaviour:
           at a time.
         <COST>k__BackingField: 100
         <OXYGEN_VALUE>k__BackingField: 0
-        <SELL_VALUE>k__BackingField: 0
+    - Key: plant_yellow_fruit
+      Value:
+        <TYPE>k__BackingField: 3
+        <ID>k__BackingField: plant_yellow_fruit
+        <NAME>k__BackingField: Yellow Fruit
+        <DESCRIPTION>k__BackingField: The fruit of the Dancing Kiwi plant.
+        <COST>k__BackingField: 10
+        <OXYGEN_VALUE>k__BackingField: 10
+    - Key: plant_red_fruit
+      Value:
+        <TYPE>k__BackingField: 3
+        <ID>k__BackingField: plant_red_fruit
+        <NAME>k__BackingField: Red Fruit
+        <DESCRIPTION>k__BackingField: The fruit of the Eggdrop plant.
+        <COST>k__BackingField: 15
+        <OXYGEN_VALUE>k__BackingField: 12
+    - Key: plant_pink_fruit
+      Value:
+        <TYPE>k__BackingField: 3
+        <ID>k__BackingField: plant_pink_fruit
+        <NAME>k__BackingField: Pink Fruit
+        <DESCRIPTION>k__BackingField: The fruit of the Haya Fruit plant.
+        <COST>k__BackingField: 20
+        <OXYGEN_VALUE>k__BackingField: 25
+    - Key: plant_purple_fruit
+      Value:
+        <TYPE>k__BackingField: 3
+        <ID>k__BackingField: plant_purple_fruit
+        <NAME>k__BackingField: Purple Fruit
+        <DESCRIPTION>k__BackingField: The fruit of the Tarrot plant.
+        <COST>k__BackingField: 10
+        <OXYGEN_VALUE>k__BackingField: 5
+    - Key: plant_black_fruit
+      Value:
+        <TYPE>k__BackingField: 3
+        <ID>k__BackingField: plant_black_fruit
+        <NAME>k__BackingField: Black Fruit
+        <DESCRIPTION>k__BackingField: The fruit of the Ash Trumpet plant.
+        <COST>k__BackingField: 150
+        <OXYGEN_VALUE>k__BackingField: 100
+    - Key: seedpack_red
+      Value:
+        <TYPE>k__BackingField: 2
+        <ID>k__BackingField: seedpack_red
+        <NAME>k__BackingField: Eggdrop Seeds
+        <DESCRIPTION>k__BackingField: A packet containing red seeds that grow into
+          Eggdrop plants.
+        <COST>k__BackingField: 20
+        <OXYGEN_VALUE>k__BackingField: 50
+    - Key: seedpack_yellow
+      Value:
+        <TYPE>k__BackingField: 2
+        <ID>k__BackingField: seedpack_yellow
+        <NAME>k__BackingField: Dancing Kiwi Seeds
+        <DESCRIPTION>k__BackingField: A packet containing yellow and green seeds
+          that grow into Dancing Kiwi plants.
+        <COST>k__BackingField: 30
+        <OXYGEN_VALUE>k__BackingField: 0
+    - Key: seedpack_purple
+      Value:
+        <TYPE>k__BackingField: 2
+        <ID>k__BackingField: seedpack_purple
+        <NAME>k__BackingField: Tarrot Seeds
+        <DESCRIPTION>k__BackingField: A packet containing purple seeds that grow
+          into Tarrot plants.
+        <COST>k__BackingField: 50
+        <OXYGEN_VALUE>k__BackingField: 0
+    - Key: seedpack_pink
+      Value:
+        <TYPE>k__BackingField: 2
+        <ID>k__BackingField: seedpack_pink
+        <NAME>k__BackingField: Haya Fruit Seeds
+        <DESCRIPTION>k__BackingField: A packet containing pink and blue seeds that
+          grow into Haya Fruit plants.
+        <COST>k__BackingField: 50
+        <OXYGEN_VALUE>k__BackingField: 0
+    - Key: 'seedpack_black '
+      Value:
+        <TYPE>k__BackingField: 1
+        <ID>k__BackingField: 'seedpack_black '
+        <NAME>k__BackingField: Ash Trumpet Seeds
+        <DESCRIPTION>k__BackingField: "A packet containing black seeds that grow
+          into Ash Trumpet plants.\r"
+        <COST>k__BackingField: 40
+        <OXYGEN_VALUE>k__BackingField: 0
+    - Key: none
+      Value:
+        <TYPE>k__BackingField: 0
+        <ID>k__BackingField: none
+        <NAME>k__BackingField: 
+        <DESCRIPTION>k__BackingField: 
+        <COST>k__BackingField: -1
+        <OXYGEN_VALUE>k__BackingField: -1
   itemSprites:
     _serializedList:
     - Key: plant_red_fruit

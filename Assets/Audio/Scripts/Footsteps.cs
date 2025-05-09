@@ -46,7 +46,7 @@ namespace HappyValley
         public void Inside()
         {
             inside = true;
-            Debug.Log("Inside");
+            //Debug.Log("Inside");
         }
     }
 }

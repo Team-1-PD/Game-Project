@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8799308706576712080}
+  - component: {fileID: 3270924787500291931}
+  - component: {fileID: 3053254458996730604}
   m_Layer: 0
   m_Name: UI Systems
   m_TagString: Untagged
@@ -31,12 +33,47 @@ Transform:
   m_Children:
   - {fileID: 2996448137302400087}
   - {fileID: 5291182265417242617}
-  - {fileID: 8139740240792077597}
   - {fileID: 2453023470098980233}
+  - {fileID: 8139740240792077597}
   - {fileID: 4082726934652176900}
   - {fileID: 7277556931834645278}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &3270924787500291931
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2621164952645907900}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 924f7838368e0b74b9f7453fa151b3f1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3053254458996730604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2621164952645907900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf0eb28da52253d409fe336b425de4d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 3270924787500291931}
 --- !u!1 &6317530800274649097
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,6 +282,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8799308706576712080}
     m_Modifications:
+    - target: {fileID: 229708059683766325, guid: dd32fb977933bb54c9c06c2257c1f240, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 229708059683766325, guid: dd32fb977933bb54c9c06c2257c1f240, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2938342761021892163}
+    - target: {fileID: 229708059683766325, guid: dd32fb977933bb54c9c06c2257c1f240, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
     - target: {fileID: 1200117043251955754, guid: dd32fb977933bb54c9c06c2257c1f240, type: 3}
       propertyPath: m_Name
       value: PauseMenu
@@ -374,6 +423,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7226323680369761412, guid: dd32fb977933bb54c9c06c2257c1f240, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226323680369761412, guid: dd32fb977933bb54c9c06c2257c1f240, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226323680369761412, guid: dd32fb977933bb54c9c06c2257c1f240, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226323680369761412, guid: dd32fb977933bb54c9c06c2257c1f240, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -433,7 +494,12 @@ PrefabInstance:
       propertyPath: m_HorizontalAlignment
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8872753300107858313, guid: dd32fb977933bb54c9c06c2257c1f240, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4180630363563647771, guid: dd32fb977933bb54c9c06c2257c1f240, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

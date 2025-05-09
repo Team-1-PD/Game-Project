@@ -48,7 +48,7 @@ namespace HappyValley
             {
                 stopPause?.Invoke();
                 pauseMenuUI.SetActive(false);
-                UI.SetActive(true);
+                //UI.SetActive(true);
                 //timeButton.SetActive(true);
                 Time.timeScale = 1f;
                 GameIsPaused = false;
@@ -63,8 +63,8 @@ namespace HappyValley
                 {
                     stopPause?.Invoke();
                     pauseMenuUI.SetActive(true);
-                    UI.SetActive(false);
-                    timeButton.SetActive(false);
+                    //UI.SetActive(false);
+                    //timeButton.SetActive(false);
                     EventSystem.current.SetSelectedGameObject(resumeButton);
                     Time.timeScale = 0f;
                     GameIsPaused = true;
