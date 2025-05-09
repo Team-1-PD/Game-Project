@@ -7,7 +7,8 @@ namespace kristina
 {
     public class ProduceDropBox : DropBoxGeneric
     {
-        public UnityEvent OnOpen, OnClose, OnSell;
+        public UnityEvent OnOpen, OnClose;
+        public UnityEvent<int> OnSell;
 
         bool is_open = false;
 
@@ -47,16 +48,17 @@ namespace kristina
         public void SellCollectedProduce()
         {
             if (input_items.Count <= 0) return;
-
+            int value_sold = 0;
             while (input_items.Count > 0)
             {
                 string item = input_items.Pop();
                 int count = input_amounts.Pop();
 
                 int value = count * Database.ITEMS.Items[item].COST;
-                player.getBank += value;
+                value_sold += value;
             }
-            OnSell.Invoke();
+            player.getBank += value_sold;
+            OnSell.Invoke(value_sold);
         }
 
         public void OpenBox()

@@ -10770,20 +10770,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1055013786}
     - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
-      propertyPath: OnSell.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
       propertyPath: OnClose.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
       propertyPath: OnInputItem.m_PersistentCalls.m_Calls.Array.size
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
-      propertyPath: OnSell.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
       propertyPath: OnClose.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -10802,16 +10794,8 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
-      propertyPath: OnSell.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
       propertyPath: OnClose.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
-      propertyPath: OnSell.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlaySoundFXClip
       objectReference: {fileID: 0}
     - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
       propertyPath: OnClose.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -10830,17 +10814,9 @@ PrefabInstance:
       value: PlaySoundFXClip
       objectReference: {fileID: 0}
     - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
-      propertyPath: OnSell.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: HappyValley.SoundFXManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
       propertyPath: OnClose.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: HappyValley.SoundFXManager, Assembly-CSharp
       objectReference: {fileID: 0}
-    - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
-      propertyPath: OnSell.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 552250258}
     - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
       propertyPath: OnClose.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
@@ -10853,10 +10829,6 @@ PrefabInstance:
       propertyPath: OnInputItem.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 552250259}
-    - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
-      propertyPath: OnSell.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
       propertyPath: OnClose.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.AudioSource, UnityEngine
@@ -24493,39 +24465,11 @@ PrefabInstance:
     - target: {fileID: 698198136466698184, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
       propertyPath: oxygen_manager
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 698198136466698184, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
-      propertyPath: OnOxygenation.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 698198136466698184, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
-      propertyPath: OnOxygenation.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1790028131}
     - target: {fileID: 698198136466698184, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
       propertyPath: OnOxygenation.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1760379841}
-    - target: {fileID: 698198136466698184, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
-      propertyPath: OnOxygenation.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 698198136466698184, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
-      propertyPath: OnOxygenation.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlaySoundFXClip
-      objectReference: {fileID: 0}
-    - target: {fileID: 698198136466698184, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
-      propertyPath: OnOxygenation.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: HappyValley.SoundFXManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 698198136466698184, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
-      propertyPath: OnOxygenation.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 1261178484}
-    - target: {fileID: 698198136466698184, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
-      propertyPath: OnOxygenation.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 891474760411883704, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -24547,15 +24491,7 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 971376118863267726, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
-      propertyPath: OnAddToOxygen.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 971376118863267726, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
       propertyPath: OnInputItem.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 971376118863267726, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
-      propertyPath: OnAddToOxygen.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 971376118863267726, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
@@ -24575,19 +24511,7 @@ PrefabInstance:
       value: PlaySoundFXClip
       objectReference: {fileID: 0}
     - target: {fileID: 971376118863267726, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
-      propertyPath: OnAddToOxygen.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 971376118863267726, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
-      propertyPath: OnAddToOxygen.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlaySoundFXClip
-      objectReference: {fileID: 0}
-    - target: {fileID: 971376118863267726, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
       propertyPath: OnInputItem.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: HappyValley.SoundFXManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 971376118863267726, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
-      propertyPath: OnAddToOxygen.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: HappyValley.SoundFXManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 971376118863267726, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
@@ -24595,15 +24519,7 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1110650056}
     - target: {fileID: 971376118863267726, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
-      propertyPath: OnAddToOxygen.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 1261178482}
-    - target: {fileID: 971376118863267726, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
       propertyPath: OnInputItem.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 971376118863267726, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
-      propertyPath: OnAddToOxygen.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.AudioSource, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4149304173382178106, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
@@ -24663,15 +24579,7 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7387035028666996635, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
-      propertyPath: OnAddToOxygen.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7387035028666996635, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
       propertyPath: OnInputItem.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7387035028666996635, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
-      propertyPath: OnAddToOxygen.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7387035028666996635, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
@@ -24691,19 +24599,7 @@ PrefabInstance:
       value: PlaySoundFXClip
       objectReference: {fileID: 0}
     - target: {fileID: 7387035028666996635, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
-      propertyPath: OnAddToOxygen.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7387035028666996635, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
-      propertyPath: OnAddToOxygen.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlaySoundFXClip
-      objectReference: {fileID: 0}
-    - target: {fileID: 7387035028666996635, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
       propertyPath: OnInputItem.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: HappyValley.SoundFXManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 7387035028666996635, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
-      propertyPath: OnAddToOxygen.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: HappyValley.SoundFXManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7387035028666996635, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
@@ -24711,15 +24607,7 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 452988448}
     - target: {fileID: 7387035028666996635, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
-      propertyPath: OnAddToOxygen.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 1261178483}
-    - target: {fileID: 7387035028666996635, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
       propertyPath: OnInputItem.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 7387035028666996635, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
-      propertyPath: OnAddToOxygen.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.AudioSource, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7743710110528876937, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
@@ -24731,21 +24619,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
---- !u!82 &1261178482 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 2251949134968950011, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
-  m_PrefabInstance: {fileID: 1261178479}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &1261178483 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 8412591715942554862, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
-  m_PrefabInstance: {fileID: 1261178479}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &1261178484 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 7118003361782534642, guid: bb75e09710290ca4aab8ae6fc1d832fa, type: 3}
-  m_PrefabInstance: {fileID: 1261178479}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1263149823
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28608,7 +28481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
       propertyPath: OnSell.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
       propertyPath: OnClose.m_PersistentCalls.m_Calls.Array.size
@@ -28623,6 +28496,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
+      propertyPath: OnSell.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
       propertyPath: OnClose.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 2
       objectReference: {fileID: 0}
@@ -28630,6 +28507,10 @@ PrefabInstance:
       propertyPath: OnSell.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1760379841}
+    - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
+      propertyPath: OnSell.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 3dc3bd19c255a4444b0d57dc64958112, type: 2}
     - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
       propertyPath: OnClose.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -28655,6 +28536,10 @@ PrefabInstance:
       value: PlaySoundFXClip
       objectReference: {fileID: 0}
     - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
+      propertyPath: OnSell.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: AddToScore
+      objectReference: {fileID: 0}
+    - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
       propertyPath: OnClose.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PlaySoundFXClip
       objectReference: {fileID: 0}
@@ -28675,13 +28560,25 @@ PrefabInstance:
       value: HappyValley.SoundFXManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
+      propertyPath: OnSell.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: kristina.ScoreKeeper, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
       propertyPath: OnClose.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: HappyValley.SoundFXManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
+      propertyPath: OnSell.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
       propertyPath: OnSell.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 1407994746}
+    - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
+      propertyPath: OnSell.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
       propertyPath: OnClose.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
@@ -28697,6 +28594,10 @@ PrefabInstance:
     - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
       propertyPath: OnSell.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.AudioSource, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
+      propertyPath: OnSell.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6455573487292676272, guid: 704d2a767c43a944694c2abe24b51e5f, type: 3}
       propertyPath: OnClose.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -36995,6 +36896,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 968843778171713007, guid: 27551c60e3ec88a4aa35430aa578f1e1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 986440814673565275, guid: 27551c60e3ec88a4aa35430aa578f1e1, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -83.37036
@@ -37128,6 +37033,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27551c60e3ec88a4aa35430aa578f1e1, type: 3}
+--- !u!114 &1790028131 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6353894550426022076, guid: 27551c60e3ec88a4aa35430aa578f1e1, type: 3}
+  m_PrefabInstance: {fileID: 1790028130}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e618d75ea1d4be44a7ade8ac05dd122, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1790667164 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3604093895182107817, guid: eb39e996fbd29ba418fb0807a39a5dcc, type: 3}
